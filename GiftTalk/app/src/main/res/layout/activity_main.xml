@@ -4,33 +4,39 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dllo.gifttalk.MainActivity">
+    tools:context="com.example.dllo.gifttalk.MainActivity"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="11"
         android:id="@+id/linearLayout_main"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:orientation="vertical"/>
 
-    <RadioGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/btns_main"
         android:orientation="horizontal">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/btns_main"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
      <RadioButton
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-         android:padding="5dp"
          android:layout_weight="1"
          android:text="首页"
          android:gravity="center"
         android:id="@+id/home_main"
          android:button="@null"
-         android:drawableTop="@drawable/tabs_home"/>
-
+         android:drawableTop="@drawable/tabs_home"
+         android:checked="true"
+         android:textSize="10dp"/>
      <RadioButton
         android:layout_width="0dp"
          android:layout_weight="1"
@@ -39,7 +45,8 @@
         android:id="@+id/gift_main"
          android:button="@null"
          android:gravity="center"
-         android:drawableTop="@drawable/tabs_gift"/>
+         android:drawableTop="@drawable/tabs_gift"
+         android:textSize="10dp"/>
 
      <RadioButton
         android:layout_width="0dp"
@@ -49,7 +56,8 @@
         android:id="@+id/category_main"
          android:button="@null"
          android:gravity="center"
-         android:drawableTop="@drawable/tabs_category"/>
+         android:drawableTop="@drawable/tabs_category"
+         android:textSize="10dp"/>
 
      <RadioButton
         android:layout_width="0dp"
@@ -59,8 +67,9 @@
         android:id="@+id/profile_main"
          android:button="@null"
          android:gravity="center"
-         android:drawableTop="@drawable/tabs_profile"/>
+         android:drawableTop="@drawable/tabs_profile"
+         android:textSize="10dp"/>
 
     </RadioGroup>
-
+    </LinearLayout>
 </LinearLayout>

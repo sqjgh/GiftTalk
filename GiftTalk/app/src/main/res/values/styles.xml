@@ -7,5 +7,16 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="HomeTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTitleSize">40dp</item>
+    </style>
+    <style name="GiftTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTitleSize">40dp</item>
+    </style>
+    <style name="CategoryTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTitleSize">40dp</item>
+    </style>
+    <style name="ProfileTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTitleSize">40dp</item>
+    </style>
 </resources>

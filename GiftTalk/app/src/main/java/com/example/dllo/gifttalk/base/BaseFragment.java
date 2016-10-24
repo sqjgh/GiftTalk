@@ -49,5 +49,11 @@ public abstract class BaseFragment extends Fragment{
     protected abstract void initView();
 
     protected abstract int getLayout();
+    // 设置监听事件 ... 可变数量的参数
+    protected void setClick(View.OnClickListener clickListener,View ...views){
+        for (View view :views){
+            view.setOnClickListener(clickListener);
+        }
+    }
 
 }

@@ -32,10 +32,7 @@ public class GiftFragment extends BaseFragment{
         adapter.setFragmentArrayList(arrayList);
         vp.setAdapter(adapter);
         tbl.setupWithViewPager(vp);
-        tbl.getTabAt(0).setText("每日推荐");
-        tbl.getTabAt(1).setText("TOP100");
-        tbl.getTabAt(2).setText("独立原创");
-        tbl.getTabAt(3).setText("新星榜");
+
     }
 
     @Override

@@ -19,6 +19,6 @@ public class NewStar extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_everyday_fragment_gift;
+        return R.layout.fragment_newstar_fragment_gift;
     }
 }

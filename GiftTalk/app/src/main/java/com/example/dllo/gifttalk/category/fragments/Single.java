@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.category.fragment;
+package com.example.dllo.gifttalk.category.fragments;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
@@ -6,7 +6,7 @@ import com.example.dllo.gifttalk.base.BaseFragment;
 /**
  * Created by dllo on 16/10/24.
  */
-public class Raiders extends BaseFragment{
+public class Single extends BaseFragment{
     @Override
     protected void initData() {
 
@@ -19,6 +19,6 @@ public class Raiders extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_raiders_fragment_category;
+        return R.layout.fragment_single_fragment_category;
     }
 }

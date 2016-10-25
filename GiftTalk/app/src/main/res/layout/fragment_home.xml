@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffa8a8">
+    android:layout_height="match_parent">
     <include layout="@layout/title_home"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:background="#fff784">
+        android:showDividers="middle|beginning|end"
+        >
 
         <android.support.design.widget.TabLayout
             android:layout_width="0dp"
             android:layout_weight="10"
             android:layout_height="match_parent"
-            android:id="@+id/tbl_title_home">
+            android:id="@+id/tbl_home">
         </android.support.design.widget.TabLayout>
 
         <ImageView
@@ -23,14 +23,17 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_btn_arrow_down"
             android:layout_gravity="center"
-            android:background="#a556ff"
             />
     </LinearLayout>
-    <android.support.v7.widget.RecyclerView
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1e5e5"/>
+    <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#40e299"
-        android:id="@+id/recyclerview_home">
-    </android.support.v7.widget.RecyclerView>
+        android:id="@+id/viewpager_home"
+        >
+    </android.support.v4.view.ViewPager>
 
 </LinearLayout>

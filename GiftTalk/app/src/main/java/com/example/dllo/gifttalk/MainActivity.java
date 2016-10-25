@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         // 进入显示首页 Fragment
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.linearLayout_main,new HomeFragment());
+        transaction.replace(R.id.linearlayout_main,new HomeFragment());
         transaction.commit();
     }
 
@@ -62,16 +62,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         FragmentTransaction transaction = manager.beginTransaction();
         switch (view.getId()){
             case R.id.home_main:
-                transaction.replace(R.id.linearLayout_main,new HomeFragment());
+                transaction.replace(R.id.linearlayout_main,new HomeFragment());
                 break;
             case R.id.gift_main:
-                transaction.replace(R.id.linearLayout_main,new GiftFragment());
+                transaction.replace(R.id.linearlayout_main,new GiftFragment());
                 break;
             case R.id.category_main:
-                transaction.replace(R.id.linearLayout_main,new CategoryFragment());
+                transaction.replace(R.id.linearlayout_main,new CategoryFragment());
                 break;
             case R.id.profile_main:
-                transaction.replace(R.id.linearLayout_main,new ProfileFragment());
+                transaction.replace(R.id.linearlayout_main,new ProfileFragment());
                 break;
         }
         transaction.commit();

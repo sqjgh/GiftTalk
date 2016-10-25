@@ -9,7 +9,6 @@
         <android.support.design.widget.TabLayout
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:background="#54d1ff"
             android:id="@+id/tbl_title_category"
             android:layout_centerHorizontal="true">
         </android.support.design.widget.TabLayout>
@@ -18,14 +17,20 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#e8ff3d"
         >
+        <RelativeLayout
+            android:layout_width="360dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/background_search_category">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="选份走心好礼送Ta"
             android:layout_centerInParent="true"
             android:id="@+id/title_category_tv"/>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,6 +38,6 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/title_category_tv"
         />
-
+        </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

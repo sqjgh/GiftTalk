@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="40dp"
-    >
+    android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/layout_title_home"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/layout_title_home"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/logo_title_c"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:layout_centerVertical="true"/>
-            <RelativeLayout
-                android:layout_width="220dp"
-                android:layout_height="30dp"
-                android:background="@drawable/background_search_home"
-                android:layout_centerInParent="true">
+            android:background="@mipmap/logo_title_c" />
+
+        <RelativeLayout
+            android:layout_width="220dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/background_search_home">
 
             <TextView
+                android:id="@+id/search_title_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/search_title_home"
-                android:text="选份走心好礼送给Ta"
-                android:paddingLeft="5dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                />
+                android:paddingLeft="5dp"
+                android:text="选份走心好礼送给Ta" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/nav_bar_icon_search_dark"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/search_title_home" />
+                android:layout_toStartOf="@+id/search_title_home"
+                android:src="@mipmap/nav_bar_icon_search_dark" />
 
-            </RelativeLayout>
+        </RelativeLayout>
 
         <ImageView
+            android:id="@+id/giftremind_title_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/giftremind_title_main"
-            android:background="@mipmap/icon_gift_send_remind"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"/>
+            android:layout_marginRight="15dp"
+            android:background="@mipmap/icon_gift_send_remind" />
     </RelativeLayout>
 </LinearLayout>

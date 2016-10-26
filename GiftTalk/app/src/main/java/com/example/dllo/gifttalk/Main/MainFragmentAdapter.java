@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk;
+package com.example.dllo.gifttalk.Main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

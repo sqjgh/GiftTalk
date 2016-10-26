@@ -19,6 +19,6 @@ public class Raiders extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_raiders_fragment_category;
+        return R.layout.fm_raiders_fm_category;
     }
 }

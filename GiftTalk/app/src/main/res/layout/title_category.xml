@@ -1,43 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <android.support.design.widget.TabLayout
+            android:id="@+id/tbl_title_category"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:id="@+id/tbl_title_category"
-            android:layout_centerHorizontal="true">
-        </android.support.design.widget.TabLayout>
+            android:layout_centerHorizontal="true"></android.support.design.widget.TabLayout>
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
+
         <RelativeLayout
             android:layout_width="360dp"
             android:layout_height="30dp"
             android:layout_centerInParent="true"
             android:background="@drawable/background_search_category">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="选份走心好礼送Ta"
-            android:layout_centerInParent="true"
-            android:id="@+id/title_category_tv"/>
+            <TextView
+                android:id="@+id/title_category_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="选份走心好礼送Ta" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/icon_search"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/title_category_tv"
-        />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/title_category_tv"
+                android:src="@mipmap/icon_search" />
         </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

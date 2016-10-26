@@ -1,208 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_profile">
+    android:background="@mipmap/bg_profile"
+    android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/relative1_profile"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/relative1_profile">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/icon_message"
-        android:id="@+id/message_profile"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/btn_signin"
-        android:id="@+id/signin_profile"
-        android:layout_marginStart="30dp"
-        android:layout_alignBottom="@+id/message_profile"
-        android:layout_toEndOf="@+id/message_profile" />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/icon_scan"
-        android:id="@+id/scan_profile"
-        android:layout_marginEnd="31dp"
-        android:layout_alignTop="@+id/message_profile"
-        android:layout_toStartOf="@+id/settings_profile" />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/me_settings"
-        android:id="@+id/settings_profile"
-        android:layout_alignTop="@+id/message_profile"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="15dp" />
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/message_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@mipmap/icon_message" />
+
+        <ImageView
+            android:id="@+id/signin_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/message_profile"
+            android:layout_marginStart="30dp"
+            android:layout_toEndOf="@+id/message_profile"
+            android:src="@mipmap/btn_signin" />
+
+        <ImageView
+            android:id="@+id/scan_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/message_profile"
+            android:layout_marginEnd="31dp"
+            android:layout_toStartOf="@+id/settings_profile"
+            android:src="@mipmap/icon_scan" />
+
+        <ImageView
+            android:id="@+id/settings_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/message_profile"
+            android:layout_marginEnd="15dp"
+            android:src="@mipmap/me_settings" />
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relative2_profile"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:id="@+id/relative2_profile"
         android:layout_below="@id/relative1_profile">
+
         <ImageView
+            android:id="@+id/avatar_boy_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/avatar_boy_profile"
-            android:src="@mipmap/me_avatar_boy"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:src="@mipmap/me_avatar_boy" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请登录"
-            android:textColor="#ffffff"
             android:layout_below="@+id/avatar_boy_profile"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:textSize="18dp"/>
+            android:text="请登录"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
-        android:orientation="vertical"
-        android:focusable="false">
+        android:focusable="false"
+        android:orientation="vertical">
+
         <LinearLayout
+            android:id="@+id/btns_linearlayout_profile"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:id="@+id/btns_linearlayout_profile"
-            >
+            android:orientation="horizontal">
+
             <LinearLayout
+                android:id="@+id/cart_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:id="@+id/cart_profile">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_cart"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="购物车"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:id="@+id/order_profile">
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/icon_order"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/icon_cart" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="订单"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:text="购物车" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/order_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:id="@+id/coupon_profile">
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/icon_coupon"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/icon_order" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="礼券"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:text="订单" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/coupon_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/icon_coupon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="礼券" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/follow_profile"
-                >
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/icon_follow"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="关注"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
-            </LinearLayout>
-            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:id="@+id/service_profile">
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/icon_service"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/icon_follow" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="客服"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:text="关注" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/service_profile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/icon_service" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="客服" />
             </LinearLayout>
         </LinearLayout>
+
         <ImageView
+            android:id="@+id/line_profile"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="#73ffe7e7"
             android:layout_below="@id/btns_linearlayout_profile"
-            android:id="@+id/line_profile"/>
+            android:background="#73ffe7e7" />
+
         <android.support.design.widget.TabLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:id="@+id/tbl_profile"
-            android:layout_below="@id/line_profile"
-            >
-        </android.support.design.widget.TabLayout>
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/line_profile"></android.support.design.widget.TabLayout>
+
         <LinearLayout
+            android:id="@+id/linearlayout_profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/linearlayout_profile">
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_holder_favourite"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="40dp"
+                android:src="@mipmap/ic_holder_favourite" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="登录以享受更多功能"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:textColor="#a7a7a7"/>
+                android:text="登录以享受更多功能"
+                android:textColor="#a7a7a7" />
         </LinearLayout>
     </LinearLayout>
 

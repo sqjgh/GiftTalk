@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk;
+package com.example.dllo.gifttalk.Main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
 
+import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
 import com.example.dllo.gifttalk.category.CategoryFragment;
 import com.example.dllo.gifttalk.gift.GiftFragment;

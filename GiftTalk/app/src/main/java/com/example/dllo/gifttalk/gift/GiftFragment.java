@@ -1,5 +1,6 @@
 package com.example.dllo.gifttalk.gift;
 
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -32,7 +33,8 @@ public class GiftFragment extends BaseFragment{
         adapter.setFragmentArrayList(arrayList);
         vp.setAdapter(adapter);
         tbl.setupWithViewPager(vp);
-
+        tbl.setTabTextColors(Color.DKGRAY, Color.RED);
+        tbl.setSelectedTabIndicatorColor(Color.RED);
     }
 
     @Override

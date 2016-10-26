@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorTabLayout">#FF2D47</color>
+    <color name="colorLine">#73ffe7e7</color>
+    <!--Ta 和小简介 和 栏目 和 数字-->
+    <color name="colorTaTitle2">#8E7A7A</color>
+    <!--标题 和 栏目后面的-->
+    <color name="colorTitle">#321E1E</color>
 </resources>

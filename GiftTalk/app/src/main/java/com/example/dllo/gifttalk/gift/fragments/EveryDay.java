@@ -3,12 +3,11 @@ package com.example.dllo.gifttalk.gift.fragments;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Adapter;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.gift.GiftBeans;
-import com.example.dllo.gifttalk.gift.RecyclerViewAdapter;
+import com.example.dllo.gifttalk.gift.GiftRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
@@ -19,7 +18,7 @@ public class EveryDay extends BaseFragment{
 
     private RecyclerView rv;
     private ArrayList<GiftBeans> arrayList;
-    private RecyclerViewAdapter adapter;
+    private GiftRecyclerViewAdapter adapter;
 
     @Override
     protected void initData() {
@@ -43,7 +42,7 @@ public class EveryDay extends BaseFragment{
     @Override
     protected void initView() {
         rv = bindView(R.id.recyclerview_gift);
-        adapter = new RecyclerViewAdapter(getActivity());
+        adapter = new GiftRecyclerViewAdapter(getActivity());
     }
 
     @Override

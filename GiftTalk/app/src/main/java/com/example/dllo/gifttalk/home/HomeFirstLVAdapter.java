@@ -2,6 +2,7 @@ package com.example.dllo.gifttalk.home;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class HomeFirstLVAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
+
         if (position == 0){
             return TYPE_1;
         }

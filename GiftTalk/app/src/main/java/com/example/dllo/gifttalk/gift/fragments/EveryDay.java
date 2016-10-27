@@ -4,6 +4,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.gift.GiftBeans;
@@ -19,6 +20,7 @@ public class EveryDay extends BaseFragment{
     private RecyclerView rv;
     private ArrayList<GiftBeans> arrayList;
     private GiftRecyclerViewAdapter adapter;
+    private RecyclerViewHeader header;
 
     @Override
     protected void initData() {
@@ -37,12 +39,15 @@ public class EveryDay extends BaseFragment{
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         rv.setLayoutManager(manager);
 
+        header.attachTo(rv);
+
     }
 
     @Override
     protected void initView() {
         rv = bindView(R.id.recyclerview_gift);
         adapter = new GiftRecyclerViewAdapter(getActivity());
+        header = (RecyclerViewHeader) getActivity().findViewById(R.id.header);
     }
 
     @Override

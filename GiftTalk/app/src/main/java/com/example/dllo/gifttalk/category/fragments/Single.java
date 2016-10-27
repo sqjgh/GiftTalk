@@ -19,6 +19,6 @@ public class Single extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.fm_single_fm_category;
+        return R.layout.fragment_single_category;
     }
 }

@@ -10,8 +10,10 @@
         android:layout_height="wrap_content"
         android:textSize="40dp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview_vp_home"
+    <ListView
+        android:id="@+id/listview_vp_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:divider="@null"
+        ></ListView>
 </RelativeLayout>

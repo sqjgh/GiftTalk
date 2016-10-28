@@ -7,10 +7,10 @@ import android.support.v4.view.ViewPager;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
-import com.example.dllo.gifttalk.gift.fragments.EveryDay;
-import com.example.dllo.gifttalk.gift.fragments.NewStar;
-import com.example.dllo.gifttalk.gift.fragments.Original;
-import com.example.dllo.gifttalk.gift.fragments.TopOneHundred;
+import com.example.dllo.gifttalk.gift.fragments.EveryDayFragment;
+import com.example.dllo.gifttalk.gift.fragments.NewStarFragment;
+import com.example.dllo.gifttalk.gift.fragments.OriginalFragment;
+import com.example.dllo.gifttalk.gift.fragments.TopOneHundredFragment;
 
 import java.util.ArrayList;
 
@@ -25,10 +25,10 @@ public class GiftFragment extends BaseFragment{
     @Override
     protected void initData() {
         ArrayList<Fragment> arrayList = new ArrayList<>();
-        arrayList.add(new EveryDay());
-        arrayList.add(new TopOneHundred());
-        arrayList.add(new Original());
-        arrayList.add(new NewStar());
+        arrayList.add(new EveryDayFragment());
+        arrayList.add(new TopOneHundredFragment());
+        arrayList.add(new OriginalFragment());
+        arrayList.add(new NewStarFragment());
         GiftViewPagerAdapter adapter = new GiftViewPagerAdapter(getChildFragmentManager());
         adapter.setFragmentArrayList(arrayList);
         vp.setAdapter(adapter);

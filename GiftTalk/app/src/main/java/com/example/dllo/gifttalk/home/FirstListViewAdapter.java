@@ -2,7 +2,6 @@ package com.example.dllo.gifttalk.home;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.home.RollViewPager.RollVPLoopAdapter;
-import com.example.dllo.gifttalk.home.beantools.HomeBeans;
+import com.example.dllo.gifttalk.home.rollviewpager.RollViewBeans;
+import com.example.dllo.gifttalk.home.rollviewpager.RollViewPagerAdapter;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 
@@ -21,15 +20,23 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/10/27.
  */
-public class HomeFirstLVAdapter extends BaseAdapter {
+public class FirstListViewAdapter extends BaseAdapter {
     private Context context;
     ArrayList<HomeBeans> arrayList;
+    RollViewBeans rollView;
+
+    public void setRollView(RollViewBeans rollView) {
+        this.rollView = rollView;
+    }
+
     final int VIEW_TYPE = 3;
     final int TYPE_1 = 0;
     final int TYPE_2 = 1;
     final int TYPE_3 = 2;
 
-    public HomeFirstLVAdapter(Context context) {
+
+
+    public FirstListViewAdapter(Context context) {
         this.context = context;
     }
 
@@ -45,21 +52,21 @@ public class HomeFirstLVAdapter extends BaseAdapter {
     @Override
     public int getItemViewType(int position) {
 
-        if (position == 0){
-            return TYPE_1;
-        }
-        if (position == 2){
-            return TYPE_2;
-        }
-        if (position == 7){
-            return TYPE_3;
-        }
-        return TYPE_3;
+//        if (position == 0){
+//            return TYPE_1;
+//        }
+//        if (position == 2){
+//            return TYPE_2;
+//        }
+//        if (position == 7){
+//            return TYPE_3;
+//        }
+        return TYPE_1;
     }
 
     @Override
     public int getViewTypeCount() {
-        return VIEW_TYPE;
+        return 1;
     }
 
     @Override
@@ -82,20 +89,22 @@ public class HomeFirstLVAdapter extends BaseAdapter {
         if (view == null) {
             switch (type){
                 case TYPE_1:
-                    view = LayoutInflater.from(context).inflate(R.layout.rollviewpager_home, null);
+                    view = LayoutInflater.from(context).inflate(R.layout.rollviewpager_home,viewGroup,false);
                     RollPagerView rollPagerView = (RollPagerView) view.findViewById(R.id.rollvp_home);
                     rollPagerView.setHintView(new ColorPointHintView(context, Color.RED, Color.WHITE));
-                    rollPagerView.setAdapter(new RollVPLoopAdapter(rollPagerView));
+                    RollViewPagerAdapter adapter = new RollViewPagerAdapter(rollPagerView);
+                    adapter.setStr(rollView.getData().getBanners().get(0).getImage_url());
+                    rollPagerView.setAdapter(adapter);
                     viewHolder = new ViewHolder(view);
                     view.setTag(viewHolder);
                     break;
                 case TYPE_2:
-                    view = LayoutInflater.from(context).inflate(R.layout.image_item_home, null);
+                    view = LayoutInflater.from(context).inflate(R.layout.image_item_home, viewGroup,false);
                     viewHolder1 = new ViewHolder1(view);
                     view.setTag(viewHolder1);
                     break;
                 case TYPE_3:
-                    view = LayoutInflater.from(context).inflate(R.layout.item_rv_vp_home, null);
+                    view = LayoutInflater.from(context).inflate(R.layout.item_rv_vp_home, viewGroup,false);
                     viewHolder2 = new ViewHolder2(view);
                     view.setTag(viewHolder2);
                     break;

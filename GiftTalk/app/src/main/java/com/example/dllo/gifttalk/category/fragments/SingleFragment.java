@@ -1,11 +1,12 @@
-package com.example.dllo.gifttalk.profile.fragments;
+package com.example.dllo.gifttalk.category.fragments;
 
+import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
 
 /**
- * Created by dllo on 16/10/25.
+ * Created by dllo on 16/10/24.
  */
-public class SingleProfile extends BaseFragment{
+public class SingleFragment extends BaseFragment{
     @Override
     protected void initData() {
 
@@ -18,6 +19,6 @@ public class SingleProfile extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return 0;
+        return R.layout.fragment_single_category;
     }
 }

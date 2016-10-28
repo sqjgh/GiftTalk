@@ -7,8 +7,8 @@ import android.support.v4.view.ViewPager;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
-import com.example.dllo.gifttalk.category.fragments.Raiders;
-import com.example.dllo.gifttalk.category.fragments.Single;
+import com.example.dllo.gifttalk.category.raiderscategory.RaidersFragment;
+import com.example.dllo.gifttalk.category.fragments.SingleFragment;
 
 import java.util.ArrayList;
 
@@ -24,8 +24,8 @@ public class CategoryFragment extends BaseFragment{
     @Override
     protected void initData() {
         ArrayList<Fragment> arrayList = new ArrayList<>();
-        arrayList.add(new Raiders());
-        arrayList.add(new Single());
+        arrayList.add(new RaidersFragment());
+        arrayList.add(new SingleFragment());
         CategoryViewPagerAdapter adapter = new CategoryViewPagerAdapter(getChildFragmentManager());
         adapter.setArrayList(arrayList);
         vp.setAdapter(adapter);

@@ -15,13 +15,13 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/10/25.
  */
-public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerViewAdapter.ViewHolder>{
+public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerViewAdapter.ViewHolder> {
     ArrayList<GiftBeans> arrayList;
     private Context context;
+
     public GiftRecyclerViewAdapter(Context context) {
         this.context = context;
     }
-
 
 
     public void setArrayList(ArrayList<GiftBeans> arrayList) {
@@ -32,7 +32,7 @@ public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerVi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.item_rv_gift,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item_rv_gift, parent, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }

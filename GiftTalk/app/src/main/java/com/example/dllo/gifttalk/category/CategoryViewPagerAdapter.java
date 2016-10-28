@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/10/24.
  */
-public class CategoryViewPagerAdapter extends FragmentPagerAdapter{
+public class CategoryViewPagerAdapter extends FragmentPagerAdapter {
     ArrayList<Fragment> arrayList;
 
     public void setArrayList(ArrayList<Fragment> arrayList) {

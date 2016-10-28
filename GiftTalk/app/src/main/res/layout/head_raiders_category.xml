@@ -21,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/rv_raiders_category"
-        android:background="#fcb7b9"></android.support.v7.widget.RecyclerView>
+        android:overScrollMode="never"
+        ></android.support.v7.widget.RecyclerView>
 
 
 

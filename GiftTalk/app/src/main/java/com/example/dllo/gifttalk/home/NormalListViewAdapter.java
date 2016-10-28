@@ -9,18 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.home.beantools.HomeBeans;
 
 import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/27.
  */
-public class HomeNormalLVAdapter extends BaseAdapter {
+public class NormalListViewAdapter extends BaseAdapter {
     private Context context;
     ArrayList<HomeBeans> arrayList;
 
-    public HomeNormalLVAdapter(Context context) {
+    public NormalListViewAdapter(Context context) {
         this.context = context;
     }
 
@@ -47,7 +46,7 @@ public class HomeNormalLVAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder = null;
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.item_rv_vp_home, null);
+            view = LayoutInflater.from(context).inflate(R.layout.item_rv_vp_home, viewGroup, false);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
         } else {

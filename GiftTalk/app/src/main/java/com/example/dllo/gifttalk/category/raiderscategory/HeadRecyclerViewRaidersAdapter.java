@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.category.fragments;
+package com.example.dllo.gifttalk.category.raiderscategory;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,16 +8,28 @@ import android.view.ViewGroup;
 
 import com.example.dllo.gifttalk.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by dllo on 16/10/27.
  */
-public class HeadRVRaiders extends RecyclerView.Adapter<HeadRVRaiders.ViewHolder>{
-
+public class HeadRecyclerViewRaidersAdapter extends RecyclerView.Adapter<HeadRecyclerViewRaidersAdapter.ViewHolder>{
+    ArrayList<RaidersRecyclerViewBeans> beans;
     private Context context;
+    public void setBeans(ArrayList<RaidersRecyclerViewBeans> beans) {
+        this.beans = beans;
+    }
+
+    public HeadRecyclerViewRaidersAdapter(Context context) {
+
+        this.context = context;
+    }
+
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.head_raiders_category,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item_head_raiders_category,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }

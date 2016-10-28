@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.category.fragments;
+package com.example.dllo.gifttalk.category.raiderscategory;
 
 import android.widget.ListView;
 
@@ -8,7 +8,7 @@ import com.example.dllo.gifttalk.base.BaseFragment;
 /**
  * Created by dllo on 16/10/24.
  */
-public class Raiders extends BaseFragment{
+public class RaidersFragment extends BaseFragment{
 
     private ListView listView;
 
@@ -22,6 +22,7 @@ public class Raiders extends BaseFragment{
         listView = bindView(R.id.listview_raiders_category);
         RaidersListViewAdapter adapter = new RaidersListViewAdapter(getActivity());
         listView.setAdapter(adapter);
+
     }
 
     @Override

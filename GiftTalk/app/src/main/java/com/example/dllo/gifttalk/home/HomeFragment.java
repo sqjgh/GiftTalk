@@ -1,19 +1,11 @@
 package com.example.dllo.gifttalk.home;
 
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
-import android.util.SparseArray;
-import android.widget.TableLayout;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by dllo on 16/10/21.
@@ -34,7 +26,7 @@ public class HomeFragment extends BaseFragment{
 
         tbl = bindView(R.id.tbl_home);
         vp = bindView(R.id.viewpager_home);
-        HomeVPAdapter adapter = new HomeVPAdapter(getChildFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         vp.setAdapter(adapter);
         tbl.setupWithViewPager(vp);
         tbl.setTabMode(TabLayout.MODE_SCROLLABLE);

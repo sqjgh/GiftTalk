@@ -5,25 +5,30 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
-import com.example.dllo.gifttalk.home.beantools.HomeBeans;
+import com.example.dllo.gifttalk.home.beantools.GsonRequest;
+import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.home.rollviewpager.RollViewBeans;
 
 import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/25.
  */
-class FragmentForVP extends BaseFragment {
+class ForViewPagerFragment extends BaseFragment {
     public static final String[] tabTitle = new String[]{"精选","关注","送女票", "海淘",
             "科技范","美食","送基友","送爸妈","送同事","送宝贝","设计感","创意生活","文艺风",
             "奇葩搞怪","数码","萌萌哒"};
     public static String KEY = "pos";
     private TextView txt;
     private int type;
-    private HomeFirstLVAdapter selectLVAdapter;
-    private HomeNormalLVAdapter normalLVAdapter;
+    private FirstListViewAdapter firstListViewAdapter;
+    private NormalListViewAdapter normalLVAdapter;
     private ListView listView;
+    private RollViewBeans rollViewBeans;
 
 
     @Override
@@ -33,14 +38,16 @@ class FragmentForVP extends BaseFragment {
         }
         // 判断进入的是哪个页面
         init();
+        rollViewBeans = new RollViewBeans();
     }
 
     @Override
     protected void initView() {
         txt = bindView(R.id.tab_txt);
-        selectLVAdapter = new HomeFirstLVAdapter(getActivity());
-        normalLVAdapter = new HomeNormalLVAdapter(getActivity());
+        firstListViewAdapter = new FirstListViewAdapter(getActivity());
+        normalLVAdapter = new NormalListViewAdapter(getActivity());
         listView = bindView(R.id.listview_vp_home);
+
     }
 
     @Override
@@ -48,32 +55,39 @@ class FragmentForVP extends BaseFragment {
         return R.layout.listview_home;
     }
 
-    public static FragmentForVP getInstance(int pos) {
-        FragmentForVP fragment = new FragmentForVP();
+    public static ForViewPagerFragment getInstance(int pos) {
+        ForViewPagerFragment fragment = new ForViewPagerFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(KEY, pos);
         fragment.setArguments(bundle);
-        Log.d("FragmentForVP", "getInstance");
+        Log.d("ForViewPagerFragment", "getInstance");
         return fragment;
     }
 
     protected void init() {
         switch (type) {
             case 0:
+                // 轮播图
+                String url = "http://api.liwushuo.com/v2/banners";
+                //创建请求
+                GsonRequest<RollViewBeans> gsonRequest = new GsonRequest<>(RollViewBeans.class, url, new Response.Listener<RollViewBeans>() {
+                    @Override
+                    public void onResponse(RollViewBeans response) {
+                        // 请求成功的方法
+                        firstListViewAdapter.setRollView(response);
 
-                ArrayList<HomeBeans> arrayList = new ArrayList<>();
-                for (int i = 0; i < 50; i++) {
-                    HomeBeans beans = new HomeBeans();
-                    beans.setPic(R.mipmap.ic_launcher);
-                    beans.setTitle("0有数据" + i);
-                    beans.setTitle2("0有数据" + i);
-                    beans.setColumn("有数据" + i);
-                    beans.setColumn2("有数据" + i);
-                    beans.setFollow("有数据" + i);
-                    arrayList.add(beans);
-                }
-                selectLVAdapter.setArrayList(arrayList);
-                listView.setAdapter(selectLVAdapter);
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                //请求放入请求队列
+                VolleySingleton.getInstance().addRequest(gsonRequest);
+
                 break;
 
             case 1:

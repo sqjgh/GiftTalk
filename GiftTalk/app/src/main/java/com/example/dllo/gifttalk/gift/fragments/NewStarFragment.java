@@ -6,7 +6,7 @@ import com.example.dllo.gifttalk.base.BaseFragment;
 /**
  * Created by dllo on 16/10/24.
  */
-public class TopOneHundred extends BaseFragment{
+public class NewStarFragment extends BaseFragment{
     @Override
     protected void initData() {
 
@@ -19,6 +19,6 @@ public class TopOneHundred extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_toponehundred_fragment_gift;
+        return R.layout.fragment_newstar_fragment_gift;
     }
 }

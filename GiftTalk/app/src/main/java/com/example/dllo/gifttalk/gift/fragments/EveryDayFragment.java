@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/10/24.
  */
-public class EveryDay extends BaseFragment{
+public class EveryDayFragment extends BaseFragment{
 
     private RecyclerView rv;
     private ArrayList<GiftBeans> arrayList;
@@ -54,4 +54,5 @@ public class EveryDay extends BaseFragment{
     protected int getLayout() {
         return R.layout.fragment_everyday_fragment_gift;
     }
+
 }

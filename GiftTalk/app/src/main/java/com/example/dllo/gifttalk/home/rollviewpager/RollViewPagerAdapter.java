@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.home.homebeans.RollViewBeans;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.LoopPagerAdapter;
 
@@ -13,11 +14,11 @@ import com.jude.rollviewpager.adapter.LoopPagerAdapter;
  * Created by dllo on 16/10/27.
  */
 public class RollViewPagerAdapter extends LoopPagerAdapter{
-    private String str;
+    private RollViewBeans rollViewBeans;
     private Context context;
 
-    public void setStr(String str) {
-        this.str = str;
+    public void setRollViewBeans(RollViewBeans rollViewBeans) {
+        this.rollViewBeans = rollViewBeans;
         notifyDataSetChanged();
     }
 
@@ -37,8 +38,7 @@ public class RollViewPagerAdapter extends LoopPagerAdapter{
     @Override
     public View getView(ViewGroup container, int position) {
         ImageView view = new ImageView(container.getContext());
-        VolleySingleton.getInstance().getImage(str,view);
-//        view.setImageBitmap(arrayList.get(position));
+        VolleySingleton.getInstance().getImage(rollViewBeans.getData().getBanners().get(position).getImage_url(),view);
         view.setScaleType(ImageView.ScaleType.CENTER_CROP);
         view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         return view;
@@ -46,6 +46,6 @@ public class RollViewPagerAdapter extends LoopPagerAdapter{
 
     @Override
     public int getRealCount() {
-        return 7;
+        return rollViewBeans.getData().getBanners() == null ? 0 : rollViewBeans.getData().getBanners().size();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.home.rollviewpager;
+package com.example.dllo.gifttalk.home.homebeans;
 
 import java.util.List;
 

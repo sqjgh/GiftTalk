@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
+import com.example.dllo.gifttalk.home.homebeans.HomeBeans;
 
 import java.util.ArrayList;
 

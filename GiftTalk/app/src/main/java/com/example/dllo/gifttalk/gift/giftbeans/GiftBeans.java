@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.gift;
+package com.example.dllo.gifttalk.gift.giftbeans;
 
 import android.graphics.Bitmap;
 

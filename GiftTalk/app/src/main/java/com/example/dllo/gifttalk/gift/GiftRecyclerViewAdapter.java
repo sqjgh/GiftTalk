@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
+import com.example.dllo.gifttalk.gift.giftbeans.GiftBeans;
+import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
 
 import java.util.ArrayList;
 
@@ -18,16 +21,15 @@ import java.util.ArrayList;
 public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerViewAdapter.ViewHolder> {
     ArrayList<GiftBeans> arrayList;
     private Context context;
+    private TabLayoutItemBeansGift tabLayoutItemBeansGift;
+
+    public void setTabLayoutItemBeansGift(TabLayoutItemBeansGift tabLayoutItemBeansGift) {
+        this.tabLayoutItemBeansGift = tabLayoutItemBeansGift;
+    }
 
     public GiftRecyclerViewAdapter(Context context) {
         this.context = context;
     }
-
-
-    public void setArrayList(ArrayList<GiftBeans> arrayList) {
-        this.arrayList = arrayList;
-    }
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -39,15 +41,15 @@ public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerVi
 
     @Override
     public void onBindViewHolder(GiftRecyclerViewAdapter.ViewHolder holder, int position) {
-        holder.pic.setImageResource(arrayList.get(position).getPic());
-        holder.price.setText(arrayList.get(position).getPrice());
-        holder.title.setText(arrayList.get(position).getTitle());
-        holder.title2.setText(arrayList.get(position).getTitle2());
+        holder.price.setText(tabLayoutItemBeansGift.getData().getItems().get(position).getPrice());
+        holder.title.setText(tabLayoutItemBeansGift.getData().getItems().get(position).getShort_description());
+        holder.title2.setText(tabLayoutItemBeansGift.getData().getItems().get(position).getName());
+        VolleySingleton.getInstance().getImage(tabLayoutItemBeansGift.getData().getItems().get(position).getCover_image_url(),holder.pic);
     }
 
     @Override
     public int getItemCount() {
-        return arrayList == null ? 0 : arrayList.size();
+        return tabLayoutItemBeansGift == null ? 0 : tabLayoutItemBeansGift.getData().getItems().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

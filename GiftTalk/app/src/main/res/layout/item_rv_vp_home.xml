@@ -8,13 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="12dp">
 
         <ImageView
             android:id="@+id/iv_item_home"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="200dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="fitXY"/>
 
         <TextView
             android:id="@+id/title_item_home"
@@ -29,20 +30,20 @@
             android:id="@+id/title2_item_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:text="这是内容, 很长很长的内容介绍,很长很长,很长很长,很长很长,很长很长,很长很长,很长很长"
-            android:textColor="@color/colorTaTitle2" />
+            android:textColor="@color/colorTaTitle2"
+            android:layout_marginTop="10dp" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:background="#f1e5e5" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="12dp">
 
             <TextView
                 android:id="@+id/column_item_home"
@@ -50,7 +51,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="栏目"
-                android:textColor="@color/colorTaTitle2" />
+
+                android:textColor="@color/colorTaTitle2"
+                android:textSize="12dp"
+                android:textIsSelectable="false" />
 
             <TextView
                 android:id="@+id/column2_item_home"
@@ -60,24 +64,31 @@
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/column_item_home"
                 android:text="栏目名字"
-                android:textColor="@color/colorTitle" />
-
-            <TextView
-                android:id="@+id/follow_item_home"
+                android:textColor="@color/colorTitle"
+                android:textSize="12dp" />
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:text="12345"
-                android:textColor="@color/colorTaTitle2" />
+                android:layout_alignParentRight="true">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@id/follow_item_home"
-                android:src="@mipmap/icon_post_favourite_gray" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@mipmap/icon_post_favourite_gray"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:id="@+id/follow_item_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="12345"
+                    android:textColor="@color/colorTaTitle2"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
 
         </RelativeLayout>
     </LinearLayout>

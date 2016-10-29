@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_gift"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorLine"></android.support.v7.widget.RecyclerView>
-    <com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader
         android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal|top">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:text="header_gift"
-            android:src="@mipmap/ic_launcher"/>
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
 
-    </com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader>
-</FrameLayout>
+    </com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader>
+</RelativeLayout>

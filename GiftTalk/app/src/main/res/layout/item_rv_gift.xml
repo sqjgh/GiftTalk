@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/background_item_gift">
+    android:background="@drawable/background_item_gift"
+    android:layout_margin="8dp">
 
     <ImageView
         android:id="@+id/imageview_item_gift"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY"
+        android:layout_margin="1dp"
+        android:background="#23321234"
+        android:adjustViewBounds="false" />
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-
+        android:layout_margin="10dp">
     <TextView
         android:id="@+id/title_item_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="让桌面四季如春" />
+        android:text="让桌面四季如春"
+        android:layout_marginBottom="6dp"/>
 
     <TextView
         android:id="@+id/title2_item_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NOMO.格赫思比例花房"
-        android:textColor="#B9AAAA" />
+        android:textColor="#B9AAAA"
+        android:layout_below="@+id/title_item_gift"
+        android:layout_marginBottom="6dp"/>
 
     <TextView
         android:id="@+id/price_item_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="126.5"
-        android:textColor="#ff3851" />
+        android:textColor="#ff3851"
+        android:layout_below="@id/title2_item_gift"/>
+    </RelativeLayout>
 </LinearLayout>

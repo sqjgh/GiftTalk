@@ -15,15 +15,18 @@
         android:layout_marginLeft="10dp"
         android:background="#a5fff2">
         <TextView
+            android:id="@+id/name_raiders_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="品类"
             android:layout_alignParentLeft="true"/>
         <TextView
+            android:id="@+id/all_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="查看全部>"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"

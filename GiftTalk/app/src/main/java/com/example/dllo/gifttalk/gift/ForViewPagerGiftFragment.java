@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -25,6 +26,8 @@ public class ForViewPagerGiftFragment extends BaseFragment{
     private static final String GIFT_KEY = "pos";
     private int type;
     private RecyclerViewHeader header;
+    private ImageView headImage;
+
 
     public static ForViewPagerGiftFragment getInstance(int pos){
         ForViewPagerGiftFragment forViewPagerFragmentGift = new ForViewPagerGiftFragment();
@@ -44,7 +47,7 @@ public class ForViewPagerGiftFragment extends BaseFragment{
         rv = bindView(R.id.recyclerview_gift);
         header = bindView(R.id.header);
         giftRecyclerViewAdapter = new GiftRecyclerViewAdapter(getActivity());
-
+        headImage = bindView(R.id.head_imageview_gift);
     }
 
     @Override
@@ -72,19 +75,23 @@ public class ForViewPagerGiftFragment extends BaseFragment{
         }
     }
 
-    private void netData(int whatPage){
+    private void netData(final int whatPage){
+
+
         // 请求"精选"正常数据
         String url1 = Values.TABLAYOUT_ITEMSFRONT_GIFT + Values.TABLAYOUT_ID_GIFT.get(whatPage) + Values.TABLAYOUT_ITEMSBACK_GIFT;
         GsonRequest<TabLayoutItemBeansGift> gsonRequest1 = new GsonRequest<>(TabLayoutItemBeansGift.class, url1, new Response.Listener<TabLayoutItemBeansGift>() {
             @Override
             public void onResponse(TabLayoutItemBeansGift response) {
                 // 请求成功的方法
+                VolleySingleton.getInstance().getImage(response.getData().getCover_image(),headImage);
                 giftRecyclerViewAdapter.setTabLayoutItemBeansGift(response);
                 rv.setAdapter(giftRecyclerViewAdapter);
                 GridLayoutManager manager = new GridLayoutManager(getActivity(), 2);
                 manager.setOrientation(LinearLayoutManager.VERTICAL);
                 rv.setLayoutManager(manager);
                 header.attachTo(rv,true);
+
             }
         }, new Response.ErrorListener() {
             @Override

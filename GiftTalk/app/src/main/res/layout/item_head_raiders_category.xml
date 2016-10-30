@@ -27,4 +27,5 @@
             android:layout_toRightOf="@id/pic1_head_raiders_category"
             android:layout_below="@id/title1_head_raiders_category"/>
     </RelativeLayout>
+
 </LinearLayout>

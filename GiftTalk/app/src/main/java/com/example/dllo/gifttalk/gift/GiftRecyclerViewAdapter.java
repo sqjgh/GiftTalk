@@ -9,22 +9,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.gift.giftbeans.GiftBeans;
 import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
 import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
-
-import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/25.
  */
 public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerViewAdapter.ViewHolder> {
-    ArrayList<GiftBeans> arrayList;
     private Context context;
     private TabLayoutItemBeansGift tabLayoutItemBeansGift;
 
+
     public void setTabLayoutItemBeansGift(TabLayoutItemBeansGift tabLayoutItemBeansGift) {
         this.tabLayoutItemBeansGift = tabLayoutItemBeansGift;
+
     }
 
     public GiftRecyclerViewAdapter(Context context) {
@@ -33,8 +31,9 @@ public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerVi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(context).inflate(R.layout.item_rv_gift, parent, false);
+//        ImageView imageView = (ImageView) v.findViewById(R.id.head_imageview_gift);
+//        VolleySingleton.getInstance().getImage(tabLayoutItemBeansGift.getData().getCover_image(),imageView);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
@@ -65,7 +64,6 @@ public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerVi
             title = (TextView) itemView.findViewById(R.id.title_item_gift);
             title2 = (TextView) itemView.findViewById(R.id.title2_item_gift);
             price = (TextView) itemView.findViewById(R.id.price_item_gift);
-
         }
     }
 }

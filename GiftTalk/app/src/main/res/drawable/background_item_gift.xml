@@ -9,7 +9,7 @@
     <!--描边-->
     <stroke
         android:width="1dp"
-        android:color="#e2b8ac"
+        android:color="#ffdad0"
         />
     <!--控制圆角大小-->
     <corners android:radius="8dp"/>

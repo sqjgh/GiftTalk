@@ -10,10 +10,9 @@
         android:id="@+id/imageview_item_gift"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:src="@mipmap/ic_launcher"
         android:scaleType="fitXY"
         android:layout_margin="1dp"
-        android:background="#23321234"
+        android:background="@color/colorBackground"
         android:adjustViewBounds="false" />
     <RelativeLayout
         android:layout_width="match_parent"

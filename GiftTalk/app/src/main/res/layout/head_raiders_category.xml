@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="280dp">
+    android:layout_height="300dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#fff598">
+        android:layout_height="30dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="栏目"
-            android:layout_alignParentLeft="true"/>
+            android:textColor="@color/colorTaTitle2"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="查看全部>"
-            android:layout_alignParentRight="true"/>
+            android:textSize="11dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="280dp"
         android:id="@+id/rv_raiders_category"
         android:overScrollMode="never"
         ></android.support.v7.widget.RecyclerView>

@@ -9,4 +9,5 @@
     <color name="colorTaTitle2">#8E7A7A</color>
     <!--标题 和 栏目后面的-->
     <color name="colorTitle">#321E1E</color>
+    <color name="colorBackground">#a1a1a1</color>
 </resources>

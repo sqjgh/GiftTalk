@@ -14,8 +14,8 @@ import com.example.dllo.gifttalk.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.category.categorybeans.ColumnRaidersBeans;
 import com.example.dllo.gifttalk.category.categorybeans.ListViewRaidersBeans;
-import com.example.dllo.gifttalk.home.beantools.GsonRequest;
-import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.VolleySingleton;
 
 /**
  * Created by dllo on 16/10/24.

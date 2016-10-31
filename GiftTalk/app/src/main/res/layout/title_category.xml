@@ -32,7 +32,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="选份走心好礼送Ta" />
+                android:text="选份走心好礼送Ta"
+                android:textColor="@color/colorTaTitle2"/>
 
             <ImageView
                 android:layout_width="wrap_content"

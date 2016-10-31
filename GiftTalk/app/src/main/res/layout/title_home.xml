@@ -30,6 +30,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:paddingLeft="5dp"
+                android:textColor="@color/colorTaTitle2"
                 android:text="选份走心好礼送给Ta" />
 
             <ImageView

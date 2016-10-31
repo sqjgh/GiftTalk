@@ -6,7 +6,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/imageview_item_home"/>
+        android:id="@+id/imageview_item_home"
+        android:background="@color/colorBackground"
+        />
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="10dp"

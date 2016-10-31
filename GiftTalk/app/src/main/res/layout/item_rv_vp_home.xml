@@ -14,7 +14,7 @@
             android:id="@+id/iv_item_home"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@color/colorBackground"
             android:scaleType="fitXY"/>
 
         <TextView
@@ -51,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="栏目"
-
                 android:textColor="@color/colorTaTitle2"
                 android:textSize="12dp"
                 android:textIsSelectable="false" />

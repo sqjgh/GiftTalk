@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/24.
+ * //TODO 刷新图片默认是机器人
+ *
  */
 public class Values {
     public static final int TAB_COLOR = 0xFF2D47;

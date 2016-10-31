@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.category.raiderscategory.RaidersFragment;
-import com.example.dllo.gifttalk.category.fragments.SingleFragment;
+import com.example.dllo.gifttalk.category.singlecategory.SingleFragment;
 
 import java.util.ArrayList;
 

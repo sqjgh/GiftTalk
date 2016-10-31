@@ -13,13 +13,13 @@ import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
-import com.example.dllo.gifttalk.home.beantools.GsonRequest;
-import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.VolleySingleton;
 
 /**
  * Created by dllo on 16/10/24.
  */
-public class ForViewPagerGiftFragment extends BaseFragment{
+public class ForViewPagerGiftFragment extends BaseFragment {
 
     private RecyclerView rv;
     private GiftRecyclerViewAdapter giftRecyclerViewAdapter;
@@ -29,10 +29,10 @@ public class ForViewPagerGiftFragment extends BaseFragment{
     private ImageView headImage;
 
 
-    public static ForViewPagerGiftFragment getInstance(int pos){
+    public static ForViewPagerGiftFragment getInstance(int pos) {
         ForViewPagerGiftFragment forViewPagerFragmentGift = new ForViewPagerGiftFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(GIFT_KEY,pos);
+        bundle.putInt(GIFT_KEY, pos);
         forViewPagerFragmentGift.setArguments(bundle);
         return forViewPagerFragmentGift;
     }
@@ -55,11 +55,11 @@ public class ForViewPagerGiftFragment extends BaseFragment{
         return R.layout.fragment_everyday_fragment_gift;
     }
 
-    public void initFragmentChose(){
-        if (getArguments() != null){
+    public void initFragmentChose() {
+        if (getArguments() != null) {
             type = getArguments().getInt(GIFT_KEY);
         }
-        switch (type){
+        switch (type) {
             case 0:
                 netData(0);
                 break;
@@ -75,23 +75,20 @@ public class ForViewPagerGiftFragment extends BaseFragment{
         }
     }
 
-    private void netData(final int whatPage){
-
-
+    private void netData(final int whatPage) {
         // 请求"精选"正常数据
         String url1 = Values.TABLAYOUT_ITEMSFRONT_GIFT + Values.TABLAYOUT_ID_GIFT.get(whatPage) + Values.TABLAYOUT_ITEMSBACK_GIFT;
         GsonRequest<TabLayoutItemBeansGift> gsonRequest1 = new GsonRequest<>(TabLayoutItemBeansGift.class, url1, new Response.Listener<TabLayoutItemBeansGift>() {
             @Override
             public void onResponse(TabLayoutItemBeansGift response) {
                 // 请求成功的方法
-                VolleySingleton.getInstance().getImage(response.getData().getCover_image(),headImage);
+                VolleySingleton.getInstance().getImage(response.getData().getCover_image(), headImage);
                 giftRecyclerViewAdapter.setTabLayoutItemBeansGift(response);
                 rv.setAdapter(giftRecyclerViewAdapter);
                 GridLayoutManager manager = new GridLayoutManager(getActivity(), 2);
                 manager.setOrientation(LinearLayoutManager.VERTICAL);
                 rv.setLayoutManager(manager);
-                header.attachTo(rv,true);
-
+                header.attachTo(rv, true);
             }
         }, new Response.ErrorListener() {
             @Override

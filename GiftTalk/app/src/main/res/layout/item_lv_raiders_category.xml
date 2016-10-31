@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
     <ImageView
         android:layout_width="match_parent"
@@ -13,18 +13,21 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#a5fff2">
+        >
         <TextView
             android:id="@+id/name_raiders_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="品类"
+            android:textSize="13dp"
+            android:textColor="@color/colorTaTitle2"
             android:layout_alignParentLeft="true"/>
         <TextView
             android:id="@+id/all_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="查看全部>"
+            android:textSize="11dp"
             android:layout_alignParentRight="true"
             />
     </RelativeLayout>
@@ -32,8 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:background="#ddb3f9">
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -44,16 +48,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
-                android:background="#ff988a"
+                android:background="@color/colorBackground"
+                android:scaleType="fitXY"
                 android:layout_marginRight="10dp"
                 android:id="@+id/pic1_raiders_category"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ff988a"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:background="@color/colorBackground"
                 android:id="@+id/pic2_raiders_category"/>
         </LinearLayout>
         <LinearLayout
@@ -66,16 +70,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ff988a"
+                android:scaleType="fitXY"
                 android:layout_marginRight="10dp"
-                android:src="@mipmap/ic_launcher"
+                android:background="@color/colorBackground"
                 android:id="@+id/pic3_raiders_category"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ff988a"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:background="@color/colorBackground"
                 android:id="@+id/pic4_raiders_category"/>
         </LinearLayout>
         <LinearLayout
@@ -88,16 +92,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ff988a"
+                android:scaleType="fitXY"
                 android:layout_marginRight="10dp"
-                android:src="@mipmap/ic_launcher"
+                android:background="@color/colorBackground"
                 android:id="@+id/pic5_raiders_category"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ff988a"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:background="@color/colorBackground"
                 android:id="@+id/pic6_raiders_category"/>
         </LinearLayout>
 

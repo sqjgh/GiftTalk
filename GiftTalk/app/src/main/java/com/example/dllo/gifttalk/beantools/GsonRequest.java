@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.home.beantools;
+package com.example.dllo.gifttalk.beantools;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
@@ -7,7 +7,6 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Method;
 
 /**
  * Created by dllo on 16/10/24.

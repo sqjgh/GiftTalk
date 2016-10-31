@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.category.categorybeans.ColumnRaidersBeans;
-import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.beantools.VolleySingleton;
 
 /**
  * Created by dllo on 16/10/27.

@@ -12,8 +12,8 @@ import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
-import com.example.dllo.gifttalk.home.beantools.GsonRequest;
-import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.home.homebeans.RollViewBeans;
 import com.example.dllo.gifttalk.home.homebeans.TabLayoutItemBeans;
 import com.example.dllo.gifttalk.home.rollviewpager.RollViewPagerAdapter;
@@ -38,6 +38,8 @@ class ForViewPagerFragmentHome extends BaseFragment {
         if (getArguments() != null) {
             type = getArguments().getInt(HOME_KEY);
         }
+        firstListViewAdapter = new FirstListViewAdapter(getActivity());
+        normalLVAdapter = new NormalListViewAdapter(getActivity());
         // 判断进入的是哪个页面
         init();
     }
@@ -45,15 +47,12 @@ class ForViewPagerFragmentHome extends BaseFragment {
     @Override
     protected void initView() {
         txt = bindView(R.id.tab_txt);
-        firstListViewAdapter = new FirstListViewAdapter(getActivity());
-        normalLVAdapter = new NormalListViewAdapter(getActivity());
         listView = bindView(R.id.listview_vp_home);
-
     }
 
     @Override
     protected int getLayout() {
-        return R.layout.listview_home;
+        return R.layout.lv_home;
     }
 
     public static ForViewPagerFragmentHome getInstance(int pos) {
@@ -68,7 +67,6 @@ class ForViewPagerFragmentHome extends BaseFragment {
 
         switch (type) {
             case 0:
-
                 // 轮播图
                 //创建请求
                 GsonRequest<RollViewBeans> gsonRequest = new GsonRequest<>(RollViewBeans.class, Values.ROLLVIEW_URL, new Response.Listener<RollViewBeans>() {

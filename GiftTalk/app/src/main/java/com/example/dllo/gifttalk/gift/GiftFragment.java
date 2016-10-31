@@ -11,8 +11,8 @@ import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutBeansGift;
-import com.example.dllo.gifttalk.home.beantools.GsonRequest;
-import com.example.dllo.gifttalk.home.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.VolleySingleton;
 
 import java.util.ArrayList;
 

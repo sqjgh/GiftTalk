@@ -51,14 +51,14 @@
                 android:background="@color/colorBackground"
                 android:scaleType="fitXY"
                 android:layout_marginRight="10dp"
-                android:id="@+id/pic1_raiders_category"/>
+                android:id="@+id/picOne_raiders_category"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
                 android:background="@color/colorBackground"
-                android:id="@+id/pic2_raiders_category"/>
+                android:id="@+id/picTwo_raiders_category"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,14 +73,14 @@
                 android:scaleType="fitXY"
                 android:layout_marginRight="10dp"
                 android:background="@color/colorBackground"
-                android:id="@+id/pic3_raiders_category"/>
+                android:id="@+id/picThree_raiders_category"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
                 android:background="@color/colorBackground"
-                android:id="@+id/pic4_raiders_category"/>
+                android:id="@+id/picFour_raiders_category"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,14 +95,14 @@
                 android:scaleType="fitXY"
                 android:layout_marginRight="10dp"
                 android:background="@color/colorBackground"
-                android:id="@+id/pic5_raiders_category"/>
+                android:id="@+id/picFive_raiders_category"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
                 android:background="@color/colorBackground"
-                android:id="@+id/pic6_raiders_category"/>
+                android:id="@+id/picSix_raiders_category"/>
         </LinearLayout>
 
     </LinearLayout>

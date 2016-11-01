@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
+import com.example.dllo.gifttalk.category.categorybeans.SingleBeans;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,11 @@ import java.util.ArrayList;
  */
 public class LeftLVAdapter extends BaseAdapter {
     ArrayList<String> list;
+    private SingleBeans singleBeans;
+
+    public void setSingleBeans(SingleBeans singleBeans) {
+        this.singleBeans = singleBeans;
+    }
 
     public void setList(ArrayList<String> list) {
         this.list = list;
@@ -22,12 +28,12 @@ public class LeftLVAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return list.size();
+        return singleBeans.getData().getCategories().size();
     }
 
     @Override
     public Object getItem(int i) {
-        return list.get(i);
+        return singleBeans.getData().getCategories().get(i);
     }
 
     @Override
@@ -44,7 +50,7 @@ public class LeftLVAdapter extends BaseAdapter {
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
         }else viewHolder = (ViewHolder) view.getTag();
-        viewHolder.textView.setText(list.get(i));
+        viewHolder.textView.setText(singleBeans.getData().getCategories().get(i).getName());
         return view;
     }
     class ViewHolder{

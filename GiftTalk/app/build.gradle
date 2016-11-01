@@ -30,4 +30,5 @@ dependencies {
     compile 'com.jude:rollviewpager:1.4.5'
     compile 'com.bartoszlipinski:recyclerviewheader:1.2.1'
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
+    compile 'com.github.tri-bao:painless-gridbag:1.0.6'
 }

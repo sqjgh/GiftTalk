@@ -7,8 +7,12 @@
         android:id="@+id/lv_left_single_category"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:listSelector="@drawable/left_single"
+        />
     <se.emilsjolander.stickylistheaders.StickyListHeadersListView
+        android:scrollbars="none"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="3"

@@ -7,6 +7,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_left_single_category"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:textSize="16dp"
+        android:layout_marginBottom="8dp"
         >
     </TextView>
 </LinearLayout>

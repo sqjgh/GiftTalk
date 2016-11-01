@@ -4,8 +4,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -17,6 +19,7 @@ import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.home.homebeans.RollViewBeans;
 import com.example.dllo.gifttalk.home.homebeans.TabLayoutItemBeans;
 import com.example.dllo.gifttalk.home.rollviewpager.RollViewPagerAdapter;
+import com.jude.rollviewpager.OnItemClickListener;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 
@@ -48,6 +51,12 @@ class ForViewPagerFragmentHome extends BaseFragment {
     protected void initView() {
         txt = bindView(R.id.tab_txt);
         listView = bindView(R.id.listview_vp_home);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getActivity(), "i:" + i, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -77,6 +86,13 @@ class ForViewPagerFragmentHome extends BaseFragment {
                         // ViewGroup 不对
                         v = LayoutInflater.from(getActivity()).inflate(R.layout.rollviewpager_home, null);
                         RollPagerView rollPagerView = (RollPagerView) v.findViewById(R.id.rollvp_home);
+
+                        rollPagerView.setOnItemClickListener(new OnItemClickListener() {
+                            @Override
+                            public void onItemClick(int position) {
+                                Toast.makeText(getActivity(), "position:" + position, Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         rollPagerView.setHintView(new ColorPointHintView(getActivity(), Color.RED, Color.WHITE));
                         RollViewPagerAdapter adapter = new RollViewPagerAdapter(rollPagerView);
                         adapter.setRollViewBeans(response);
@@ -186,6 +202,8 @@ class ForViewPagerFragmentHome extends BaseFragment {
                 // 请求成功的方法
                 firstListViewAdapter.setTabLayoutItemBeans(response);
                 listView.setAdapter(firstListViewAdapter);
+
+
             }
         }, new Response.ErrorListener() {
             @Override

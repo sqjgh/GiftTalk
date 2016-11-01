@@ -4,11 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-
-import java.util.ArrayList;
+import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.category.categorybeans.SingleBeans;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
@@ -17,16 +19,12 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
  */
 public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdapter {
 
-    private ArrayList<String> headList, rightList;
+    private SingleBeans singleBeans;
 
-
-    public void setHeadList(ArrayList<String> headList) {
-        this.headList = headList;
+    public void setSingleBeans(SingleBeans singleBeans) {
+        this.singleBeans = singleBeans;
     }
 
-    public void setRightList(ArrayList<String> rightList) {
-        this.rightList = rightList;
-    }
 
     @Override
     public long getHeaderId(int position) {
@@ -35,12 +33,12 @@ public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdap
 
     @Override
     public int getCount() {
-        return headList.size();
+        return singleBeans.getData().getCategories().size();
     }
 
     @Override
     public Object getItem(int i) {
-        return rightList.get(i);
+        return singleBeans.getData().getCategories().get(i);
     }
 
     @Override
@@ -53,10 +51,24 @@ public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdap
         BodyViewHolder bodyViewHolder = null;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_right_single_category, viewGroup, false);
+            GridLayout gridLayout = (GridLayout) view.findViewById(R.id.gl_item_right_category);
+            for (int ii = 0; ii < singleBeans.getData().getCategories().get(i).getSubcategories().size(); ii++) {
+                View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.one_right,null);
+                ImageView imageView = (ImageView) v.findViewById(R.id.image_one);
+                TextView textView = (TextView) v.findViewById(R.id.tv_one);
+                VolleySingleton.getInstance().getImage(singleBeans.getData().getCategories().get(i).getSubcategories().get(ii).getIcon_url(),imageView);
+                textView.setText(singleBeans.getData().getCategories().get(i).getSubcategories().get(ii).getName());
+                gridLayout.addView(v);
+            }
+
             bodyViewHolder = new BodyViewHolder(view);
             view.setTag(bodyViewHolder);
-        } else bodyViewHolder = (BodyViewHolder) view.getTag();
-        bodyViewHolder.tvBody.setText(rightList.get(i));
+
+
+        } else {
+            bodyViewHolder = (BodyViewHolder) view.getTag();
+        }
+
         return view;
     }
 
@@ -70,9 +82,12 @@ public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdap
         } else {
             headViewHolder = (HeadViewHolder) convertView.getTag();
         }
-        headViewHolder.tvHead.setText(headList.get(position));
+        headViewHolder.tvHead.setText(singleBeans.getData().getCategories().get(position).getName());
         return convertView;
     }
+
+
+
 
     class HeadViewHolder {
         private TextView tvHead;
@@ -86,7 +101,11 @@ public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdap
         private TextView tvBody;
 
         public BodyViewHolder(View view) {
-            tvBody = (TextView) view.findViewById(R.id.tv_right_single_category);
+
         }
     }
+
+
+
+
 }

@@ -6,7 +6,8 @@
         android:id="@+id/tv_head_single_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#52cc47"/>
+        android:background="@color/colorLine"
+        android:textSize="16dp"
+        android:gravity="center" />
 
 </LinearLayout>

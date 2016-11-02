@@ -1,15 +1,15 @@
 package com.example.dllo.gifttalk.category.singlecategory;
 
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.category.categorybeans.SingleBeans;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
@@ -50,25 +50,18 @@ public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdap
     public View getView(int i, View view, ViewGroup viewGroup) {
         BodyViewHolder bodyViewHolder = null;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_right_single_category, viewGroup, false);
-            GridLayout gridLayout = (GridLayout) view.findViewById(R.id.gl_item_right_category);
-            for (int ii = 0; ii < singleBeans.getData().getCategories().get(i).getSubcategories().size(); ii++) {
-                View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.one_right,null);
-                ImageView imageView = (ImageView) v.findViewById(R.id.image_one);
-                TextView textView = (TextView) v.findViewById(R.id.tv_one);
-                VolleySingleton.getInstance().getImage(singleBeans.getData().getCategories().get(i).getSubcategories().get(ii).getIcon_url(),imageView);
-                textView.setText(singleBeans.getData().getCategories().get(i).getSubcategories().get(ii).getName());
-                gridLayout.addView(v);
-            }
-
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rv_right_single_category, viewGroup, false);
             bodyViewHolder = new BodyViewHolder(view);
             view.setTag(bodyViewHolder);
-
-
         } else {
             bodyViewHolder = (BodyViewHolder) view.getTag();
         }
-
+        RightRVAdapter adapter = new RightRVAdapter();
+        adapter.setItemPosition(i);
+        adapter.setSingleBeans(singleBeans);
+        bodyViewHolder.rv.setAdapter(adapter);
+        GridLayoutManager manager = new GridLayoutManager(viewGroup.getContext(),3, LinearLayoutManager.VERTICAL,false);
+        bodyViewHolder.rv.setLayoutManager(manager);
         return view;
     }
 
@@ -98,10 +91,11 @@ public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdap
     }
 
     class BodyViewHolder {
-        private TextView tvBody;
+
+        private final RecyclerView rv;
 
         public BodyViewHolder(View view) {
-
+            rv = (RecyclerView) view.findViewById(R.id.rv_right_single_category);
         }
     }
 

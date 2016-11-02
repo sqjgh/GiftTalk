@@ -1,45 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/background_item_gift"
-    android:layout_margin="8dp">
+    android:layout_height="320dp">
 
-    <ImageView
-        android:id="@+id/imageview_item_gift"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:scaleType="fitXY"
-        android:layout_margin="1dp"
-        android:background="@color/colorBackground"
-        android:adjustViewBounds="false" />
+        android:layout_height="300dp"
+        android:layout_margin="8dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageview_item_gift"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_margin="1dp"
+            android:adjustViewBounds="false"
+            android:background="@color/colorBackground"
+            android:scaleType="fitXY" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llone_item_everyday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_item_everyday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_ll_item_everyday"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/top_item_everyday_gift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="TOP"
+                        android:textColor="@color/colorTabLayout"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:id="@+id/num_item_everyday_gift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="1"
+                        android:textColor="@color/colorTabLayout"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/title_item_gift"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/ll_item_everyday"
+                    android:text="让桌面四季如春" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title2_item_gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/llone_item_everyday"
+                android:text="NOMO.格赫思比例花房"
+                android:textColor="#B9AAAA" />
+
+            <TextView
+                android:id="@+id/price_item_gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:gravity="bottom"
+                android:text="126.5"
+                android:textColor="#ff3851" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-    <TextView
-        android:id="@+id/title_item_gift"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="让桌面四季如春"
-        android:layout_marginBottom="6dp"/>
-
-    <TextView
-        android:id="@+id/title2_item_gift"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NOMO.格赫思比例花房"
-        android:textColor="#B9AAAA"
-        android:layout_below="@+id/title_item_gift"
-        android:layout_marginBottom="6dp"/>
-
-    <TextView
-        android:id="@+id/price_item_gift"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="126.5"
-        android:textColor="#ff3851"
-        android:layout_below="@id/title2_item_gift"/>
+        android:layout_height="match_parent"
+        android:background="@drawable/up_background_item_gift"
+        >
     </RelativeLayout>
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="9dp"
+        android:background="@drawable/up_up_background"
+        >
+    </RelativeLayout>
+</RelativeLayout>

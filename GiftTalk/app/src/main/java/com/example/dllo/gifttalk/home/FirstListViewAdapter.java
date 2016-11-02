@@ -24,6 +24,10 @@ public class FirstListViewAdapter extends BaseAdapter {
     final int TYPE_PIC = 1;
     final int TYPE_NORMAL = 2;
 
+    public TabLayoutItemBeans getTabLayoutItemBeans() {
+        return tabLayoutItemBeans;
+    }
+
     public void setTabLayoutItemBeans(TabLayoutItemBeans tabLayoutItemBeans) {
         this.tabLayoutItemBeans = tabLayoutItemBeans;
     }

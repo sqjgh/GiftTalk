@@ -2,6 +2,7 @@ package com.example.dllo.gifttalk.home;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -47,6 +48,9 @@ class ForViewPagerFragmentHome extends BaseFragment {
         init();
     }
 
+    public void asdasd(){
+        Log.d("Fo111", firstListViewAdapter.getTabLayoutItemBeans().getData().getItems().get(0).getTitle());
+    }
     @Override
     protected void initView() {
         txt = bindView(R.id.tab_txt);
@@ -55,6 +59,7 @@ class ForViewPagerFragmentHome extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getActivity(), "i:" + i, Toast.LENGTH_SHORT).show();
+                asdasd();
             }
         });
     }
@@ -202,8 +207,6 @@ class ForViewPagerFragmentHome extends BaseFragment {
                 // 请求成功的方法
                 firstListViewAdapter.setTabLayoutItemBeans(response);
                 listView.setAdapter(firstListViewAdapter);
-
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -214,5 +217,6 @@ class ForViewPagerFragmentHome extends BaseFragment {
         //请求放入请求队列
         VolleySingleton.getInstance().addRequest(gsonRequest);
     }
+
 
 }

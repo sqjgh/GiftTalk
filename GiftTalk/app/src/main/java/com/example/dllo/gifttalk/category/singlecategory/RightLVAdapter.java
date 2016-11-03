@@ -50,7 +50,7 @@ public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdap
     public View getView(int i, View view, ViewGroup viewGroup) {
         BodyViewHolder bodyViewHolder = null;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rv_right_single_category, viewGroup, false);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_right_single_category, viewGroup, false);
             bodyViewHolder = new BodyViewHolder(view);
             view.setTag(bodyViewHolder);
         } else {

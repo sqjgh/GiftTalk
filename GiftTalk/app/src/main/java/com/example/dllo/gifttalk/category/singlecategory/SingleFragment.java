@@ -80,6 +80,8 @@ public class SingleFragment extends BaseFragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 rightLv.setSelection(i);
+                leftLVAdapter.setSelect(i);
+
             }
         });
 
@@ -92,6 +94,7 @@ public class SingleFragment extends BaseFragment{
             @Override
             public void onScroll(AbsListView absListView, int i, int i1, int i2) {
                 leftLv.smoothScrollToPositionFromTop(i - 1, 0);
+                leftLVAdapter.setSelect(i);
 
             }
         });

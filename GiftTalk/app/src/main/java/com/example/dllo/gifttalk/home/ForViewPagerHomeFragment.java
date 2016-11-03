@@ -1,14 +1,11 @@
 package com.example.dllo.gifttalk.home;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -20,22 +17,21 @@ import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.home.homebeans.RollViewBeans;
 import com.example.dllo.gifttalk.home.homebeans.TabLayoutItemBeans;
 import com.example.dllo.gifttalk.home.rollviewpager.RollViewPagerAdapter;
-import com.jude.rollviewpager.OnItemClickListener;
+import com.example.dllo.gifttalk.secondlevel.WebViewClass;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 
 /**
  * Created by dllo on 16/10/25.
  */
-class ForViewPagerFragmentHome extends BaseFragment {
+class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome {
 
     public static String HOME_KEY = "pos";
-    private TextView txt;
     private int type;
     private FirstListViewAdapter firstListViewAdapter;
-    private NormalListViewAdapter normalLVAdapter;
     private ListView listView;
     private View v;
+
 
     @Override
     protected void initData() {
@@ -43,25 +39,15 @@ class ForViewPagerFragmentHome extends BaseFragment {
             type = getArguments().getInt(HOME_KEY);
         }
         firstListViewAdapter = new FirstListViewAdapter(getActivity());
-        normalLVAdapter = new NormalListViewAdapter(getActivity());
         // 判断进入的是哪个页面
         init();
     }
 
-    public void asdasd(){
-        Log.d("Fo111", firstListViewAdapter.getTabLayoutItemBeans().getData().getItems().get(0).getTitle());
-    }
+
     @Override
     protected void initView() {
-        txt = bindView(R.id.tab_txt);
+
         listView = bindView(R.id.listview_vp_home);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), "i:" + i, Toast.LENGTH_SHORT).show();
-                asdasd();
-            }
-        });
     }
 
     @Override
@@ -69,8 +55,8 @@ class ForViewPagerFragmentHome extends BaseFragment {
         return R.layout.lv_home;
     }
 
-    public static ForViewPagerFragmentHome getInstance(int pos) {
-        ForViewPagerFragmentHome fragment = new ForViewPagerFragmentHome();
+    public static ForViewPagerHomeFragment getInstance(int pos) {
+        ForViewPagerHomeFragment fragment = new ForViewPagerHomeFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(HOME_KEY, pos);
         fragment.setArguments(bundle);
@@ -89,16 +75,9 @@ class ForViewPagerFragmentHome extends BaseFragment {
                         // 请求成功的方法
                         // 添加头布局轮播图
                         // ViewGroup 不对
-                        v = LayoutInflater.from(getActivity()).inflate(R.layout.rollviewpager_home, null);
+                        v = LayoutInflater.from(context).inflate(R.layout.rollviewpager_home, null);
                         RollPagerView rollPagerView = (RollPagerView) v.findViewById(R.id.rollvp_home);
-
-                        rollPagerView.setOnItemClickListener(new OnItemClickListener() {
-                            @Override
-                            public void onItemClick(int position) {
-                                Toast.makeText(getActivity(), "position:" + position, Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                        rollPagerView.setHintView(new ColorPointHintView(getActivity(), Color.RED, Color.WHITE));
+                        rollPagerView.setHintView(new ColorPointHintView(context, Color.RED, Color.WHITE));
                         RollViewPagerAdapter adapter = new RollViewPagerAdapter(rollPagerView);
                         adapter.setRollViewBeans(response);
                         rollPagerView.setAdapter(adapter);
@@ -178,7 +157,8 @@ class ForViewPagerFragmentHome extends BaseFragment {
 
 
     }
-    public void firstNetData(){
+
+    public void firstNetData() {
         // 请求"精选"正常数据
         String url1 = Values.TABLAYOUT_ITEMSFRONT_HOME + Values.TABLAYOUT_ID_HOME.get(0) + Values.TABLAYOUT_ITEMSBACK_HOME;
         GsonRequest<TabLayoutItemBeans> gsonRequest1 = new GsonRequest<>(TabLayoutItemBeans.class, url1, new Response.Listener<TabLayoutItemBeans>() {
@@ -186,6 +166,7 @@ class ForViewPagerFragmentHome extends BaseFragment {
             public void onResponse(TabLayoutItemBeans response) {
                 // 请求成功的方法
                 firstListViewAdapter.setTabLayoutItemBeans(response);
+                firstListViewAdapter.setClickListViewHome(ForViewPagerHomeFragment.this);
                 listView.addHeaderView(v);
                 listView.setAdapter(firstListViewAdapter);
             }
@@ -198,7 +179,8 @@ class ForViewPagerFragmentHome extends BaseFragment {
         //请求放入请求队列
         VolleySingleton.getInstance().addRequest(gsonRequest1);
     }
-    public void netData(int whatType){
+
+    public void netData(int whatType) {
         // 请求正常数据
         String url1 = Values.TABLAYOUT_ITEMSFRONT_HOME + Values.TABLAYOUT_ID_HOME.get(whatType) + Values.TABLAYOUT_ITEMSBACK_HOME;
         GsonRequest<TabLayoutItemBeans> gsonRequest = new GsonRequest<>(TabLayoutItemBeans.class, url1, new Response.Listener<TabLayoutItemBeans>() {
@@ -206,6 +188,7 @@ class ForViewPagerFragmentHome extends BaseFragment {
             public void onResponse(TabLayoutItemBeans response) {
                 // 请求成功的方法
                 firstListViewAdapter.setTabLayoutItemBeans(response);
+                firstListViewAdapter.setClickListViewHome(ForViewPagerHomeFragment.this);
                 listView.setAdapter(firstListViewAdapter);
             }
         }, new Response.ErrorListener() {
@@ -216,6 +199,13 @@ class ForViewPagerFragmentHome extends BaseFragment {
         });
         //请求放入请求队列
         VolleySingleton.getInstance().addRequest(gsonRequest);
+    }
+    // 点击跳转
+    @Override
+    public void onClick(String url) {
+        Intent intent = new Intent(getActivity(), WebViewClass.class);
+        intent.putExtra("url",url);
+        startActivity(intent);
     }
 
 

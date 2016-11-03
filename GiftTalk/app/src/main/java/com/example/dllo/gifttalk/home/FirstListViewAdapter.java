@@ -1,11 +1,13 @@
 package com.example.dllo.gifttalk.home;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
@@ -18,14 +20,12 @@ import com.example.dllo.gifttalk.home.homebeans.TabLayoutItemBeans;
 public class FirstListViewAdapter extends BaseAdapter {
     private Context context;
     private TabLayoutItemBeans tabLayoutItemBeans;
-    final String TYPE_PIC1 = "ad";
-    final String TYPE_NORMAL1 = "post";
     final int VIEW_TYPE = 3;
     final int TYPE_PIC = 1;
     final int TYPE_NORMAL = 2;
-
-    public TabLayoutItemBeans getTabLayoutItemBeans() {
-        return tabLayoutItemBeans;
+    ClickListViewHome clickListViewHome;
+    public void setClickListViewHome(ClickListViewHome clickListViewHome){
+        this.clickListViewHome = clickListViewHome;
     }
 
     public void setTabLayoutItemBeans(TabLayoutItemBeans tabLayoutItemBeans) {
@@ -43,6 +43,7 @@ public class FirstListViewAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
+//        Log.d("F1113", tabLayoutItemBeans.getData().getItems().get(position).getType());
         if (tabLayoutItemBeans.getData().getItems().get(position).getType().equals("ad")){
             return TYPE_PIC;
         }else{
@@ -66,7 +67,7 @@ public class FirstListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         ViewHolder1 viewHolder1 = null;
         ViewHolder2 viewHolder2 = null;
         int type = getItemViewType(i);
@@ -97,11 +98,21 @@ public class FirstListViewAdapter extends BaseAdapter {
         switch (type){
 
             case TYPE_PIC:
+                // TODO 改接口以后纯图片显示不出来
+                Log.d("F111", tabLayoutItemBeans.getData().getItems().get(i).getImage_url());
                 VolleySingleton.getInstance().getImage(tabLayoutItemBeans.getData().getItems().get(i).getImage_url(),viewHolder1.imageView);
+                // 页面跳转接口
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    }
+                });
                 break;
             case TYPE_NORMAL:
+//                Log.d("F1112", tabLayoutItemBeans.getData().getItems().get(i).getImage_url());
                 VolleySingleton.getInstance().getImage(tabLayoutItemBeans.getData().getItems().get(i).getCover_image_url(),viewHolder2.pic);
                 viewHolder2.title.setText(tabLayoutItemBeans.getData().getItems().get(i).getTitle());
+                viewHolder2.column2.setText(tabLayoutItemBeans.getData().getItems().get(i).getColumn().getTitle());
                 String str = tabLayoutItemBeans.getData().getItems().get(i).getIntroduction();
                 if (str.length() > 46){
                     String re = str.substring(0,45);
@@ -111,6 +122,13 @@ public class FirstListViewAdapter extends BaseAdapter {
                 }
                 viewHolder2.follow.setText(String.valueOf(tabLayoutItemBeans.getData().getItems().get(i).getLikes_count()));
 
+                // 页面跳转接口
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        clickListViewHome.onClick(tabLayoutItemBeans.getData().getItems().get(i).getUrl());
+                    }
+                });
         }
 
         return view;
@@ -118,7 +136,7 @@ public class FirstListViewAdapter extends BaseAdapter {
 
     private class ViewHolder1 {
 
-        private final ImageView imageView;
+        private  ImageView imageView;
 
         public ViewHolder1(View itemView) {
             imageView = (ImageView) itemView.findViewById(R.id.imageview_item_home);
@@ -127,14 +145,16 @@ public class FirstListViewAdapter extends BaseAdapter {
     }
 
     private class ViewHolder2 {
-        private final ImageView pic;
-        private final TextView title;
-        private final TextView title2;
-        private final TextView column;
-        private final TextView column2;
-        private final TextView follow;
+        private  ImageView pic;
+        private  TextView title;
+        private  TextView title2;
+        private  TextView column;
+        private  TextView column2;
+        private  TextView follow;
+        private  LinearLayout test;
 
         public ViewHolder2(View itemView) {
+            test = (LinearLayout) itemView.findViewById(R.id.ll_test);
             pic = (ImageView) itemView.findViewById(R.id.iv_item_home);
             title = (TextView) itemView.findViewById(R.id.title_item_home);
             title2 = (TextView) itemView.findViewById(R.id.title2_item_home);

@@ -26,7 +26,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
     @Override
     public Fragment getItem(int position) {
         if (fragmentSparseArray.get(position) == null){
-            fragmentSparseArray.put(position, ForViewPagerFragmentHome.getInstance(position));
+            fragmentSparseArray.put(position, ForViewPagerHomeFragment.getInstance(position));
         }
         return fragmentSparseArray.get(position);
     }

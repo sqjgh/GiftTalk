@@ -9,7 +9,7 @@
         android:layout_weight="1"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        android:listSelector="@drawable/left_single"
+        android:background="#FFFFFF"
         />
     <se.emilsjolander.stickylistheaders.StickyListHeadersListView
         android:scrollbars="none"

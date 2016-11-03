@@ -27,7 +27,7 @@ public class RightRVAdapter extends RecyclerView.Adapter<RightRVAdapter.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.one_right,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_right_rv_single_category,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }

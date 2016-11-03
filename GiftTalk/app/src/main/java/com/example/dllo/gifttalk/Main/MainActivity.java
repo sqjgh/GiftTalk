@@ -8,6 +8,7 @@ import android.widget.RadioButton;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
+import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.category.CategoryFragment;
 import com.example.dllo.gifttalk.gift.GiftFragment;
 import com.example.dllo.gifttalk.home.HomeFragment;
@@ -15,13 +16,15 @@ import com.example.dllo.gifttalk.profile.ProfileFragment;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private RadioButton homeBtn;
     private RadioButton giftBtn;
     private RadioButton categoryBtn;
     private RadioButton profileBtn;
     private MainFragmentAdapter adapter;
+    private BaseFragment currentFragment;
+    private FragmentManager manager;
 
     // 进入初始数据
     @Override
@@ -42,11 +45,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         giftBtn = (RadioButton) findViewById(R.id.gift_main);
         categoryBtn = (RadioButton) findViewById(R.id.category_main);
         profileBtn = (RadioButton) findViewById(R.id.profile_main);
-        setClick(this,homeBtn, giftBtn, categoryBtn,profileBtn);
+        setClick(this, homeBtn, giftBtn, categoryBtn, profileBtn);
         // 进入显示首页 Fragment
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.linearlayout_main,new HomeFragment());
+        transaction.replace(R.id.linearlayout_main, new HomeFragment());
         transaction.commit();
     }
 
@@ -59,22 +62,38 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     // 点击切换界面
     @Override
     public void onClick(View view) {
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        switch (view.getId()){
+        manager = getSupportFragmentManager();
+        switch (view.getId()) {
             case R.id.home_main:
-                transaction.replace(R.id.linearlayout_main,new HomeFragment());
+                if(currentFragment != null && currentFragment instanceof HomeFragment){
+                    return;
+                }
+                currentFragment = new HomeFragment();
+//                transaction.replace(R.id.linearlayout_main, new HomeFragment());
                 break;
             case R.id.gift_main:
-                transaction.replace(R.id.linearlayout_main,new GiftFragment());
+                if(currentFragment != null && currentFragment instanceof GiftFragment){
+                    return;
+                }
+                currentFragment = new GiftFragment();
+//                transaction.replace(R.id.linearlayout_main, new GiftFragment());
                 break;
             case R.id.category_main:
-                transaction.replace(R.id.linearlayout_main,new CategoryFragment());
+                if(currentFragment != null && currentFragment instanceof CategoryFragment){
+                    return;
+                }
+                currentFragment = new CategoryFragment();
+//                transaction.replace(R.id.linearlayout_main, new CategoryFragment());
                 break;
             case R.id.profile_main:
-                transaction.replace(R.id.linearlayout_main,new ProfileFragment());
+                if(currentFragment != null && currentFragment instanceof ProfileFragment){
+                    return;
+                }
+                currentFragment = new ProfileFragment();
                 break;
         }
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.linearlayout_main, currentFragment);
         transaction.commit();
     }
 }

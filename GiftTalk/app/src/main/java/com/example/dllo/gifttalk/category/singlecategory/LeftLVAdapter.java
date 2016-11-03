@@ -1,5 +1,6 @@
 package com.example.dllo.gifttalk.category.singlecategory;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,12 @@ import java.util.ArrayList;
 public class LeftLVAdapter extends BaseAdapter {
     ArrayList<String> list;
     private SingleBeans singleBeans;
+    private int select  = 0;
+
+    public void setSelect(int select) {
+        this.select = select;
+        notifyDataSetChanged();
+    }
 
     public void setSingleBeans(SingleBeans singleBeans) {
         this.singleBeans = singleBeans;
@@ -51,6 +58,13 @@ public class LeftLVAdapter extends BaseAdapter {
             view.setTag(viewHolder);
         }else viewHolder = (ViewHolder) view.getTag();
         viewHolder.textView.setText(singleBeans.getData().getCategories().get(i).getName());
+
+
+        if (select == i){
+            viewHolder.textView.setTextColor(Color.RED);
+        }else {
+            viewHolder.textView.setTextColor(Color.BLACK);
+        }
         return view;
     }
     class ViewHolder{

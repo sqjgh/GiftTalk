@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:name=".beantools.MyApp"
-        android:theme="@style/AppTheme">
+        android:theme="@style/HomeTitle">
         <activity android:name=".main.MainActivity"
             android:theme="@style/HomeTitle">
             <intent-filter>
@@ -16,6 +16,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".secondlevel.WebViewClass">
+
         </activity>
     </application>
 

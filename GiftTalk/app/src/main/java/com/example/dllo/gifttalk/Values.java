@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/24.
- * //TODO 刷新图片默认是机器人
+ *
  *
  */
 public class Values {
@@ -14,7 +14,7 @@ public class Values {
     public static final String ROLLVIEW_URL = "http://api.liwushuo.com/v2/banners";
     public static ArrayList<String> TABLAYOUT_ID_HOME;
     public static final String TABLAYOUT_ITEMSFRONT_HOME = "http://api.liwushuo.com/v2/channels/";
-    public static final String TABLAYOUT_ITEMSBACK_HOME = "/items?ad=2&gender=1&generation=4&limit=20&set=0";
+    public static final String TABLAYOUT_ITEMSBACK_HOME = "/items_v2?ad=2&gender=1&generation=1&limit=20&offset=0";
     // 榜单
     public static final String TABLAYOUT_ITEMSFRONT_GIFT= "http://api.liwushuo.com/v2/ranks_v2/ranks/";
     public static final String TABLAYOUT_ITEMSBACK_GIFT= "?limit=20&offset=0";

@@ -56,7 +56,7 @@ public class RaidersFragment extends BaseFragment{
             public void onResponse(ColumnRaidersBeans response) {
                 // 请求成功的方法
                 // ViewGroup 不对
-                v = LayoutInflater.from(getActivity()).inflate(R.layout.head_raiders_category, null);
+                v = LayoutInflater.from(context).inflate(R.layout.head_raiders_category, null);
                 headRecyclerView = (RecyclerView) v.findViewById(R.id.rv_raiders_category);
                 recyclerViewAdapter.setColumnRaidersBeans(response);
                 headRecyclerView.setAdapter(recyclerViewAdapter);

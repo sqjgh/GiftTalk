@@ -11,7 +11,7 @@ import com.example.dllo.gifttalk.base.BaseActivity;
 /**
  * Created by dllo on 16/11/3.
  */
-public class WebViewClass extends BaseActivity {
+public class WebViewActivity extends BaseActivity {
 
 
     private WebView wv;
@@ -21,7 +21,13 @@ public class WebViewClass extends BaseActivity {
         Intent intent = getIntent();
         wv.getSettings().
                 setJavaScriptEnabled(true);
-        wv.setWebViewClient(new WebViewClient());
+        wv.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onLoadResource(WebView view, String url) {
+                super.onLoadResource(view, url);
+            }
+        });
+
         wv.loadUrl(intent.getStringExtra("url"));
         Log.d("F111", intent.getStringExtra("url"));
     }
@@ -34,7 +40,7 @@ public class WebViewClass extends BaseActivity {
 
     @Override
     protected int getLayout() {
-        return R.layout.webview;
+        return R.layout.second_normal_home;
     }
 
 

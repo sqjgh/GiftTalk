@@ -1,11 +1,12 @@
 package com.example.dllo.gifttalk.gift.giftbeans;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by dllo on 16/10/29.
  */
-public class TabLayoutItemBeansGift {
+public class TabLayoutItemBeansGift implements Serializable {
 
     /**
      * code : 200
@@ -50,7 +51,7 @@ public class TabLayoutItemBeansGift {
         this.message = message;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         private String cover_image;
         private String cover_url;
         private String cover_webp;
@@ -139,7 +140,7 @@ public class TabLayoutItemBeansGift {
             this.items = items;
         }
 
-        public static class PagingBean {
+        public static class PagingBean implements Serializable{
             private String next_url;
 
             public String getNext_url() {
@@ -151,7 +152,7 @@ public class TabLayoutItemBeansGift {
             }
         }
 
-        public static class ItemsBean {
+        public static class ItemsBean implements Serializable{
             private Object ad_monitors;
             private Object brand_id;
             private Object brand_order;

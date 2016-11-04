@@ -17,7 +17,7 @@ import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.home.homebeans.RollViewBeans;
 import com.example.dllo.gifttalk.home.homebeans.TabLayoutItemBeans;
 import com.example.dllo.gifttalk.home.rollviewpager.RollViewPagerAdapter;
-import com.example.dllo.gifttalk.secondlevel.WebViewClass;
+import com.example.dllo.gifttalk.secondlevel.WebViewActivity;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 
@@ -46,7 +46,6 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
 
     @Override
     protected void initView() {
-
         listView = bindView(R.id.listview_vp_home);
     }
 
@@ -67,6 +66,7 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
 
         switch (type) {
             case 0:
+
                 // 轮播图
                 //创建请求
                 GsonRequest<RollViewBeans> gsonRequest = new GsonRequest<>(RollViewBeans.class, Values.ROLLVIEW_URL, new Response.Listener<RollViewBeans>() {
@@ -75,6 +75,7 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
                         // 请求成功的方法
                         // 添加头布局轮播图
                         // ViewGroup 不对
+
                         v = LayoutInflater.from(context).inflate(R.layout.rollviewpager_home, null);
                         RollPagerView rollPagerView = (RollPagerView) v.findViewById(R.id.rollvp_home);
                         rollPagerView.setHintView(new ColorPointHintView(context, Color.RED, Color.WHITE));
@@ -166,9 +167,10 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
             public void onResponse(TabLayoutItemBeans response) {
                 // 请求成功的方法
                 firstListViewAdapter.setTabLayoutItemBeans(response);
+                // 接口指针指向
                 firstListViewAdapter.setClickListViewHome(ForViewPagerHomeFragment.this);
                 listView.addHeaderView(v);
-                listView.setAdapter(firstListViewAdapter);
+                listView.setAdapter(firstListViewAdapter);  // TODO 空指针
             }
         }, new Response.ErrorListener() {
             @Override
@@ -187,6 +189,7 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
             @Override
             public void onResponse(TabLayoutItemBeans response) {
                 // 请求成功的方法
+
                 firstListViewAdapter.setTabLayoutItemBeans(response);
                 firstListViewAdapter.setClickListViewHome(ForViewPagerHomeFragment.this);
                 listView.setAdapter(firstListViewAdapter);
@@ -200,10 +203,10 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
         //请求放入请求队列
         VolleySingleton.getInstance().addRequest(gsonRequest);
     }
-    // 点击跳转
+    // 点击item跳转到详情页面 接口实现方法
     @Override
     public void onClick(String url) {
-        Intent intent = new Intent(getActivity(), WebViewClass.class);
+        Intent intent = new Intent(getActivity(), WebViewActivity.class);
         intent.putExtra("url",url);
         startActivity(intent);
     }

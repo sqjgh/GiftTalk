@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <com.jude.rollviewpager.RollPagerView
+            android:id="@+id/rollvp_second_gift"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="1dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/llone_second_everyday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_second_everyday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_ll_item_everyday"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/top_second_everyday_gift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="TOP"
+                        android:textColor="@color/colorTabLayout"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:id="@+id/num_second_everyday_gift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="1"
+                        android:textColor="@color/colorTabLayout"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/title_second_gift"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/ll_second_everyday"
+                    android:text="让桌面四季如春" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title2_second_gift"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llone_second_everyday"
+                android:text="NOMO.格赫思比例花房"
+                android:textColor="#B9AAAA" />
+
+            <TextView
+                android:id="@+id/price_second_gift"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="126.5"
+                android:layout_below="@id/title2_second_gift"
+                android:textColor="#ff3851" />
+            <TextView
+                android:layout_below="@id/price_second_gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="350"
+                android:id="@+id/follow_second_gift"/>
+            <TextView
+                android:id="@+id/text_second_gift"
+                android:layout_below="@id/follow_second_gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="这张炫目的亮片元素与基本款本地靴结合巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉"/>
+            <ImageView
+                android:id="@+id/line1_second_gift"
+                android:layout_below="@id/text_second_gift"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine"/>
+            <TextView
+                android:layout_below="@id/line1_second_gift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="精品正选,假货额外赔付100%"/>
+        </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/rv_hor_second_gift">
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_ver_second_gift">
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
+
+</ScrollView>

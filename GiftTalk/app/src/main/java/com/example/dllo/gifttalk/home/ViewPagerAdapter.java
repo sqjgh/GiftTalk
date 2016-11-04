@@ -14,6 +14,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
     SparseArray<Fragment> fragmentSparseArray;
     private TabLayoutBeans tabLayoutBeans;
 
+
     public void setTabLayoutBeans(TabLayoutBeans tabLayoutBeans) {
         this.tabLayoutBeans = tabLayoutBeans;
     }

@@ -1,5 +1,6 @@
 package com.example.dllo.gifttalk.gift;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +13,12 @@ import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
-import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.secondlevel.secondgift.SecondGiftActivity;
+
+import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/24.
@@ -48,6 +52,7 @@ public class ForViewPagerGiftFragment extends BaseFragment {
         header = bindView(R.id.header);
         giftRecyclerViewAdapter = new GiftRecyclerViewAdapter(getActivity());
         headImage = bindView(R.id.head_imageview_gift);
+         //TODO rv 的点击跳转事件
     }
 
     @Override
@@ -100,5 +105,7 @@ public class ForViewPagerGiftFragment extends BaseFragment {
         VolleySingleton.getInstance().addRequest(gsonRequest1);
 
     }
+
+
 
 }

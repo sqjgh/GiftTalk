@@ -17,7 +17,7 @@ import com.example.dllo.gifttalk.category.categorybeans.ColumnRaidersBeans;
  * Created by dllo on 16/10/27.
  */
 public class HeadRecyclerViewRaidersAdapter extends RecyclerView.Adapter<HeadRecyclerViewRaidersAdapter.ViewHolder>{
-     ColumnRaidersBeans columnRaidersBeans;
+    ColumnRaidersBeans columnRaidersBeans;
     private Context context;
 
     public void setColumnRaidersBeans(ColumnRaidersBeans columnRaidersBeans) {
@@ -38,15 +38,10 @@ public class HeadRecyclerViewRaidersAdapter extends RecyclerView.Adapter<HeadRec
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
-        if (position == 12){
-            holder.background.setVisibility(View.VISIBLE);
-            holder.all.setVisibility(View.VISIBLE);
-        }else {
             holder.author.setText(columnRaidersBeans.getData().getColumns().get(position).getAuthor());
             holder.title.setText(columnRaidersBeans.getData().getColumns().get(position).getTitle());
             VolleySingleton.getInstance().getImage(columnRaidersBeans.getData().getColumns().get(position).getBanner_image_url(),holder.imageView);
-        }
+
     }
 
     @Override
@@ -59,16 +54,14 @@ public class HeadRecyclerViewRaidersAdapter extends RecyclerView.Adapter<HeadRec
         private final ImageView imageView;
         private final TextView title;
         private final TextView author;
-        private final RelativeLayout background;
-        private final TextView all;
+        private final RelativeLayout rl;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.pic1_head_raiders_category);
             title = (TextView) itemView.findViewById(R.id.title1_head_raiders_category);
             author = (TextView) itemView.findViewById(R.id.from1_head_raiders_category);
-            background = (RelativeLayout) itemView.findViewById(R.id.background_white_rv_raiders);
-            all = (TextView) itemView.findViewById(R.id.click_last_rv_raiders);
+            rl = (RelativeLayout) itemView.findViewById(R.id.one_raiders);
         }
     }
 }

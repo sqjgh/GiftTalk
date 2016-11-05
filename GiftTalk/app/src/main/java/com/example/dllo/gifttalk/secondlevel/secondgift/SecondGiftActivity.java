@@ -19,22 +19,20 @@ public class SecondGiftActivity extends BaseActivity {
 
     private ViewPager vp;
     private TabLayout tbl;
-    private VPSecondGiftAdapter vpAdapterSecondGift;
     TabLayoutItemBeansGift tabLayoutItemBeansGift;
-    SecondGiftBeans secondGiftBeans;
-
-    public void setSecondGiftBeans(SecondGiftBeans secondGiftBeans) {
-        this.secondGiftBeans = secondGiftBeans;
-    }
+    private VPSecondGiftAdapter vpAdapterSecondGift;
+    private String position;
 
     @Override
     protected void initData() {
         Intent intent = getIntent();
-        String position = intent.getStringExtra("position");
+        position = intent.getStringExtra("position");
+
         tabLayoutItemBeansGift = (TabLayoutItemBeansGift) intent.getSerializableExtra("tabLayoutItemBeansGift");
-        secondGiftBeans.SecondGiftBeans(tabLayoutItemBeansGift,Integer.valueOf(position));
         // 进入三个Fragment加载
         initFragments();
+
+
     }
 
 
@@ -57,6 +55,8 @@ public class SecondGiftActivity extends BaseActivity {
         fragments.add(new CommentSecondGiftFragment());
         vpAdapterSecondGift = new VPSecondGiftAdapter(getSupportFragmentManager());
         vpAdapterSecondGift.setFragments(fragments);
+
+        vpAdapterSecondGift.setTabLayoutItemBeansGift(tabLayoutItemBeansGift,Integer.valueOf(position));
         vp.setAdapter(vpAdapterSecondGift);
         tbl.setTabTextColors(Color.DKGRAY, Color.WHITE);
         tbl.setSelectedTabIndicatorColor(Color.WHITE);

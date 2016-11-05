@@ -36,21 +36,7 @@
             android:id="@+id/from1_head_raiders_category"
             android:textSize="12dp"
             android:layout_alignStart="@+id/title1_head_raiders_category" />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/background_white_rv_raiders"
-            android:background="#FFFFFF"
-            android:visibility="invisible"></RelativeLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorTabLayout"
-            android:text="点击查看全部"
-            android:layout_centerInParent="true"
-            android:visibility="invisible"
-            android:background="@drawable/background_last_rv_raiders"
-            android:id="@+id/click_last_rv_raiders"/>
+
     </RelativeLayout>
 
 

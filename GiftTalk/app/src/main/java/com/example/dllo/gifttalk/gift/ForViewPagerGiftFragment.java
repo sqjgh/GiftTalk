@@ -1,10 +1,10 @@
 package com.example.dllo.gifttalk.gift;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.android.volley.Response;
@@ -16,9 +16,6 @@ import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
-import com.example.dllo.gifttalk.secondlevel.secondgift.SecondGiftActivity;
-
-import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/24.
@@ -83,6 +80,7 @@ public class ForViewPagerGiftFragment extends BaseFragment {
     private void netData(final int whatPage) {
         // 请求"精选"正常数据
         String url1 = Values.TABLAYOUT_ITEMSFRONT_GIFT + Values.TABLAYOUT_ID_GIFT.get(whatPage) + Values.TABLAYOUT_ITEMSBACK_GIFT;
+        Log.d("榜单网址", url1);
         GsonRequest<TabLayoutItemBeansGift> gsonRequest1 = new GsonRequest<>(TabLayoutItemBeansGift.class, url1, new Response.Listener<TabLayoutItemBeansGift>() {
             @Override
             public void onResponse(TabLayoutItemBeansGift response) {

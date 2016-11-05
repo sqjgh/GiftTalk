@@ -6,16 +6,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
-import com.example.dllo.gifttalk.category.categorybeans.ColumnRaidersBeans;
-import com.example.dllo.gifttalk.category.categorybeans.ListViewRaidersBeans;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.category.categorybeans.ColumnRaidersBeans;
+import com.example.dllo.gifttalk.category.categorybeans.ListViewRaidersBeans;
 
 /**
  * Created by dllo on 16/10/24.
@@ -30,6 +31,7 @@ public class RaidersFragment extends BaseFragment{
 
     @Override
     protected void initData() {
+
         initHeadNetData();
     }
 
@@ -38,7 +40,6 @@ public class RaidersFragment extends BaseFragment{
         listView = bindView(R.id.listview_raiders_category);
         listViewAdapter = new RaidersListViewAdapter(getActivity());
         recyclerViewAdapter = new HeadRecyclerViewRaidersAdapter(getActivity());
-
 
     }
 
@@ -55,8 +56,14 @@ public class RaidersFragment extends BaseFragment{
             @Override
             public void onResponse(ColumnRaidersBeans response) {
                 // 请求成功的方法
-                // ViewGroup 不对
                 v = LayoutInflater.from(context).inflate(R.layout.head_raiders_category, null);
+                TextView all = (TextView) v.findViewById(R.id.all_head_raiders);
+                all.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
                 headRecyclerView = (RecyclerView) v.findViewById(R.id.rv_raiders_category);
                 recyclerViewAdapter.setColumnRaidersBeans(response);
                 headRecyclerView.setAdapter(recyclerViewAdapter);

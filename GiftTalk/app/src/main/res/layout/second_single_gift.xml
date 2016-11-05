@@ -13,8 +13,8 @@
         <com.jude.rollviewpager.RollPagerView
             android:id="@+id/rollvp_second_gift"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_margin="1dp" />
+            android:layout_height="405dp"
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -83,16 +83,28 @@
                 android:text="126.5"
                 android:layout_below="@id/title2_second_gift"
                 android:textColor="#ff3851" />
-            <TextView
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_below="@id/price_second_gift"
+                android:id="@+id/ll_second_gift"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/icon_post_favourite_gray"/>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="350"
+                android:layout_marginLeft="5dp"
                 android:id="@+id/follow_second_gift"/>
+            </LinearLayout>
             <TextView
                 android:id="@+id/text_second_gift"
-                android:layout_below="@id/follow_second_gift"
+                android:layout_below="@id/ll_second_gift"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="这张炫目的亮片元素与基本款本地靴结合巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉"/>

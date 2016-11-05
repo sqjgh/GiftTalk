@@ -9,7 +9,8 @@
         android:layout_height="300dp"
         android:layout_margin="8dp"
         android:background="#ffffff"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
         <ImageView
             android:id="@+id/imageview_item_gift"
@@ -104,13 +105,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/up_background_item_gift"
-        >
+        android:layout_marginBottom="4dp">
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="9dp"
         android:background="@drawable/up_up_background"
-        >
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginTop="9dp"
+        android:layout_alignBottom="@+id/linearLayout">
     </RelativeLayout>
 </RelativeLayout>

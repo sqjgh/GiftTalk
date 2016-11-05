@@ -26,5 +26,13 @@ public class Values {
     public static final String ALL_RAIDERS_CATEGORY = "http://api.liwushuo.com/v2/channel_groups/all";
 
 
+    //榜单--二级界面
+    public static final String SECOND_GIFT_FRONT = "http://api.liwushuo.com/v2/items/";
+    public static final String SECOND_GIFT_BACK = "/recommend?num=20&post_num=5";
+    // 榜单二级界面  评论
+    public static final String SECOND_COMMENTS_FRONT = "http://api.liwushuo.com/v2/items/";
+    public static final String SECOND_COMMENTS_BACK = "/comments?limit=20&offset=0";
+
+
 
 }

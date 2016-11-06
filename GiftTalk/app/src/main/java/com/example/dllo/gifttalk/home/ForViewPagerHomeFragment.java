@@ -27,10 +27,11 @@ import com.jude.rollviewpager.hintview.ColorPointHintView;
 class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome {
 
     public static String HOME_KEY = "pos";
-    private int type;
+    public static int type;
     private FirstListViewAdapter firstListViewAdapter;
     private ListView listView;
     private View v;
+
 
 
     @Override
@@ -40,8 +41,11 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
         }
         firstListViewAdapter = new FirstListViewAdapter(getActivity());
         // 判断进入的是哪个页面
-        init();
+        init(type);
     }
+
+
+
 
 
     @Override
@@ -62,7 +66,7 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
         return fragment;
     }
 
-    protected void init() {
+    protected void init(int type) {
 
         switch (type) {
             case 0:
@@ -75,7 +79,6 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
                         // 请求成功的方法
                         // 添加头布局轮播图
                         // ViewGroup 不对
-
                         v = LayoutInflater.from(context).inflate(R.layout.rollviewpager_home, null);
                         RollPagerView rollPagerView = (RollPagerView) v.findViewById(R.id.rollvp_home);
                         rollPagerView.setHintView(new ColorPointHintView(context, Color.RED, Color.WHITE));

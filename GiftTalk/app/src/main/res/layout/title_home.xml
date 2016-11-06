@@ -18,6 +18,7 @@
             android:background="@mipmap/logo_title_c" />
 
         <RelativeLayout
+            android:id="@+id/search_btn_home"
             android:layout_width="220dp"
             android:layout_height="30dp"
             android:layout_centerInParent="true"
@@ -49,6 +50,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:background="@mipmap/icon_gift_send_remind" />
+            android:background="@mipmap/icon_gift_send_remind"
+            />
     </RelativeLayout>
 </LinearLayout>

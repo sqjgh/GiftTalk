@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:showDividers="middle|beginning|end">
+        android:showDividers="middle|beginning|end"
+        android:id="@+id/ll_title_home">
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tbl_home"
@@ -23,7 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@mipmap/icon_btn_arrow_down" />
+            android:id="@+id/btn_three_tbl_home"
+            android:src="@mipmap/icon_btn_arrow_down"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
     </LinearLayout>
 
     <ImageView

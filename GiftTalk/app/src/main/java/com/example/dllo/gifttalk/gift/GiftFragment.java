@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.Values;
+import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutBeansGift;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
@@ -60,8 +60,10 @@ public class GiftFragment extends BaseFragment{
 
     @Override
     protected void initView() {
-        vp = (ViewPager) getActivity().findViewById(R.id.viewpager_gift);
-        tbl = (TabLayout) getActivity().findViewById(R.id.tbl_gift);
+
+        vp = (ViewPager) getView().findViewById(R.id.viewpager_gift);
+        tbl = (TabLayout) getView().findViewById(R.id.tbl_gift);
+
 
     }
 

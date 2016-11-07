@@ -11,7 +11,7 @@ import com.example.dllo.gifttalk.home.homebeans.TabLayoutBeans;
  * Created by dllo on 16/10/25.
  */
 public class ViewPagerAdapter extends FragmentPagerAdapter{
-    SparseArray<Fragment> fragmentSparseArray;
+   private SparseArray<Fragment> fragmentSparseArray;
     private TabLayoutBeans tabLayoutBeans;
 
 

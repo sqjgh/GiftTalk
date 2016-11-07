@@ -23,6 +23,9 @@
         <activity android:name=".secondlevel.secondgift.SecondGiftActivity">
 
         </activity>
+
+        <activity android:name=".base.TempAty"/>
+        <activity android:name=".secondlevel.secondhome.SearchSecondActivity"/>
     </application>
 
 </manifest>

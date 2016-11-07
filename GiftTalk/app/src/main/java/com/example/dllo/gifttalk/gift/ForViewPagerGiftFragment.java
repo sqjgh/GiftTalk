@@ -11,7 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.Values;
+import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
@@ -61,20 +61,8 @@ public class ForViewPagerGiftFragment extends BaseFragment {
         if (getArguments() != null) {
             type = getArguments().getInt(GIFT_KEY);
         }
-        switch (type) {
-            case 0:
-                netData(0);
-                break;
-            case 1:
-                netData(1);
-                break;
-            case 2:
-                netData(2);
-                break;
-            case 3:
-                netData(3);
-                break;
-        }
+        netData(type);
+
     }
 
     private void netData(final int whatPage) {

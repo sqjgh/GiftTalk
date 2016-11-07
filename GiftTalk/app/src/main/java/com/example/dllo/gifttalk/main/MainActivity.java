@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         profileBtn = (RadioButton) findViewById(R.id.profile_main);
         setClick(this, homeBtn, giftBtn, categoryBtn, profileBtn);
         // 进入显示首页 Fragment
-        FragmentManager manager = getSupportFragmentManager();
+        manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.linearlayout_main, new HomeFragment());
         transaction.commit();
@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     // 点击切换界面
     @Override
     public void onClick(View view) {
-        manager = getSupportFragmentManager();
+//        manager = getSupportFragmentManager();
         switch (view.getId()) {
             case R.id.home_main:
                 if(currentFragment != null && currentFragment instanceof HomeFragment){
@@ -70,6 +70,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 currentFragment = new HomeFragment();
 //                transaction.replace(R.id.linearlayout_main, new HomeFragment());
+
                 break;
             case R.id.gift_main:
                 if(currentFragment != null && currentFragment instanceof GiftFragment){

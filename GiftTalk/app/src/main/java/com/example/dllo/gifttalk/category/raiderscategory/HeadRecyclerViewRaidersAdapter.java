@@ -51,10 +51,10 @@ public class HeadRecyclerViewRaidersAdapter extends RecyclerView.Adapter<HeadRec
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final ImageView imageView;
-        private final TextView title;
-        private final TextView author;
-        private final RelativeLayout rl;
+        private ImageView imageView;
+        private TextView title;
+        private TextView author;
+        private RelativeLayout rl;
 
         public ViewHolder(View itemView) {
             super(itemView);

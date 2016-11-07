@@ -1,5 +1,6 @@
 package com.example.dllo.gifttalk.home;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.TabLayout;
@@ -7,25 +8,23 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.home.homebeans.TabLayoutBeans;
+import com.example.dllo.gifttalk.secondlevel.secondhome.SearchSecondActivity;
 
 import java.util.ArrayList;
 
@@ -34,7 +33,7 @@ import java.util.ArrayList;
  */
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private TabLayout tbl;
-    private ViewPager vp;
+    private static ViewPager vp;
     private ViewPagerAdapter adapter;
     private ImageView three;
     private RelativeLayout search;
@@ -43,6 +42,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private LinearLayout ll;
     private RecyclerView rv;
     private PopupWindowRVAdapter popupWindowRVAdapter;
+    private static PopupWindow window;
 
 
     // 各种findViewById
@@ -62,7 +62,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void initData() {
         initTablayout();
-        popupWindowRVAdapter = new PopupWindowRVAdapter();
+        popupWindowRVAdapter = new PopupWindowRVAdapter(getActivity());
         initClickListener();
 
     }
@@ -91,8 +91,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 tbl.setTabMode(TabLayout.MODE_SCROLLABLE);
                 tbl.setTabTextColors(Color.DKGRAY, Color.RED);
                 tbl.setSelectedTabIndicatorColor(Color.RED);
-                // 小三角点击事件
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -115,10 +113,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_three_tbl_home:
-                Toast.makeText(context, "zou", Toast.LENGTH_SHORT).show();
                 showPopUp();
                 break;
             case R.id.search_btn_home:
+                Intent intent = new Intent(context, SearchSecondActivity.class);
+                startActivity(intent);
                 break;
             case R.id.giftremind_title_main:
                 break;
@@ -132,11 +131,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         // 利用layoutInflater获得View
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.popwindowlayout, null);
         rv = (RecyclerView) view.findViewById(R.id.rv_popupwindow);
+        // 进入后的当前页码
+        popupWindowRVAdapter.setItemPosition(vp.getCurrentItem());
         rv.setAdapter(popupWindowRVAdapter);
         rv.setLayoutManager(gridLayoutManager);
         // 下面是两种方法得到宽度和高度 getWindow().getDecorView().getWidth()
 
-        PopupWindow window = new PopupWindow(view,
+        window = new PopupWindow(view,
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT);
 
@@ -145,7 +146,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
 
         // 实例化一个ColorDrawable颜色为半透明
-        ColorDrawable dw = new ColorDrawable(0xb0000000);
+        ColorDrawable dw = new ColorDrawable(0xFFFFFFFF);
         window.setBackgroundDrawable(dw);
 
 
@@ -155,25 +156,23 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         window.showAsDropDown(ll,0,0);
 
         // 这里检验popWindow里的button是否可以点击
-        Button first = (Button) view.findViewById(R.id.first);
-        first.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("HomeFragment", "diandiandain");
-                ForViewPagerHomeFragment forViewPagerHomeFragment = new ForViewPagerHomeFragment();
-                ForViewPagerHomeFragment.getInstance(5);
-            }
-        });
+
 
         //popWindow消失监听方法
         window.setOnDismissListener(new PopupWindow.OnDismissListener() {
-
             @Override
             public void onDismiss() {
-                System.out.println("popWindow消失");
+
             }
         });
 
 
+    }
+
+
+    // 设置点击popupwindow后跳转页面
+    public static void setToItem(int ItemPosition) {
+        vp.setCurrentItem(ItemPosition,false);
+        window.dismiss();
     }
 }

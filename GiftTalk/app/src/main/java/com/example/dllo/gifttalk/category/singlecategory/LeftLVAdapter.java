@@ -56,7 +56,9 @@ public class LeftLVAdapter extends BaseAdapter {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_left_single_category,null);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
-        }else viewHolder = (ViewHolder) view.getTag();
+        }else {
+            viewHolder = (ViewHolder) view.getTag();
+        }
         viewHolder.textView.setText(singleBeans.getData().getCategories().get(i).getName());
 
 
@@ -65,6 +67,7 @@ public class LeftLVAdapter extends BaseAdapter {
         }else {
             viewHolder.textView.setTextColor(Color.BLACK);
         }
+
         return view;
     }
     class ViewHolder{

@@ -18,6 +18,15 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{  // 不是不可�
     // 用它来存放所有的View, Key就是View的id
     private SparseArray<View> views;
     private View itemView; // 行布局
+    private int pos;
+
+    public int getPos() {
+        return pos;
+    }
+
+    public void setPos(int pos) {
+        this.pos = pos;
+    }
 
     public CommonViewHolder(View itemView) {
         super(itemView);

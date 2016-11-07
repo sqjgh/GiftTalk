@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk;
+package com.example.dllo.gifttalk.beantools;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  *
  */
-public class Values {
+public final class Values {
     public static final int TAB_COLOR = 0xFF2D47;
     // 首页
     public static final String TABLAYOUT_URL_HOME = "http://api.liwushuo.com/v2/channels/preset?gender=1&generation=4";
@@ -24,7 +24,7 @@ public class Values {
     public static final String COLUMN_RAIDERS_CATEGORY = "http://api.liwushuo.com/v2/columns?limit=20&offset=0";
     // 攻略--listView
     public static final String ALL_RAIDERS_CATEGORY = "http://api.liwushuo.com/v2/channel_groups/all";
-
+    // 首页普通二级
 
     //榜单--二级界面
     public static final String SECOND_GIFT_FRONT = "http://api.liwushuo.com/v2/items/";
@@ -33,6 +33,7 @@ public class Values {
     public static final String SECOND_COMMENTS_FRONT = "http://api.liwushuo.com/v2/items/";
     public static final String SECOND_COMMENTS_BACK = "/comments?limit=20&offset=0";
 
-
+    //搜索
+    public static final String SECOND_SEARCH = "http://api.liwushuo.com/v2/search/hot_words";
 
 }

@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.gift.giftbeans;
+package com.example.dllo.gifttalk.beans;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.home.homebeans;
+package com.example.dllo.gifttalk.beans;
 
 import java.util.List;
 

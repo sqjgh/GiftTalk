@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.category.categorybeans.SingleBeans;
+import com.example.dllo.gifttalk.beans.SingleBeans;
 
 import java.util.ArrayList;
 

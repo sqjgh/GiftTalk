@@ -5,6 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.android.volley.Response;
@@ -15,7 +16,7 @@ import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
-import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.beans.TabLayoutItemBeansGift;
 
 /**
  * Created by dllo on 16/10/24.
@@ -28,6 +29,7 @@ public class ForViewPagerGiftFragment extends BaseFragment {
     private int type;
     private RecyclerViewHeader header;
     private ImageView headImage;
+    private ImageView loading;
 
 
     public static ForViewPagerGiftFragment getInstance(int pos) {
@@ -45,6 +47,7 @@ public class ForViewPagerGiftFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        loading = bindView(R.id.loading_anim_gift);
         rv = bindView(R.id.recyclerview_gift);
         header = bindView(R.id.header);
         giftRecyclerViewAdapter = new GiftRecyclerViewAdapter(getActivity());
@@ -73,6 +76,7 @@ public class ForViewPagerGiftFragment extends BaseFragment {
             @Override
             public void onResponse(TabLayoutItemBeansGift response) {
                 // 请求成功的方法
+                loading.setVisibility(View.GONE);
                 VolleySingleton.getInstance().getImage(response.getData().getCover_image(), headImage);
                 giftRecyclerViewAdapter.setTabLayoutItemBeansGift(response);
                 rv.setAdapter(giftRecyclerViewAdapter);

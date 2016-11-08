@@ -11,39 +11,52 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:orientation="horizontal"
-            android:weightSum="1">
+            android:background="@color/colorLine">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-
-                android:background="@drawable/background_search_second">
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical">
 
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:src="@mipmap/icon_search"
                     android:layout_marginLeft="15dp"
-                    android:src="@mipmap/icon_search" />
+                    android:id="@+id/imageView" />
 
                 <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="搜索单品、攻略"
+                    android:textSize="13dp"
+                    android:id="@+id/et_search_second"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/imageView" />
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/delete_et_second_search"
+                    android:src="@mipmap/nav_btn_search_clear"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="35dp"
-                    android:hint="搜索单品、攻略"
-                    android:textSize="10dp"
-                    android:id="@+id/et_search_second"/>
+                    android:layout_marginRight="10dp"
+                    android:visibility="gone" />
             </RelativeLayout>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="搜索"
-                android:id="@+id/btn_search_second"/>
+                android:id="@+id/btn_search_second"
+                android:layout_gravity="center_vertical"
+                android:padding="10dp" />
 
         </LinearLayout>
 
@@ -53,14 +66,16 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_launcher" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_start"
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="大家都在搜" />
+                android:text="大家都在搜"
+                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
@@ -69,29 +84,31 @@
             android:layout_height="wrap_content"
             android:columnCount="5"></android.support.v7.widget.RecyclerView>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="我搜索过的" />
-
-            <ImageView
-                android:id="@+id/alldelete_search_second"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_launcher" />
-        </RelativeLayout>
-
-        <ImageView
+    <ImageView
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:background="@color/colorLine" />
 
-        <ListView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_alldelete_search_second"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我搜索过的" />
+
+        <ImageView
+            android:id="@+id/alldelete_search_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/btn_delete_all" />
+    </RelativeLayout>
+
+    <ListView
             android:id="@+id/lv_search_second"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></ListView>

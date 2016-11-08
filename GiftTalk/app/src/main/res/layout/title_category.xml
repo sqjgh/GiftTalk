@@ -22,6 +22,7 @@
         android:layout_weight="1">
 
         <RelativeLayout
+            android:id="@+id/rl_search_second_category"
             android:layout_width="360dp"
             android:layout_height="30dp"
             android:layout_centerInParent="true"

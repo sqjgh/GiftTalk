@@ -24,6 +24,8 @@ public final class Values {
     public static final String COLUMN_RAIDERS_CATEGORY = "http://api.liwushuo.com/v2/columns?limit=20&offset=0";
     // 攻略--listView
     public static final String ALL_RAIDERS_CATEGORY = "http://api.liwushuo.com/v2/channel_groups/all";
+    // 单品
+    public static final String SINGLE_CATEGORY = "http://api.liwushuo.com/v2/item_categories/tree";
     // 首页普通二级
 
     //榜单--二级界面

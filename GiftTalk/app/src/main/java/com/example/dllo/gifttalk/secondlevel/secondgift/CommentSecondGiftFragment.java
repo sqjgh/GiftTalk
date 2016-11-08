@@ -1,16 +1,18 @@
 package com.example.dllo.gifttalk.secondlevel.secondgift;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
-import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.beans.TabLayoutItemBeansGift;
 import com.example.dllo.gifttalk.secondlevel.secondgift.secondgiftbeans.CommentGiftBeans;
 
 /**
@@ -22,6 +24,7 @@ public class CommentSecondGiftFragment extends BaseFragment{
     private ListView lv;
     private TabLayoutItemBeansGift beansGift;
     private int position;
+    private LinearLayout noCommont;
 
     @Override
     protected void initData() {
@@ -36,6 +39,7 @@ public class CommentSecondGiftFragment extends BaseFragment{
     @Override
     protected void initView() {
         lv = bindView(R.id.lv_comment_second_gift);
+        noCommont = bindView(R.id.ll_no_comment_second);
 
     }
 
@@ -55,6 +59,9 @@ public class CommentSecondGiftFragment extends BaseFragment{
                 // 请求成功的方法
                 CommentSecondLVAdapter adapter = new CommentSecondLVAdapter();
                 adapter.setCommentGiftBeans(response);
+                if (response.getData().getComments().size() == 0){
+                    noCommont.setVisibility(View.VISIBLE);
+                }
                 lv.setAdapter(adapter);
             }
         }, new Response.ErrorListener() {

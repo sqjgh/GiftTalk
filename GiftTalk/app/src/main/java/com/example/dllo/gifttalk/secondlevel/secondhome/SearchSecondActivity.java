@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,9 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
     private SharedPreferences.Editor spET;
     private ImageView allDelete;
     public SearchRVSecondAdapter adapter;
+    private RelativeLayout allDeleteRV;
+    private ImageView deleteEt;
+
     @Override
     protected void initData() {
         inArrayList = new ArrayList<>();
@@ -50,6 +54,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         for (int i = 0; i < sp.getAll().size(); i++) {
             inArrayList.add(sp.getString(i + "","居然没获取到数据"));
         }
+
         initGridView();
         initListView();
     }
@@ -57,6 +62,8 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     protected void initViews() {
+        deleteEt = bindView(R.id.delete_et_second_search);
+        allDeleteRV = bindView(R.id.rv_alldelete_search_second);
         lv = bindView(R.id.lv_search_second);
         rv = bindView(R.id.rv_search_second);
         search = bindView(R.id.btn_search_second);
@@ -65,7 +72,6 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         allDelete.setOnClickListener(this);
         search.setOnClickListener(this);
     }
-
 
     @Override
     public void onClick(View view) {
@@ -76,16 +82,24 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
             case R.id.alldelete_search_second:
                 inArrayList.clear();
                 spET.clear();
+                allDeleteRV.setVisibility(View.GONE);
                 baseListViewAdapter.setData(inArrayList);
                 break;
+            case R.id.delete_et_second_search:
+                et.setText("");
         }
     }
     // 点击有内容搜索,没内容退出
     private void searchBtn() {
         if (et.getText().toString().trim().length() == 0){
-            Toast.makeText(this, "kong", Toast.LENGTH_SHORT).show();
             finish();
         }else {
+            if (inArrayList.toString().trim() == null){
+                allDeleteRV.setVisibility(View.GONE);
+            }else {
+                allDeleteRV.setVisibility(View.VISIBLE);
+            }
+
             inArrayList.add(et.getText().toString());
             baseListViewAdapter.setData(inArrayList);
             lv.setAdapter(baseListViewAdapter);
@@ -109,6 +123,11 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                         et.setText(inArrayList.get(holder.getPos()));
                         inArrayList.add(0, inArrayList.get(holder.getPos()));
                         inArrayList.remove(holder.getPos() + 1);
+                        if (inArrayList.toString().trim() == null){
+                            allDeleteRV.setVisibility(View.GONE);
+                        }else {
+                            allDeleteRV.setVisibility(View.VISIBLE);
+                        }
                         notifyDataSetChanged();
                     }
                 });
@@ -117,13 +136,24 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                     @Override
                     public void onClick(View view) {
                         inArrayList.remove(holder.getPos());
+
+                        if (inArrayList.size() == 0){
+                            allDeleteRV.setVisibility(View.GONE);
+                        }else {
+                            allDeleteRV.setVisibility(View.VISIBLE);
+                        }
                         notifyDataSetChanged();
                         Toast.makeText(SearchSecondActivity.this, "holder.getItemId():" + holder.getPos(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         };
-        // 清空之前的数据
+        if (inArrayList.toString().trim() == null){
+            allDeleteRV.setVisibility(View.GONE);
+        }else {
+            allDeleteRV.setVisibility(View.VISIBLE);
+        }
+
         baseListViewAdapter.setData(inArrayList);
         lv.setAdapter(baseListViewAdapter);
     }
@@ -154,6 +184,11 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                 rv.setAdapter(adapter);
                 StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(5,StaggeredGridLayoutManager.VERTICAL);
                 rv.setLayoutManager(manager);
+                if (sp.getAll().size() == 0){
+                    allDeleteRV.setVisibility(View.GONE);
+                }else {
+                    allDeleteRV.setVisibility(View.VISIBLE);
+                }
             }
         }, new Response.ErrorListener() {
             @Override

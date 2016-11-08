@@ -39,6 +39,7 @@ public class VolleySingleton {
     public void getImage(String url, ImageView imageView){
         imageLoader.get(url,imageLoader.getImageListener(imageView, R.mipmap.abc_list_divider_holo_light,R.mipmap.abc_list_divider_holo_light));
     }
+
     // 获得  RequestQueue
     public RequestQueue getRequestQueue(){
         return mRequestQueue;

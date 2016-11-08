@@ -10,8 +10,9 @@ import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
-import com.example.dllo.gifttalk.category.categorybeans.SingleBeans;
+import com.example.dllo.gifttalk.beans.SingleBeans;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
@@ -51,8 +52,8 @@ public class SingleFragment extends BaseFragment{
     }
     private void initNetData() {
         // 请求数据
-        String url = "http://api.liwushuo.com/v2/item_categories/tree";
-        GsonRequest<SingleBeans> gsonRequest1 = new GsonRequest<>(SingleBeans.class, url, new Response.Listener<SingleBeans>() {
+
+        GsonRequest<SingleBeans> gsonRequest1 = new GsonRequest<>(SingleBeans.class, Values.SINGLE_CATEGORY, new Response.Listener<SingleBeans>() {
             @Override
             public void onResponse(SingleBeans response) {
                 // 请求成功的方法

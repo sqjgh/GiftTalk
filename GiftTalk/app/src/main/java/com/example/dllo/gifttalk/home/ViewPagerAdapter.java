@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.SparseArray;
 
-import com.example.dllo.gifttalk.home.homebeans.TabLayoutBeans;
+import com.example.dllo.gifttalk.beans.TabLayoutBeans;
 
 /**
  * Created by dllo on 16/10/25.

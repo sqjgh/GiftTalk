@@ -23,7 +23,7 @@ import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
-import com.example.dllo.gifttalk.home.homebeans.TabLayoutBeans;
+import com.example.dllo.gifttalk.beans.TabLayoutBeans;
 import com.example.dllo.gifttalk.secondlevel.secondhome.SearchSecondActivity;
 
 import java.util.ArrayList;

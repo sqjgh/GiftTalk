@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="3dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nihao"
+        android:textSize="15dp"
         android:id="@+id/history_search_second"/>
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/delete_search_second"/>
+        android:src="@mipmap/btn_close_login"
+        android:id="@+id/delete_search_second"
+        android:layout_centerVertical="true" />
 </RelativeLayout>

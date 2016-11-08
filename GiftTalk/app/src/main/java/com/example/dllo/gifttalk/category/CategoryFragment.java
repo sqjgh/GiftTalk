@@ -1,14 +1,18 @@
 package com.example.dllo.gifttalk.category;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.category.raiderscategory.RaidersFragment;
 import com.example.dllo.gifttalk.category.singlecategory.SingleFragment;
+import com.example.dllo.gifttalk.secondlevel.secondhome.SearchSecondActivity;
 
 import java.util.ArrayList;
 
@@ -20,6 +24,7 @@ public class CategoryFragment extends BaseFragment{
 
     private TabLayout tbl;
     private ViewPager vp;
+    private RelativeLayout rl;
 
     @Override
     protected void initData() {
@@ -40,6 +45,14 @@ public class CategoryFragment extends BaseFragment{
     protected void initView() {
         tbl = bindView(R.id.tbl_title_category);
         vp = bindView(R.id.viewpager_category);
+        rl = bindView(R.id.rl_search_second_category);
+        rl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SearchSecondActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

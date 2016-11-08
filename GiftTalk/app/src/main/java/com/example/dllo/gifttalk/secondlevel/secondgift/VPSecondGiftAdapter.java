@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.beans.TabLayoutItemBeansGift;
 
 import java.util.ArrayList;
 

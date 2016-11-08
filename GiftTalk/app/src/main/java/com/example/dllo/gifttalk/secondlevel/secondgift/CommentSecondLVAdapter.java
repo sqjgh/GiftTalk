@@ -48,10 +48,13 @@ public class CommentSecondLVAdapter extends BaseAdapter{
         }else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.name.setText(commentGiftBeans.getData().getComments().get(i).getUser().getNickname());
-        viewHolder.text.setText(commentGiftBeans.getData().getComments().get(i).getContent());
-        VolleySingleton.getInstance().getImage(commentGiftBeans.getData().getComments().get(i).getUser().getAvatar_url(),viewHolder.pic);
-        viewHolder.time.setText(String.valueOf(commentGiftBeans.getData().getComments().get(i).getCreated_at()));
+
+            viewHolder.name.setText(commentGiftBeans.getData().getComments().get(i).getUser().getNickname());
+            viewHolder.text.setText(commentGiftBeans.getData().getComments().get(i).getContent());
+            VolleySingleton.getInstance().getImage(commentGiftBeans.getData().getComments().get(i).getUser().getAvatar_url(),viewHolder.pic);
+            viewHolder.time.setText(String.valueOf(commentGiftBeans.getData().getComments().get(i).getCreated_at()));
+
+
 
         return view;
     }
@@ -62,6 +65,7 @@ public class CommentSecondLVAdapter extends BaseAdapter{
         private final TextView name;
         private final TextView time;
         private final TextView text;
+
 
         public ViewHolder(View view) {
             pic = (ImageView) view.findViewById(R.id.pic_second_comment_gift);

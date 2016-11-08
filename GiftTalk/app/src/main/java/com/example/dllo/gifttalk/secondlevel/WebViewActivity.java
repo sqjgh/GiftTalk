@@ -1,9 +1,10 @@
 package com.example.dllo.gifttalk.secondlevel;
 
 import android.content.Intent;
-import android.util.Log;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
@@ -15,6 +16,7 @@ public class WebViewActivity extends BaseActivity {
 
 
     private WebView wv;
+    private ImageView imageView;
 
     @Override
     protected void initData() {
@@ -26,16 +28,24 @@ public class WebViewActivity extends BaseActivity {
             public void onLoadResource(WebView view, String url) {
                 super.onLoadResource(view, url);
             }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                imageView.setVisibility(View.GONE);
+            }
         });
 
         wv.loadUrl(intent.getStringExtra("url"));
-        Log.d("F111", intent.getStringExtra("url"));
+
+
     }
 
 
     @Override
     protected void initViews() {
         wv = (WebView) findViewById(R.id.webview_secondlevel);
+        imageView = bindView(R.id.loading_anim_webview_home);
     }
 
     @Override

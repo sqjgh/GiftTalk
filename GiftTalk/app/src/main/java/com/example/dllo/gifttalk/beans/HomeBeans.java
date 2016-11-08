@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.home.homebeans;
+package com.example.dllo.gifttalk.beans;
 
 /**
  * Created by dllo on 16/10/28.

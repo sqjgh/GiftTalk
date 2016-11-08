@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.category.categorybeans.ListViewRaidersBeans;
+import com.example.dllo.gifttalk.beans.ListViewRaidersBeans;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
 
 /**

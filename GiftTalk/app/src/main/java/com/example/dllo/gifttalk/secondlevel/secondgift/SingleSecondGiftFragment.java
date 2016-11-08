@@ -14,7 +14,7 @@ import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
-import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.beans.TabLayoutItemBeansGift;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 
@@ -64,7 +64,6 @@ public class SingleSecondGiftFragment extends BaseFragment {
                 verRV.setAdapter(verRVAdapter);
                 GridLayoutManager manager = new GridLayoutManager(getActivity(),2,GridLayoutManager.VERTICAL,false);
                 verRV.setLayoutManager(manager);
-
             }
         }, new Response.ErrorListener() {
             @Override

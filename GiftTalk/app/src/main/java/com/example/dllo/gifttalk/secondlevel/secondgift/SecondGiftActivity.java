@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
-import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.beans.TabLayoutItemBeansGift;
 
 import java.util.ArrayList;
 

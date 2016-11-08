@@ -5,18 +5,19 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
-import com.example.dllo.gifttalk.category.categorybeans.ColumnRaidersBeans;
-import com.example.dllo.gifttalk.category.categorybeans.ListViewRaidersBeans;
+import com.example.dllo.gifttalk.beans.ColumnRaidersBeans;
+import com.example.dllo.gifttalk.beans.ListViewRaidersBeans;
 
 /**
  * Created by dllo on 16/10/24.
@@ -28,6 +29,7 @@ public class RaidersFragment extends BaseFragment{
     private HeadRecyclerViewRaidersAdapter recyclerViewAdapter;
     private RecyclerView headRecyclerView;
     private View v;
+    private ImageView loading;
 
     @Override
     protected void initData() {
@@ -37,6 +39,7 @@ public class RaidersFragment extends BaseFragment{
 
     @Override
     protected void initView() {
+        loading = bindView(R.id.loading_anim_category);
         listView = bindView(R.id.listview_raiders_category);
         listViewAdapter = new RaidersListViewAdapter(getActivity());
         recyclerViewAdapter = new HeadRecyclerViewRaidersAdapter(getActivity());
@@ -56,6 +59,7 @@ public class RaidersFragment extends BaseFragment{
             @Override
             public void onResponse(ColumnRaidersBeans response) {
                 // 请求成功的方法
+
                 v = LayoutInflater.from(context).inflate(R.layout.head_raiders_category, null);
                 TextView all = (TextView) v.findViewById(R.id.all_head_raiders);
                 all.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +91,7 @@ public class RaidersFragment extends BaseFragment{
             @Override
             public void onResponse(ListViewRaidersBeans response) {
                 // 请求成功的方法
-
+                loading.setVisibility(View.GONE);
                 listViewAdapter.setListViewRaidersBeans(response);
                 listView.addHeaderView(v);
                 listView.setAdapter(listViewAdapter);

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
-import com.example.dllo.gifttalk.gift.giftbeans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.beans.TabLayoutItemBeansGift;
 
 /**
  * Created by dllo on 16/11/5.

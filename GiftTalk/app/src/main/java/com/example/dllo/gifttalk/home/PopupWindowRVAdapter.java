@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.home.homebeans.TabLayoutBeans;
+import com.example.dllo.gifttalk.beans.TabLayoutBeans;
 
 /**
  * Created by dllo on 16/11/6.

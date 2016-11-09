@@ -22,12 +22,28 @@ public class FirstListViewAdapter extends BaseAdapter {
     final int TYPE_PIC = 1;
     final int TYPE_NORMAL = 2;
     ClickListViewHome clickListViewHome;
+
+    private String refreshNextUrl;
+
+    public String getRefreshNextUrl() {
+        return refreshNextUrl;
+    }
+
+    public void setRefreshNextUrl(String refreshNextUrl) {
+        this.refreshNextUrl = refreshNextUrl;
+    }
+
     public void setClickListViewHome(ClickListViewHome clickListViewHome){
         this.clickListViewHome = clickListViewHome;
     }
 
+    public TabLayoutItemBeans getTabLayoutItemBeans() {
+        return tabLayoutItemBeans;
+    }
+
     public void setTabLayoutItemBeans(TabLayoutItemBeans tabLayoutItemBeans) {
         this.tabLayoutItemBeans = tabLayoutItemBeans;
+        notifyDataSetChanged();
     }
 
     public FirstListViewAdapter(Context context) {

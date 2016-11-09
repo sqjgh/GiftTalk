@@ -1,6 +1,7 @@
 package com.example.dllo.gifttalk.category.raiderscategory;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import com.example.dllo.gifttalk.beantools.VolleySingleton;
 /**
  * Created by dllo on 16/10/27.
  */
-public class RaidersListViewAdapter extends BaseAdapter {
+public class RaidersListViewAdapter extends BaseAdapter{
     private Context context;
     private ListViewRaidersBeans listViewRaidersBeans;
 
@@ -57,11 +58,53 @@ public class RaidersListViewAdapter extends BaseAdapter {
         }
 
         VolleySingleton.getInstance().getImage(listViewRaidersBeans.getData().getChannel_groups().get(i).getChannels().get(0).getCover_image_url(),viewHolder.picOne);
+        viewHolder.picOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("RaidersListViewAdapter", "11111111111111111111111111");
+            }
+        });
+        viewHolder.picTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        viewHolder.picThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        viewHolder.picFour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        viewHolder.picFive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        viewHolder.picSix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         VolleySingleton.getInstance().getImage(listViewRaidersBeans.getData().getChannel_groups().get(i).getChannels().get(1).getCover_image_url(),viewHolder.picTwo);
+
         VolleySingleton.getInstance().getImage(listViewRaidersBeans.getData().getChannel_groups().get(i).getChannels().get(2).getCover_image_url(),viewHolder.picThree);
+
         VolleySingleton.getInstance().getImage(listViewRaidersBeans.getData().getChannel_groups().get(i).getChannels().get(3).getCover_image_url(),viewHolder.picFour);
+
         VolleySingleton.getInstance().getImage(listViewRaidersBeans.getData().getChannel_groups().get(i).getChannels().get(4).getCover_image_url(),viewHolder.picFive);
+
         VolleySingleton.getInstance().getImage(listViewRaidersBeans.getData().getChannel_groups().get(i).getChannels().get(5).getCover_image_url(),viewHolder.picSix);
+
         viewHolder.name.setText(listViewRaidersBeans.getData().getChannel_groups().get(i).getName());
         if (listViewRaidersBeans.getData().getChannel_groups().get(i).getChannels().size() <= 6){
             viewHolder.all.setVisibility(View.GONE);
@@ -69,16 +112,18 @@ public class RaidersListViewAdapter extends BaseAdapter {
         return view;
     }
 
+
+
     private class ViewHolder {
 
-        private final ImageView picOne;
-        private final ImageView picTwo;
-        private final ImageView picThree;
-        private final ImageView picFour;
-        private final ImageView picFive;
-        private final ImageView picSix;
-        private final TextView name;
-        private final TextView all;
+        private ImageView picOne;
+        private ImageView picTwo;
+        private ImageView picThree;
+        private ImageView picFour;
+        private ImageView picFive;
+        private ImageView picSix;
+        private TextView name;
+        private TextView all;
 
         public ViewHolder(View view) {
             picOne = (ImageView) view.findViewById(R.id.picOne_raiders_category);
@@ -91,4 +136,5 @@ public class RaidersListViewAdapter extends BaseAdapter {
             all = (TextView) view.findViewById(R.id.all_category);
         }
     }
+
 }

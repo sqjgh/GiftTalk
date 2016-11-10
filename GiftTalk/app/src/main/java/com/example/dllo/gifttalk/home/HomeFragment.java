@@ -25,6 +25,7 @@ import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.beans.TabLayoutBeans;
 import com.example.dllo.gifttalk.secondlevel.secondhome.SearchSecondActivity;
+import com.example.dllo.gifttalk.secondlevel.secondprofile.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -44,7 +45,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private PopupWindowRVAdapter popupWindowRVAdapter;
     private static PopupWindow window;
 
-
     // 各种findViewById
     @Override
     protected void initView() {
@@ -55,7 +55,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         search = bindView(R.id.search_btn_home);
         remind = bindView(R.id.giftremind_title_main);
         ll = bindView(R.id.ll_title_home);
-
 
     }
 
@@ -120,6 +119,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.giftremind_title_main:
+                Intent intent1 = new Intent(context, LoginActivity.class);
+                startActivity(intent1);
                 break;
         }
     }
@@ -159,12 +160,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
 
         //popWindow消失监听方法
-        window.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-
-            }
-        });
+//        window.setOnDismissListener(new PopupWindow.OnDismissListener() {
+//            @Override
+//            public void onDismiss() {
+//
+//            }
+//        });
 
 
     }

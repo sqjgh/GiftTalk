@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.secondlevel;
+package com.example.dllo.gifttalk.secondlevel.secondhome;
 
 import android.content.Intent;
 import android.view.View;

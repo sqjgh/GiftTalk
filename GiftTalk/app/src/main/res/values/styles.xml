@@ -9,6 +9,8 @@
     </style>
     <style name="HomeTitle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowTitleSize">40dp</item>
+        <item name="colorControlActivated">#FF2D47</item>
+        <item name="colorControlNormal">#FF2D47</item>
     </style>
 
     <!--  这个是加入的代码 -->

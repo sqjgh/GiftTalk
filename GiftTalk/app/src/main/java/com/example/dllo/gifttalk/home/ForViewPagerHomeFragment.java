@@ -21,7 +21,7 @@ import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.home.rollviewpager.RollViewPagerAdapter;
-import com.example.dllo.gifttalk.secondlevel.WebViewActivity;
+import com.example.dllo.gifttalk.secondlevel.secondhome.WebViewActivity;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 

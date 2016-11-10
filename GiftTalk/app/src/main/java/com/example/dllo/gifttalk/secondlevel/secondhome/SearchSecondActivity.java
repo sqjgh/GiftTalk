@@ -54,7 +54,6 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         for (int i = 0; i < sp.getAll().size(); i++) {
             inArrayList.add(sp.getString(i + "","居然没获取到数据"));
         }
-
         initGridView();
         initListView();
     }

@@ -16,6 +16,8 @@ import com.example.dllo.gifttalk.profile.ProfileFragment;
 
 import java.util.ArrayList;
 
+import cn.bmob.v3.Bmob;
+
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private RadioButton homeBtn;
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     // 进入初始数据
     @Override
     protected void initData() {
+        Bmob.initialize(this, "c8c93d41a06406c0cb98e46605abfeb5");
         ArrayList<Fragment> arrayList = new ArrayList<>();
         arrayList.add(new HomeFragment());
         arrayList.add(new GiftFragment());

@@ -81,14 +81,14 @@ public class GiftRecyclerViewAdapter extends RecyclerView.Adapter<GiftRecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView price;
-        private final TextView title2;
-        private final TextView title;
-        private final ImageView pic;
-        private final LinearLayout numberLl;
-        private final TextView top;
-        private final TextView num;
-        private final RelativeLayout rl;
+        private TextView price;
+        private TextView title2;
+        private TextView title;
+        private ImageView pic;
+        private LinearLayout numberLl;
+        private TextView top;
+        private TextView num;
+        private RelativeLayout rl;
 
         public ViewHolder(View itemView) {
             super(itemView);

@@ -47,8 +47,8 @@ public class RightRVAdapter extends RecyclerView.Adapter<RightRVAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final ImageView iv;
-        private final TextView tv;
+        private ImageView iv;
+        private TextView tv;
 
         public ViewHolder(View itemView) {
             super(itemView);

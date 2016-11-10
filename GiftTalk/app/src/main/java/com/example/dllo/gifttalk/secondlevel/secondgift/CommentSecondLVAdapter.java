@@ -61,10 +61,10 @@ public class CommentSecondLVAdapter extends BaseAdapter{
 
     private class ViewHolder {
 
-        private final ImageView pic;
-        private final TextView name;
-        private final TextView time;
-        private final TextView text;
+        private ImageView pic;
+        private TextView name;
+        private TextView time;
+        private TextView text;
 
 
         public ViewHolder(View view) {

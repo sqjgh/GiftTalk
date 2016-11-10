@@ -92,7 +92,7 @@ public class RightLVAdapter extends BaseAdapter implements StickyListHeadersAdap
 
     class BodyViewHolder {
 
-        private final RecyclerView rv;
+        private  RecyclerView rv;
 
         public BodyViewHolder(View view) {
             rv = (RecyclerView) view.findViewById(R.id.rv_right_single_category);

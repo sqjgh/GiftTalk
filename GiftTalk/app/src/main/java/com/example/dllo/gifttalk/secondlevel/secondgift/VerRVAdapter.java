@@ -66,12 +66,12 @@ public class VerRVAdapter extends RecyclerView.Adapter<VerRVAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView title;
-        private final TextView price;
-        private final TextView over;
-        private final LinearLayout ll;
-        private final ImageView iv;
-        private final RelativeLayout rl;
+        private TextView title;
+        private TextView price;
+        private TextView over;
+        private LinearLayout ll;
+        private ImageView iv;
+        private RelativeLayout rl;
 
         public ViewHolder(View itemView) {
             super(itemView);

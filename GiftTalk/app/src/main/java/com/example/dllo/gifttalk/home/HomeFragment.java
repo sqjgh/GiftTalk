@@ -137,27 +137,22 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         rv.setAdapter(popupWindowRVAdapter);
         rv.setLayoutManager(gridLayoutManager);
         // 下面是两种方法得到宽度和高度 getWindow().getDecorView().getWidth()
-
         window = new PopupWindow(view,
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT);
 
-        // 设置popWindow弹出窗体可点击，这句话必须添加，并且是true
+        // 设置popWindow弹出窗体是否可以点击外面
         window.setFocusable(true);
-
-
-        // 实例化一个ColorDrawable颜色为半透明
+        // 实例化一个ColorDrawable颜色
         ColorDrawable dw = new ColorDrawable(0xFFFFFFFF);
         window.setBackgroundDrawable(dw);
 
-
         // 设置popWindow的显示和消失动画
         window.setAnimationStyle(R.style.mypopwindow_anim_style);
-        // 在底部显示
+
         window.showAsDropDown(ll,0,0);
 
-        // 这里检验popWindow里的button是否可以点击
-
+        // 检验popWindow里的button是否可以点击
 
         //popWindow消失监听方法
 //        window.setOnDismissListener(new PopupWindow.OnDismissListener() {

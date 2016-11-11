@@ -1,9 +1,13 @@
 package com.example.dllo.gifttalk.secondlevel.secondhome;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +29,7 @@ import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.beantools.VolleySingleton;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +39,6 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
 
     private ListView lv;
     private RecyclerView rv;
-    private TextView tv;
     private TextView search;
     private EditText et;
     private ArrayList<String> inArrayList;
@@ -45,6 +49,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
     public SearchRVSecondAdapter adapter;
     private RelativeLayout allDeleteRV;
     private ImageView deleteEt;
+    private String result;
 
     @Override
     protected void initData() {
@@ -56,6 +61,33 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         }
         initGridView();
         initListView();
+
+        et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("S111", "i:" + i);
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d("S111", "editable:" + editable);
+                if (editable.length() == 0){
+                    deleteEt.setVisibility(View.GONE);
+                    search.setText("退出");
+
+                }else {
+                    deleteEt.setVisibility(View.VISIBLE);
+                    search.setText("搜索");
+                }
+            }
+        });
     }
 
 
@@ -70,6 +102,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         allDelete = bindView(R.id.alldelete_search_second);
         allDelete.setOnClickListener(this);
         search.setOnClickListener(this);
+        deleteEt.setOnClickListener(this);
     }
 
     @Override
@@ -102,6 +135,15 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
             inArrayList.add(et.getText().toString());
             baseListViewAdapter.setData(inArrayList);
             lv.setAdapter(baseListViewAdapter);
+            Intent intent = new Intent(this,SearchThirdActivity.class);
+            try {
+                result = new String(et.getText().toString().trim().getBytes("UTF-8"), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            intent.putExtra("utf8", result);
+            startActivity(intent);
         }
     }
 
@@ -116,6 +158,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                 notifyDataSetChanged();
                 holder.setText(R.id.history_search_second,s);
                 holder.setViewClick(R.id.history_search_second, new View.OnClickListener() {
+                    private String result;
                     @Override
                     public void onClick(View view) {
                         // 点击设置editText文字
@@ -128,6 +171,15 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                             allDeleteRV.setVisibility(View.VISIBLE);
                         }
                         notifyDataSetChanged();
+                        Intent intent = new Intent(SearchSecondActivity.this,SearchThirdActivity.class);
+                        try {
+                            result = new String(et.getText().toString().trim().getBytes("UTF-8"), "UTF-8");
+                        } catch (UnsupportedEncodingException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        intent.putExtra("utf8",result);
+                        startActivity(intent);
                     }
                 });
                 // 点击删除监听
@@ -218,13 +270,24 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, final int position) {
+        public void onBindViewHolder(final ViewHolder holder, final int position) {
             holder.tv.setText(searchSecondBean.getData().getHot_words().get(position));
             holder.tv.setOnClickListener(new View.OnClickListener() {
+                private String result;
                 @Override
                 public void onClick(View view) {
                    et.setText(searchSecondBean.getData().getHot_words().get(position));
-                    inArrayList.add(searchSecondBean.getData().getHot_words().get(position));
+                    inArrayList.add(0,searchSecondBean.getData().getHot_words().get(position));
+                    baseListViewAdapter.setData(inArrayList);
+                    Intent intent = new Intent(SearchSecondActivity.this,SearchThirdActivity.class);
+                    try {
+                        result = new String(et.getText().toString().trim().getBytes("UTF-8"), "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    intent.putExtra("utf8", result);
+                    startActivity(intent);
                 }
             });
             if (position < 3){

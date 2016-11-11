@@ -38,4 +38,12 @@ public final class Values {
     //搜索
     public static final String SECOND_SEARCH = "http://api.liwushuo.com/v2/search/hot_words";
 
+    // 点击搜索
+    public  static  final String RAIDERS_KEY_FRONT ="http://api.liwushuo.com/v2/search/post?keyword=";
+    public  static  final String RAIDERS_KEY_BACK = "&limit=40&offset=0&sort=";
+
+
+    public static  final  String SINGLE_KEY_FRONT = "http://api.liwushuo.com/v2/search/item?keyword=";
+    public static  final  String SINGLE_KEY_BACK = "&limit=40&offset=0&sort=";
+
 }

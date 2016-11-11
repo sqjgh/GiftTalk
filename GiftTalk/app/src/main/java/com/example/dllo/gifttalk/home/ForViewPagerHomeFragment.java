@@ -41,14 +41,17 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
     private boolean REFRESH_DATA = false;
     private TabLayoutItemBeans RefreshTabLayoutItemBeans;
     private String refreshUrl;
+    private int perItemCount;
+    private ImageView toTop;
 
     @Override
     protected void initData() {
+
         REFRESH = false;
         if (getArguments() != null) {
             type = getArguments().getInt(HOME_KEY);
         }
-        firstListViewAdapter = new FirstListViewAdapter(getActivity());
+
         // 判断进入的是哪个页面
         initPage(type);
         // 下拉刷新 上拉加载监听
@@ -56,6 +59,13 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
     }
 
     private void initListener() {
+        toTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listView.setSelection(0);
+                toTop.setVisibility(View.GONE);
+            }
+        });
         refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -74,8 +84,10 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
     @Override
     protected void initView() {
         listView = bindView(R.id.listview_vp_home);
+        firstListViewAdapter = new FirstListViewAdapter(context);
         imageView = bindView(R.id.loading_anim_home);
         refresh = bindView(R.id.refresh_home);
+        toTop = bindView(R.id.to_top_home);
     }
 
     @Override
@@ -148,6 +160,13 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
 
                     @Override
                     public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+                        if (i < perItemCount){
+                            toTop.setVisibility(View.VISIBLE);
+                        }if (i > perItemCount || i < 5){
+                            toTop.setVisibility(View.GONE);
+                        }
+                        perItemCount = i;
+
                         if (4 <= (absListView.getCount()-i)) {
                             REFRESH_DATA = false;
                         }
@@ -194,6 +213,14 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
 
                     @Override
                     public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+                        if (i < perItemCount){
+                            toTop.setVisibility(View.VISIBLE);
+                        }if (i > perItemCount || i < 5){
+                            toTop.setVisibility(View.GONE);
+                        }
+                        perItemCount = i;
+
+
                         if (4 <= (absListView.getCount()-i)) {
                             REFRESH_DATA = false;
                         }

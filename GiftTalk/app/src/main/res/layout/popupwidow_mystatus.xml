@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--中间跳动内容-->
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popupwindow_center_setting">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择内容"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/textView"
+            android:textSize="20dp" />
+        <!--返回按钮-->
+        <ImageView
+            android:padding="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/back_popupwindow_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_toEndOf="@+id/textView"
+            android:layout_alignBottom="@+id/textView" />
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:orientation="vertical">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/ic_gender_boy"
+                android:layout_alignParentBottom="true"
+                android:layout_alignEnd="@+id/imageView2"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/ic_gender_girl"
+                android:layout_below="@+id/back_popupwindow_setting"
+                android:id="@+id/imageView2"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="男"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_marginRight="20dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="女"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <RadioGroup
+
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/radioGroup">
+
+            <RadioButton
+                android:id="@+id/check_boy_popupwindow"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp" />
+
+            <RadioButton
+                android:id="@+id/check_girl_popupwindow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </RadioGroup>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/next_mystatus_setting"
+            android:textColor="@color/colorTabLayout"
+            android:text="下一步"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_popupwindow"
+           android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

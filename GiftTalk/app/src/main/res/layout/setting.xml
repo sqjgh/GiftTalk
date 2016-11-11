@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e2e2e9"
-    android:orientation="vertical"
 
 
     android:fitsSystemWindows="true"
     android:clipToPadding="true">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e2e2e9"
+    android:orientation="vertical">
+
+
+
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="50dp"
     android:background="@color/colorTabLayout">
     <ImageView
         android:id="@+id/back_setting"
@@ -29,6 +37,7 @@
 </RelativeLayout>
     <!--第一行-->
     <LinearLayout
+        android:id="@+id/mystatus_setting"
         android:gravity="center"
         android:background="#ffff"
         android:layout_marginTop="10dp"
@@ -186,16 +195,14 @@
                 android:src="@mipmap/icon_favorite_batch_red"/>
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="4"
+                android:layout_weight="8"
                 android:layout_height="wrap_content"
                 android:text="喜欢单品到默认清单"/>
             <!--TODO 少一个属性动画-->
-            <Button
+            <ToggleButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="20dp"
-                android:background="@drawable/mybutton"
-                />
+                android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
             android:gravity="center"
@@ -311,3 +318,12 @@
             android:src="@mipmap/icon_arrow_right_grey"/>
     </LinearLayout>
 </LinearLayout>
+    <!--背景虚化图片-->
+    <ImageView
+        android:id="@+id/background_setting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/liushishi"
+        android:scaleType="fitXY"
+        android:visibility="invisible"/>
+    </RelativeLayout>

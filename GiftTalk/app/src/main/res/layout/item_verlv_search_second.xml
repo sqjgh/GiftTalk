@@ -2,19 +2,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="3dp">
-
+    android:padding="3dp"
+    android:id="@+id/rl_lv_search">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/time_commodity_night"
+        android:id="@+id/imageView3"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nihao"
         android:textSize="15dp"
-        android:id="@+id/history_search_second"/>
+        android:id="@+id/history_search_second"
+        android:layout_alignBottom="@+id/imageView3"
+        android:layout_toEndOf="@+id/imageView3"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:src="@mipmap/btn_close_login"
         android:id="@+id/delete_search_second"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:padding="5dp" />
 </RelativeLayout>

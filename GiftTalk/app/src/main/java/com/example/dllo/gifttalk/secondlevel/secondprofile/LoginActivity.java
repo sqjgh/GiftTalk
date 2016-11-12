@@ -80,30 +80,21 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
             case R.id.btn_login: // 登录
 
-                Toast.makeText(this, "登录", Toast.LENGTH_SHORT).show();
-                if (IDCheck && passWordCheck) {
-                    // 尝试自动登录
-                    BmobUser bmobUser = BmobUser.getCurrentUser();
-                    if (bmobUser != null) {
-                        Toast.makeText(this, "已经登录过了", Toast.LENGTH_SHORT).show();
-                    } else {
-                        bmobUser = new BmobUser();
-                        bmobUser.setUsername(id.getText().toString().trim()); // 用户名
-                        bmobUser.setPassword(passWord.getText().toString().trim()); // 密码
-                        bmobUser.login(new SaveListener<BmobUser>() {
-                            @Override
-                            public void done(BmobUser bmobUser, BmobException e) {
-                                if (e == null) {
-                                    Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    Log.d("MainActivity", e.getMessage());
-                                }
-                            }
-                        });
+                BmobUser myUserTwo = new BmobUser();
+                myUserTwo.setUsername(id.getText().toString().trim());
+                myUserTwo.setPassword(passWord.getText().toString().trim());
+                myUserTwo.login(new SaveListener<BmobUser>() {
+                    @Override
+                    public void done(BmobUser bmobUser, BmobException e) {
+                        if (e == null) {
+                            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                            Log.d("MainActivity", e.getMessage());
+                        }
                     }
+                });
 
-                }
                 break;
 
             case R.id.btn_register: // 注册

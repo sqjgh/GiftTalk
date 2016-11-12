@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
+import com.example.dllo.gifttalk.secondlevel.secondprofile.LoginActivity;
 import com.example.dllo.gifttalk.secondlevel.secondprofile.SettingActivity;
 
 /**
@@ -17,6 +18,7 @@ public class ProfileFragment extends BaseFragment implements View.OnClickListene
 
     private TabLayout tbl;
     private ImageView setting;
+    private ImageView avatarBoy;
 
     @Override
     protected void initData() {
@@ -28,12 +30,15 @@ public class ProfileFragment extends BaseFragment implements View.OnClickListene
     protected void initView() {
         setting = bindView(R.id.settings_profile);
         tbl = bindView(R.id.tbl_profile);
+        avatarBoy = bindView(R.id.avatar_boy_profile);
         tbl.addTab(tbl.newTab().setText("单品"));
         tbl.addTab(tbl.newTab().setText("攻略"));
         tbl.setTabMode(TabLayout.MODE_FIXED);
         tbl.setTabTextColors(Color.DKGRAY, Color.RED);
         tbl.setSelectedTabIndicatorColor(Color.RED);
         setting.setOnClickListener(this);
+        avatarBoy.setOnClickListener(this);
+
     }
     @Override
     protected int getLayout() {
@@ -47,6 +52,9 @@ public class ProfileFragment extends BaseFragment implements View.OnClickListene
                 Intent intent = new Intent(context, SettingActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.avatar_boy_profile:
+                Intent intent1 = new Intent(context, LoginActivity.class);
+                startActivity(intent1);
         }
     }
 }

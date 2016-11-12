@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -47,17 +45,17 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
     private SharedPreferences.Editor spET;
     private ImageView allDelete;
     public SearchRVSecondAdapter adapter;
-    private RelativeLayout allDeleteRV;
+    private RelativeLayout allDeleteRL;
     private ImageView deleteEt;
     private String result;
 
     @Override
     protected void initData() {
         inArrayList = new ArrayList<>();
-        sp = getSharedPreferences("searchHistory",MODE_PRIVATE);
+        sp = getSharedPreferences("searchHistory", MODE_PRIVATE);
         spET = sp.edit();
         for (int i = 0; i < sp.getAll().size(); i++) {
-            inArrayList.add(sp.getString(i + "","居然没获取到数据"));
+            inArrayList.add(sp.getString(i + "", "居然没获取到数据"));
         }
         initGridView();
         initListView();
@@ -70,19 +68,18 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.d("S111", "i:" + i);
+
 
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                Log.d("S111", "editable:" + editable);
-                if (editable.length() == 0){
+                if (editable.length() == 0) {
                     deleteEt.setVisibility(View.GONE);
                     search.setText("退出");
 
-                }else {
+                } else {
                     deleteEt.setVisibility(View.VISIBLE);
                     search.setText("搜索");
                 }
@@ -94,7 +91,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void initViews() {
         deleteEt = bindView(R.id.delete_et_second_search);
-        allDeleteRV = bindView(R.id.rv_alldelete_search_second);
+        allDeleteRL = bindView(R.id.rv_alldelete_search_second);
         lv = bindView(R.id.lv_search_second);
         rv = bindView(R.id.rv_search_second);
         search = bindView(R.id.btn_search_second);
@@ -107,46 +104,45 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_search_second:
                 searchBtn();
                 break;
             case R.id.alldelete_search_second:
                 inArrayList.clear();
                 spET.clear();
-                allDeleteRV.setVisibility(View.GONE);
+                allDeleteRL.setVisibility(View.GONE);
                 baseListViewAdapter.setData(inArrayList);
                 break;
             case R.id.delete_et_second_search:
                 et.setText("");
         }
     }
+
     // 点击有内容搜索,没内容退出
     private void searchBtn() {
-        if (et.getText().toString().trim().length() == 0){
+        if (et.getText().toString().trim().length() == 0) {
             finish();
-        }else {
-            if (inArrayList.toString().trim() == null){
-                allDeleteRV.setVisibility(View.GONE);
-            }else {
-                allDeleteRV.setVisibility(View.VISIBLE);
+        } else {
+            if (inArrayList.toString().trim() == null) {
+                allDeleteRL.setVisibility(View.GONE);
+            } else {
+                allDeleteRL.setVisibility(View.VISIBLE);
             }
 
             inArrayList.add(et.getText().toString());
             baseListViewAdapter.setData(inArrayList);
             lv.setAdapter(baseListViewAdapter);
-            Intent intent = new Intent(this,SearchThirdActivity.class);
+            Intent intent = new Intent(this, SearchThirdActivity.class);
             try {
                 result = new String(et.getText().toString().trim().getBytes("UTF-8"), "UTF-8");
             } catch (UnsupportedEncodingException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             intent.putExtra("utf8", result);
             startActivity(intent);
         }
     }
-
 
 
     private void initListView() {
@@ -156,29 +152,29 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
             @Override
             protected void bindData(final CommonViewHolder holder, String s) {
                 notifyDataSetChanged();
-                holder.setText(R.id.history_search_second,s);
-                holder.setViewClick(R.id.history_search_second, new View.OnClickListener() {
+                holder.setText(R.id.history_search_second, s);
+                holder.setViewClick(R.id.rl_lv_search, new View.OnClickListener() {
                     private String result;
+
                     @Override
                     public void onClick(View view) {
                         // 点击设置editText文字
                         et.setText(inArrayList.get(holder.getPos()));
                         inArrayList.add(0, inArrayList.get(holder.getPos()));
                         inArrayList.remove(holder.getPos() + 1);
-                        if (inArrayList.toString().trim() == null){
-                            allDeleteRV.setVisibility(View.GONE);
-                        }else {
-                            allDeleteRV.setVisibility(View.VISIBLE);
+                        if (inArrayList.toString().trim() == null) {
+                            allDeleteRL.setVisibility(View.GONE);
+                        } else {
+                            allDeleteRL.setVisibility(View.VISIBLE);
                         }
                         notifyDataSetChanged();
-                        Intent intent = new Intent(SearchSecondActivity.this,SearchThirdActivity.class);
+                        Intent intent = new Intent(SearchSecondActivity.this, SearchThirdActivity.class);
                         try {
                             result = new String(et.getText().toString().trim().getBytes("UTF-8"), "UTF-8");
                         } catch (UnsupportedEncodingException e) {
-                            // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
-                        intent.putExtra("utf8",result);
+                        intent.putExtra("utf8", result);
                         startActivity(intent);
                     }
                 });
@@ -188,33 +184,33 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                     public void onClick(View view) {
                         inArrayList.remove(holder.getPos());
 
-                        if (inArrayList.size() == 0){
-                            allDeleteRV.setVisibility(View.GONE);
-                        }else {
-                            allDeleteRV.setVisibility(View.VISIBLE);
+                        if (inArrayList.size() == 0) {
+                            allDeleteRL.setVisibility(View.GONE);
+                        } else {
+                            allDeleteRL.setVisibility(View.VISIBLE);
                         }
                         notifyDataSetChanged();
-                        Toast.makeText(SearchSecondActivity.this, "holder.getItemId():" + holder.getPos(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         };
-        if (inArrayList.toString().trim() == null){
-            allDeleteRV.setVisibility(View.GONE);
-        }else {
-            allDeleteRV.setVisibility(View.VISIBLE);
+        if (inArrayList.toString().trim() == null) {
+            allDeleteRL.setVisibility(View.GONE);
+        } else {
+            allDeleteRL.setVisibility(View.VISIBLE);
         }
 
         baseListViewAdapter.setData(inArrayList);
         lv.setAdapter(baseListViewAdapter);
     }
+
     // 离开当前页面
     @Override
     protected void onPause() {
         // 清空之前SharedPreferences数据 写入这次的新数据
         spET.clear();
         for (int i = 0; i < inArrayList.size(); i++) {
-            spET.putString(i + "",inArrayList.get(i));
+            spET.putString(i + "", inArrayList.get(i));
         }
         spET.commit();
         super.onPause();
@@ -225,7 +221,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         return R.layout.second_search;
     }
 
-    public void initGridView(){
+    public void initGridView() {
         //创建请求
         GsonRequest<SearchSecondBean> gsonRequest = new GsonRequest<>(SearchSecondBean.class, Values.SECOND_SEARCH, new Response.Listener<SearchSecondBean>() {
             @Override
@@ -233,12 +229,12 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                 adapter = new SearchRVSecondAdapter();
                 adapter.setSearchSecondBean(response);
                 rv.setAdapter(adapter);
-                StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(5,StaggeredGridLayoutManager.VERTICAL);
+                StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL);
                 rv.setLayoutManager(manager);
-                if (sp.getAll().size() == 0){
-                    allDeleteRV.setVisibility(View.GONE);
-                }else {
-                    allDeleteRV.setVisibility(View.VISIBLE);
+                if (sp.getAll().size() == 0) {
+                    allDeleteRL.setVisibility(View.GONE);
+                } else {
+                    allDeleteRL.setVisibility(View.VISIBLE);
                 }
             }
         }, new Response.ErrorListener() {
@@ -252,9 +248,8 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
     }
 
 
-
     // 横向RVAdapter
-    public class SearchRVSecondAdapter extends RecyclerView.Adapter<SearchRVSecondAdapter.ViewHolder>{
+    public class SearchRVSecondAdapter extends RecyclerView.Adapter<SearchRVSecondAdapter.ViewHolder> {
 
         SearchSecondBean searchSecondBean;
 
@@ -264,7 +259,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_horsearch_second,parent,false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_horsearch_second, parent, false);
             ViewHolder viewholder = new ViewHolder(v);
             return viewholder;
         }
@@ -276,10 +271,11 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                 private String result;
                 @Override
                 public void onClick(View view) {
-                   et.setText(searchSecondBean.getData().getHot_words().get(position));
-                    inArrayList.add(0,searchSecondBean.getData().getHot_words().get(position));
+                    allDeleteRL.setVisibility(View.VISIBLE);
+                    et.setText(searchSecondBean.getData().getHot_words().get(position));
+                    inArrayList.add(0, searchSecondBean.getData().getHot_words().get(position));
                     baseListViewAdapter.setData(inArrayList);
-                    Intent intent = new Intent(SearchSecondActivity.this,SearchThirdActivity.class);
+                    Intent intent = new Intent(SearchSecondActivity.this, SearchThirdActivity.class);
                     try {
                         result = new String(et.getText().toString().trim().getBytes("UTF-8"), "UTF-8");
                     } catch (UnsupportedEncodingException e) {
@@ -290,7 +286,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                     startActivity(intent);
                 }
             });
-            if (position < 3){
+            if (position < 3) {
                 holder.tv.setTextColor(Color.RED);
             }
         }
@@ -310,7 +306,6 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
             }
         }
     }
-
 
 
 }

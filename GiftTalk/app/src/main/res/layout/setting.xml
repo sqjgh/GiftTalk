@@ -56,11 +56,19 @@
             android:layout_height="wrap_content"
             android:text="我的身份"/>
         <TextView
+            android:id="@+id/tv_sex_setting"
             android:layout_width="0dp"
-            android:layout_weight="4"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="男孩 职场新人"/>
+            android:text="男孩 "/>
+        <TextView
+            android:id="@+id/tv_job_setting"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="职场新人"/>
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"

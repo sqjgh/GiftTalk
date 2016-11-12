@@ -107,7 +107,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:src="@mipmap/btn_delete_all" />
+            android:src="@mipmap/btn_delete_all"
+            android:layout_marginRight="10dp"/>
     </RelativeLayout>
 
     <ListView

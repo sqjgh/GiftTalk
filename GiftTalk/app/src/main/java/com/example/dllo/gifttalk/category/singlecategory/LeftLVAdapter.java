@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
@@ -64,7 +66,11 @@ public class LeftLVAdapter extends BaseAdapter {
 
         if (select == i){
             viewHolder.textView.setTextColor(Color.RED);
+            viewHolder.rl.setBackgroundColor(Color.WHITE);
+            viewHolder.imageView.setVisibility(View.VISIBLE);
         }else {
+            viewHolder.rl.setBackgroundColor(Color.GRAY);
+            viewHolder.imageView.setVisibility(View.INVISIBLE);
             viewHolder.textView.setTextColor(Color.BLACK);
         }
 
@@ -72,9 +78,13 @@ public class LeftLVAdapter extends BaseAdapter {
     }
     class ViewHolder{
         private TextView textView;
+        private final RelativeLayout rl;
+        private final ImageView imageView;
+
         public ViewHolder(View view) {
             textView = (TextView) view.findViewById(R.id.tv_left_single_category);
-
+            rl = (RelativeLayout) view.findViewById(R.id.rl_left_single);
+            imageView = (ImageView) view.findViewById(R.id.red_item_single);
         }
     }
 }

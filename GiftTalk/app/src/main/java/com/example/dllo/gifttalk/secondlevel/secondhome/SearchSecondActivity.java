@@ -22,6 +22,7 @@ import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
 import com.example.dllo.gifttalk.base.BaseListViewAdapter;
 import com.example.dllo.gifttalk.base.CommonViewHolder;
+import com.example.dllo.gifttalk.beans.SearchListBean;
 import com.example.dllo.gifttalk.beans.SearchSecondBean;
 import com.example.dllo.gifttalk.beantools.GsonRequest;
 import com.example.dllo.gifttalk.beantools.Values;
@@ -48,9 +49,24 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
     private RelativeLayout allDeleteRL;
     private ImageView deleteEt;
     private String result;
+    private ListView list;
+    private BaseListViewAdapter searchListAdapter;
+
+    @Override
+    protected int getLayout() {
+        return R.layout.second_search;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        et.setText("");
+        list.setVisibility(View.INVISIBLE);
+    }
 
     @Override
     protected void initData() {
+
         inArrayList = new ArrayList<>();
         sp = getSharedPreferences("searchHistory", MODE_PRIVATE);
         spET = sp.edit();
@@ -59,29 +75,45 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         }
         initGridView();
         initListView();
-
+        searchListListView();
         et.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-
-
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() == 0) {
                     deleteEt.setVisibility(View.GONE);
                     search.setText("退出");
-
+                    list.setVisibility(View.INVISIBLE);
                 } else {
                     deleteEt.setVisibility(View.VISIBLE);
                     search.setText("搜索");
+                    list.setVisibility(View.VISIBLE);
+                    //创建请求
+                    GsonRequest<SearchListBean> gsonRequest = new GsonRequest<>(SearchListBean.class, Values.LIST_SECOND_SEARCH + et.getText().toString(), new Response.Listener<SearchListBean>() {
+                        @Override
+                        public void onResponse(SearchListBean response) {
+                            ArrayList<String> listSearchArrayList = new ArrayList<String>();
+                            for (int i = 0; i < response.getData().getWords().size(); i++) {
+                                listSearchArrayList.add(response.getData().getWords().get(i).getWord());
+                            }
+                            searchListAdapter.setData(listSearchArrayList);
+                            list.setAdapter(searchListAdapter);
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    });
+                    //请求放入请求队列
+                    VolleySingleton.getInstance().addRequest(gsonRequest);
+
+
                 }
             }
         });
@@ -97,6 +129,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         search = bindView(R.id.btn_search_second);
         et = bindView(R.id.et_search_second);
         allDelete = bindView(R.id.alldelete_search_second);
+        list = bindView(R.id.list_second_search);
         allDelete.setOnClickListener(this);
         search.setOnClickListener(this);
         deleteEt.setOnClickListener(this);
@@ -130,7 +163,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                 allDeleteRL.setVisibility(View.VISIBLE);
             }
 
-            inArrayList.add(et.getText().toString());
+            inArrayList.add(0,et.getText().toString());
             baseListViewAdapter.setData(inArrayList);
             lv.setAdapter(baseListViewAdapter);
             Intent intent = new Intent(this, SearchThirdActivity.class);
@@ -144,6 +177,35 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
+    private void searchListListView(){
+        searchListAdapter = new BaseListViewAdapter<String>(R.layout.item_verlv_search_second) {
+            @Override
+            protected void bindData(final CommonViewHolder holder, final String s) {
+                notifyDataSetChanged();
+                holder.setText(R.id.history_search_second,s);
+                holder.setViewClick(R.id.rl_lv_search, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        et.setText(s);
+                        searchBtn();
+                    }
+                });
+            }
+
+
+        };
+
+        list.setAdapter(searchListAdapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (list.getVisibility() == 0){
+            et.setText("");
+        }else {
+            super.onBackPressed();
+        }
+    }
 
     private void initListView() {
         // 点击设置editText文字
@@ -216,10 +278,6 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
         super.onPause();
     }
 
-    @Override
-    protected int getLayout() {
-        return R.layout.second_search;
-    }
 
     public void initGridView() {
         //创建请求
@@ -269,6 +327,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
             holder.tv.setText(searchSecondBean.getData().getHot_words().get(position));
             holder.tv.setOnClickListener(new View.OnClickListener() {
                 private String result;
+
                 @Override
                 public void onClick(View view) {
                     allDeleteRL.setVisibility(View.VISIBLE);

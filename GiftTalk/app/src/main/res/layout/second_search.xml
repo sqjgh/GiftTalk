@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:clipToPadding="true">
 
 
         <LinearLayout
+            android:id="@+id/title_second_search"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:orientation="horizontal"
@@ -65,7 +64,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:layout_below="@+id/title_second_search"
+            android:id="@+id/linearLayout2"
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -84,18 +87,25 @@
             android:id="@+id/rv_search_second"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="5"></android.support.v7.widget.RecyclerView>
+            android:columnCount="5"
+            android:layout_below="@+id/linearLayout2"></android.support.v7.widget.RecyclerView>
 
     <ImageView
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="@color/colorLine" />
+            android:background="@color/colorLine"
+        android:layout_below="@+id/rv_search_second"
+        android:id="@+id/imageView4" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:id="@+id/rv_alldelete_search_second"
-        android:visibility="gone">
+        android:visibility="visible"
+        android:layout_below="@+id/imageView4"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -114,5 +124,16 @@
     <ListView
             android:id="@+id/lv_search_second"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></ListView>
-    </LinearLayout>
+            android:layout_height="match_parent"
+        android:layout_below="@+id/rv_alldelete_search_second"></ListView>
+
+    <ListView
+        android:id="@+id/list_second_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="#FFF"
+        android:layout_below="@+id/title_second_search">
+
+    </ListView>
+</RelativeLayout>

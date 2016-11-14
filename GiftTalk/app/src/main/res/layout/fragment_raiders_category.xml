@@ -9,7 +9,8 @@
         android:id="@+id/listview_raiders_category"
         android:scrollbars="none"
         android:fadingEdge="none"
-        android:divider="@null">
+        android:divider="@null"
+        android:backgroundTint="@color/NO">
     </ListView>
     <ImageView
         android:layout_centerInParent="true"

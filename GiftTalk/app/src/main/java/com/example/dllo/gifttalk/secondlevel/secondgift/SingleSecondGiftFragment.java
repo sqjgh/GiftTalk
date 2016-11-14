@@ -5,16 +5,17 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.beantools.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
-import com.example.dllo.gifttalk.beantools.GsonRequest;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.beans.TabLayoutItemBeansGift;
+import com.example.dllo.gifttalk.beantools.GsonRequest;
+import com.example.dllo.gifttalk.beantools.Values;
+import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 
@@ -95,7 +96,6 @@ public class SingleSecondGiftFragment extends BaseFragment {
         text.setText(beansGift.getData().getItems().get(position).getDescription());
     }
 
-
     @Override
     protected void initView() {
         num = bindView(R.id.num_second_everyday_gift);
@@ -107,6 +107,8 @@ public class SingleSecondGiftFragment extends BaseFragment {
         text = bindView(R.id.text_second_gift);
         horRV = bindView(R.id.rv_hor_second_gift);
         verRV = bindView(R.id.rv_ver_second_gift);
+        ScrollView sv = bindView(R.id.sv_single_second);
+
     }
 
     @Override

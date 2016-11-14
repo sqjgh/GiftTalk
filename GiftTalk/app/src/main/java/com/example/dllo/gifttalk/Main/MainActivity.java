@@ -3,8 +3,10 @@ package com.example.dllo.gifttalk.main;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
@@ -27,6 +29,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private MainFragmentAdapter adapter;
     private BaseFragment currentFragment;
     private FragmentManager manager;
+    private boolean QUIT = false;
 
     // 进入初始数据
     @Override
@@ -99,5 +102,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.linearlayout_main, currentFragment);
         transaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (QUIT == true){
+            super.onBackPressed();
+        }else {QUIT = true;
+            Toast.makeText(MainActivity.this, " 再按一次退出 『 礼物说 』 ", Toast.LENGTH_SHORT).show();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                        QUIT = false;
+                        Log.d("11111111111", "QUIT = false;");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }).start();
+
+        }
+
     }
 }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -65,7 +66,7 @@ public class RaidersFragment extends BaseFragment{
                 all.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        Toast.makeText(context, "查看全部", Toast.LENGTH_SHORT).show();
                     }
                 });
                 headRecyclerView = (RecyclerView) v.findViewById(R.id.rv_raiders_category);

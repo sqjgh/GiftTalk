@@ -37,6 +37,8 @@ public final class Values {
 
     //搜索
     public static final String SECOND_SEARCH = "http://api.liwushuo.com/v2/search/hot_words";
+    // 搜索下拉listView
+    public static final String LIST_SECOND_SEARCH = "http://api.liwushuo.com/v2/search/word_completed_with_rst_cnt?keyword=";
 
     // 点击搜索
     public  static  final String RAIDERS_KEY_FRONT ="http://api.liwushuo.com/v2/search/post?keyword=";

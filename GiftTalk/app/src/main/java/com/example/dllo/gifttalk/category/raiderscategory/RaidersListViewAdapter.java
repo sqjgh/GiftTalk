@@ -1,13 +1,13 @@
 package com.example.dllo.gifttalk.category.raiderscategory;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.beans.ListViewRaidersBeans;
@@ -46,7 +46,7 @@ public class RaidersListViewAdapter extends BaseAdapter{
 
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder = null;
 
         if (view == null) {
@@ -61,36 +61,42 @@ public class RaidersListViewAdapter extends BaseAdapter{
         viewHolder.picOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("RaidersListViewAdapter", "11111111111111111111111111");
+                Toast.makeText(context, "item" + i + "    " + 1 + "号位", Toast.LENGTH_SHORT).show();
+
             }
         });
         viewHolder.picTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(context, "item" + i + "    " + 2 + "号位", Toast.LENGTH_SHORT).show();
 
             }
         });
         viewHolder.picThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(context, "item" + i + "    " + 3 + "号位", Toast.LENGTH_SHORT).show();
 
             }
         });
         viewHolder.picFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(context, "item" + i + "    " + 4 + "号位", Toast.LENGTH_SHORT).show();
 
             }
         });
         viewHolder.picFive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(context, "item" + i + "    " + 5 + "号位", Toast.LENGTH_SHORT).show();
 
             }
         });
         viewHolder.picSix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(context, "item" + i + "    " + 6 + "号位", Toast.LENGTH_SHORT).show();
 
             }
         });

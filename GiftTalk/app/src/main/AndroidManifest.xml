@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:name=".beantools.MyApp"
         android:theme="@style/HomeTitle">
-        <activity android:name=".main.MainActivity"
+        <activity android:name=".main.FirstPageActivity"
             android:theme="@style/HomeTitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,6 @@
 
         </activity>
         <activity android:name=".secondlevel.secondgift.SecondGiftActivity">
-
         </activity>
 
         <activity android:name=".base.TempAty"/>
@@ -41,6 +40,7 @@
         <activity android:name=".secondlevel.secondprofile.LoginActivity"/>
         <activity android:name=".secondlevel.secondprofile.SettingActivity"/>
         <activity android:name=".secondlevel.secondhome.SearchThirdActivity"/>
+        <activity android:name=".main.MainActivity"/>
     </application>
 
 </manifest>

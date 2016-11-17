@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.tools.VolleySingleton;
 import com.example.dllo.gifttalk.beans.RollViewBeans;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.LoopPagerAdapter;

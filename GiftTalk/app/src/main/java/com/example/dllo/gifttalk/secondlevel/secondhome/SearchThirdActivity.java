@@ -5,7 +5,7 @@ import android.widget.EditText;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
-import com.example.dllo.gifttalk.beantools.Values;
+import com.example.dllo.gifttalk.tools.Values;
 
 /**
  * Created by dllo on 16/11/11.

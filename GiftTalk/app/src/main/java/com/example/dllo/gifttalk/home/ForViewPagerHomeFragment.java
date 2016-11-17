@@ -17,9 +17,9 @@ import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beans.RollViewBeans;
 import com.example.dllo.gifttalk.beans.TabLayoutItemBeans;
-import com.example.dllo.gifttalk.beantools.GsonRequest;
-import com.example.dllo.gifttalk.beantools.Values;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.tools.GsonRequest;
+import com.example.dllo.gifttalk.tools.Values;
+import com.example.dllo.gifttalk.tools.VolleySingleton;
 import com.example.dllo.gifttalk.home.rollviewpager.RollViewPagerAdapter;
 import com.example.dllo.gifttalk.secondlevel.secondhome.WebViewActivity;
 import com.jude.rollviewpager.RollPagerView;
@@ -160,20 +160,21 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
 
                     @Override
                     public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                        if (i < perItemCount){
+                        if (i < perItemCount) {
                             toTop.setVisibility(View.VISIBLE);
-                        }if (i > perItemCount || i < 5){
+                        }
+                        if (i > perItemCount || i < 5) {
                             toTop.setVisibility(View.GONE);
                         }
                         perItemCount = i;
 
-                        if (4 <= (absListView.getCount()-i)) {
+                        if (4 <= (absListView.getCount() - i)) {
                             REFRESH_DATA = false;
                         }
-                        if (((absListView.getCount() - i )< 4) && (REFRESH_DATA == false)) {
-                            if (null == firstListViewAdapter.getRefreshNextUrl() ){
+                        if (((absListView.getCount() - i) < 4) && (REFRESH_DATA == false)) {
+                            if (null == firstListViewAdapter.getRefreshNextUrl()) {
                                 scrollNetData(response.getData().getPaging().getNext_url());
-                            }else {
+                            } else {
                                 scrollNetData(firstListViewAdapter.getRefreshNextUrl());
                             }
 
@@ -213,21 +214,22 @@ class ForViewPagerHomeFragment extends BaseFragment implements ClickListViewHome
 
                     @Override
                     public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                        if (i < perItemCount){
+                        if (i < perItemCount) {
                             toTop.setVisibility(View.VISIBLE);
-                        }if (i > perItemCount || i < 5){
+                        }
+                        if (i > perItemCount || i < 5) {
                             toTop.setVisibility(View.GONE);
                         }
                         perItemCount = i;
 
 
-                        if (4 <= (absListView.getCount()-i)) {
+                        if (4 <= (absListView.getCount() - i)) {
                             REFRESH_DATA = false;
                         }
-                        if (((absListView.getCount() - i )< 4) && (REFRESH_DATA == false)) {
-                            if (null == firstListViewAdapter.getRefreshNextUrl() ){
+                        if (((absListView.getCount() - i) < 4) && (REFRESH_DATA == false)) {
+                            if (null == firstListViewAdapter.getRefreshNextUrl()) {
                                 scrollNetData(response.getData().getPaging().getNext_url());
-                            }else {
+                            } else {
                                 scrollNetData(firstListViewAdapter.getRefreshNextUrl());
                             }
 

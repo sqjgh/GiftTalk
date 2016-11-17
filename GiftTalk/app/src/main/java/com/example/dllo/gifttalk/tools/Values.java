@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.beantools;
+package com.example.dllo.gifttalk.tools;
 
 import java.util.ArrayList;
 
@@ -8,6 +8,9 @@ import java.util.ArrayList;
  *
  */
 public final class Values {
+    public static ArrayList<String> COLLECT_LIST;
+    public static String USER_SEX;
+    public static String USER_NAME;
     public static final int TAB_COLOR = 0xFF2D47;
     // 首页
     public static final String TABLAYOUT_URL_HOME = "http://api.liwushuo.com/v2/channels/preset?gender=1&generation=4";

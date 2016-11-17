@@ -20,9 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
-import com.example.dllo.gifttalk.beantools.GsonRequest;
-import com.example.dllo.gifttalk.beantools.Values;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.tools.GsonRequest;
+import com.example.dllo.gifttalk.tools.Values;
+import com.example.dllo.gifttalk.tools.VolleySingleton;
 import com.example.dllo.gifttalk.beans.TabLayoutBeans;
 import com.example.dllo.gifttalk.secondlevel.secondhome.SearchSecondActivity;
 import com.example.dllo.gifttalk.secondlevel.secondprofile.LoginActivity;
@@ -44,7 +44,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private RecyclerView rv;
     private PopupWindowRVAdapter popupWindowRVAdapter;
     private static PopupWindow window;
-
+    private LinearLayout llBack;
+    private boolean popupWindowShow = false;
     // 各种findViewById
     @Override
     protected void initView() {
@@ -55,7 +56,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         search = bindView(R.id.search_btn_home);
         remind = bindView(R.id.giftremind_title_main);
         ll = bindView(R.id.ll_title_home);
-
+        llBack = bindView(R.id.ll_tbl_clickback_home);
     }
 
     @Override
@@ -112,7 +113,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_three_tbl_home:
-                showPopUp();
+                popupWindowShow = !popupWindowShow;
+                if (popupWindowShow){
+                    showPopUp();
+                    llBack.setVisibility(View.VISIBLE);
+                }
                 break;
             case R.id.search_btn_home:
                 Intent intent = new Intent(context, SearchSecondActivity.class);
@@ -155,12 +160,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         // 检验popWindow里的button是否可以点击
 
         //popWindow消失监听方法
-//        window.setOnDismissListener(new PopupWindow.OnDismissListener() {
-//            @Override
-//            public void onDismiss() {
-//
-//            }
-//        });
+        window.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                llBack.setVisibility(View.INVISIBLE);
+                popupWindowShow = false;
+            }
+        });
 
 
     }

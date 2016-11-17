@@ -28,4 +28,23 @@
         android:layout_height="wrap_content"
         android:src="@drawable/loading"
         android:layout_centerInParent="true"/>
+
+    <RelativeLayout
+        android:background="#FFF"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/relativeLayout">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/icon_post_favourite_gray"
+            android:id="@+id/follow_webview" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine"
+        android:layout_alignTop="@+id/relativeLayout" />
 </RelativeLayout>

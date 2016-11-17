@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.beantools;
+package com.example.dllo.gifttalk.tools;
 
 import android.widget.ImageView;
 
@@ -24,6 +24,7 @@ public class VolleySingleton {
         imageLoader = new ImageLoader(mRequestQueue, new MemoryCache());
     }
 
+
     public static VolleySingleton getInstance(){
         if (volleySingleton == null){
             synchronized (VolleySingleton.class){
@@ -40,11 +41,17 @@ public class VolleySingleton {
         imageLoader.get(url,imageLoader.getImageListener(imageView, R.mipmap.abc_list_divider_holo_light,R.mipmap.abc_list_divider_holo_light));
     }
 
+
     // 获得  RequestQueue
     public RequestQueue getRequestQueue(){
         return mRequestQueue;
     }
     public <T> void addRequest(Request<T> request){
         mRequestQueue.add(request);
+    }
+    // 取消所有tag相同的网络请求
+    public void fun(Object tag){
+
+        mRequestQueue.cancelAll(tag);
     }
 }

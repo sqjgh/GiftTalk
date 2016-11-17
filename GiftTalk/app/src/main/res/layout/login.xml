@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
     >
 
+
+
+
     <RelativeLayout
+        android:id="@+id/login_login"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:paddingLeft="5dp"
-        android:paddingTop="5dp">
-
-        <ImageView
-            android:id="@+id/back_login"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:src="@mipmap/back" />
+        android:paddingTop="5dp"
+        android:visibility="visible">
 
         <LinearLayout
             android:id="@+id/ll_id_login"
@@ -308,8 +308,60 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:background="#FFF"
-            android:text="使用社交账号登录" />
+            android:text="使用社交账号登录"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:autoText="false" />
 
 
     </RelativeLayout>
 </LinearLayout>
+
+    <ImageView
+        android:id="@+id/back_login"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@mipmap/back" />
+
+    <RelativeLayout
+        android:id="@+id/rl_allready_login"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:background="@color/NO"
+        android:visibility="invisible"
+        android:layout_centerInParent="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="你好:"
+            android:layout_above="@+id/textView4"
+            android:layout_alignStart="@+id/btn_cancel_login"
+            android:id="@+id/textView5" />
+        <TextView
+
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="账号"
+            android:layout_above="@+id/textView4"
+            android:layout_alignEnd="@+id/textView4"
+            android:id="@+id/id_already_login"
+            android:layout_toEndOf="@+id/textView5" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注销并切换账号"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btn_cancel_login" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已经登录"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/btn_cancel_login"
+            android:textSize="20dp"
+            android:id="@+id/textView4" />
+    </RelativeLayout>
+</RelativeLayout>

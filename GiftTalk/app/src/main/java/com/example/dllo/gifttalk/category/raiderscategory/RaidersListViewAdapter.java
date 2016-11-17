@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.beans.ListViewRaidersBeans;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.tools.VolleySingleton;
 
 /**
  * Created by dllo on 16/10/27.

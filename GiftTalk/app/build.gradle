@@ -31,5 +31,5 @@ dependencies {
     compile 'com.jude:rollviewpager:1.4.5'
     compile 'com.bartoszlipinski:recyclerviewheader:1.2.1'
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
-
+    compile files('libs/lite-orm-1.9.1.jar')
 }

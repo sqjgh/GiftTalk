@@ -24,9 +24,9 @@ import com.example.dllo.gifttalk.base.BaseListViewAdapter;
 import com.example.dllo.gifttalk.base.CommonViewHolder;
 import com.example.dllo.gifttalk.beans.SearchListBean;
 import com.example.dllo.gifttalk.beans.SearchSecondBean;
-import com.example.dllo.gifttalk.beantools.GsonRequest;
-import com.example.dllo.gifttalk.beantools.Values;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.tools.GsonRequest;
+import com.example.dllo.gifttalk.tools.Values;
+import com.example.dllo.gifttalk.tools.VolleySingleton;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -83,6 +83,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() == 0) {
@@ -139,7 +140,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_search_second:
-                searchBtn();
+                finish();
                 break;
             case R.id.alldelete_search_second:
                 inArrayList.clear();
@@ -154,9 +155,7 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
 
     // 点击有内容搜索,没内容退出
     private void searchBtn() {
-        if (et.getText().toString().trim().length() == 0) {
-            finish();
-        } else {
+
             if (inArrayList.toString().trim() == null) {
                 allDeleteRL.setVisibility(View.GONE);
             } else {
@@ -174,9 +173,10 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
             }
             intent.putExtra("utf8", result);
             startActivity(intent);
-        }
+
     }
 
+    // 搜索下拉listView
     private void searchListListView(){
         searchListAdapter = new BaseListViewAdapter<String>(R.layout.item_verlv_search_second) {
             @Override
@@ -191,8 +191,6 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
                     }
                 });
             }
-
-
         };
 
         list.setAdapter(searchListAdapter);
@@ -327,11 +325,15 @@ public class SearchSecondActivity extends BaseActivity implements View.OnClickLi
             holder.tv.setText(searchSecondBean.getData().getHot_words().get(position));
             holder.tv.setOnClickListener(new View.OnClickListener() {
                 private String result;
-
                 @Override
                 public void onClick(View view) {
                     allDeleteRL.setVisibility(View.VISIBLE);
                     et.setText(searchSecondBean.getData().getHot_words().get(position));
+                    for (int i = 0; i < inArrayList.size(); i++) {
+                        if (inArrayList.get(i).equals(searchSecondBean.getData().getHot_words().get(position))){
+                            inArrayList.remove(i);
+                        }
+                    }
                     inArrayList.add(0, searchSecondBean.getData().getHot_words().get(position));
                     baseListViewAdapter.setData(inArrayList);
                     Intent intent = new Intent(SearchSecondActivity.this, SearchThirdActivity.class);

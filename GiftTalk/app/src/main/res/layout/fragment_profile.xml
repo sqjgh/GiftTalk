@@ -67,7 +67,8 @@
             android:layout_marginTop="10dp"
             android:text="请登录"
             android:textColor="#ffffff"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:id="@+id/id_profile" />
     </RelativeLayout>
 
     <LinearLayout

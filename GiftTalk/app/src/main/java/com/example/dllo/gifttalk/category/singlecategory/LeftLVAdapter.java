@@ -63,14 +63,13 @@ public class LeftLVAdapter extends BaseAdapter {
         }
         viewHolder.textView.setText(singleBeans.getData().getCategories().get(i).getName());
 
-
         if (select == i){
             viewHolder.textView.setTextColor(Color.RED);
             viewHolder.rl.setBackgroundColor(Color.WHITE);
-            viewHolder.imageView.setVisibility(View.VISIBLE);
+//            viewHolder.imageView.setVisibility(View.VISIBLE);
         }else {
-            viewHolder.rl.setBackgroundColor(Color.GRAY);
-            viewHolder.imageView.setVisibility(View.INVISIBLE);
+//            viewHolder.rl.setBackgroundColor(R.color.colorLiteGray);
+//            viewHolder.imageView.setVisibility(View.INVISIBLE);
             viewHolder.textView.setTextColor(Color.BLACK);
         }
 

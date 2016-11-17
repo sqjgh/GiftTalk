@@ -8,8 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
 import com.example.dllo.gifttalk.secondlevel.secondgift.secondgiftbeans.CommentGiftBeans;
+import com.example.dllo.gifttalk.tools.VolleySingleton;
+
+import java.text.SimpleDateFormat;
 
 /**
  * Created by dllo on 16/11/5.
@@ -52,7 +54,10 @@ public class CommentSecondLVAdapter extends BaseAdapter{
             viewHolder.name.setText(commentGiftBeans.getData().getComments().get(i).getUser().getNickname());
             viewHolder.text.setText(commentGiftBeans.getData().getComments().get(i).getContent());
             VolleySingleton.getInstance().getImage(commentGiftBeans.getData().getComments().get(i).getUser().getAvatar_url(),viewHolder.pic);
-            viewHolder.time.setText(String.valueOf(commentGiftBeans.getData().getComments().get(i).getCreated_at()));
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+            String time = format.format(Long.valueOf(commentGiftBeans.getData().getComments().get(i).getCreated_at())*1000);
+            viewHolder.time.setText(time);
 
 
 

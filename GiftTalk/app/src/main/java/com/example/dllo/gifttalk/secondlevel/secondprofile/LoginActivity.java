@@ -9,14 +9,18 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
+import com.example.dllo.gifttalk.tools.Values;
 
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
@@ -38,9 +42,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private ImageView back;
     private boolean IDCheck;
     private boolean passWordCheck;
+    private Button cancel;
+    private RelativeLayout alreadyLogin;
+    private RelativeLayout loginRl;
+    private TextView alreadyID;
+    private UserBean userBean;
 
     @Override
     protected void initData() {
+        // 如果有默认账号 显示取消登录界面
+        if (Values.USER_NAME != null) {
+            alreadyLogin.setVisibility(View.VISIBLE);
+            loginRl.setVisibility(View.INVISIBLE);
+            alreadyID.setText(Values.USER_NAME);
+        }
         editTextListener();
         vis = false;
         IDCheck = false;
@@ -50,6 +65,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void initViews() {
+        // 注册主界面
+        loginRl = bindView(R.id.login_login);
+        // 注册成功后出的界面
+        alreadyLogin = bindView(R.id.rl_allready_login);
+        // 注册成功后出的切换账号btn
+        cancel = bindView(R.id.btn_cancel_login);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         id = bindView(R.id.et_id_login);
         passWord = bindView(R.id.et_password_login);
@@ -62,7 +83,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         registerTv = bindView(R.id.code_login);
         // 注册按钮
         btnRegister = bindView(R.id.btn_register);
-
+        alreadyID = bindView(R.id.id_already_login);
     }
 
     @Override
@@ -80,14 +101,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
             case R.id.btn_login: // 登录
 
-                BmobUser myUserTwo = new BmobUser();
-                myUserTwo.setUsername(id.getText().toString().trim());
-                myUserTwo.setPassword(passWord.getText().toString().trim());
-                myUserTwo.login(new SaveListener<BmobUser>() {
+                userBean = new UserBean();
+                userBean.setUsername(id.getText().toString().trim());
+                userBean.setPassword(passWord.getText().toString().trim());
+                userBean.login(new SaveListener<UserBean>() {
                     @Override
-                    public void done(BmobUser bmobUser, BmobException e) {
+                    public void done(UserBean bmobUser, BmobException e) {
                         if (e == null) {
+                            Values.USER_NAME = id.getText().toString().trim();
+                            alreadyID.setText(Values.USER_NAME);
+                            alreadyLogin.setVisibility(View.VISIBLE);
+                            loginRl.setVisibility(View.INVISIBLE);
+                            Log.d("LoginActivity", userBean.getObjectId());
                             Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                            initUserData();
                         } else {
                             Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
                             Log.d("MainActivity", e.getMessage());
@@ -95,11 +122,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     }
                 });
 
+
                 break;
 
             case R.id.btn_register: // 注册
                 if (IDCheck && passWordCheck) {
-                    Toast.makeText(this, "注册", Toast.LENGTH_SHORT).show();
                     // 创建用户
                     BmobUser bmobUser = new BmobUser();
                     bmobUser.setUsername(id.getText().toString().trim()); // 用户名
@@ -108,6 +135,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         @Override
                         public void done(BmobUser bmobUser, BmobException e) {
                             if (e == null) { // 注册成功
+                                vis = !vis;
+                                registerTv.setText("注册账号");
+                                btn.setVisibility(View.VISIBLE);
+                                btnRegister.setVisibility(View.INVISIBLE);
+
+                                warnId.setVisibility(View.GONE);
+                                warnPassWord.setVisibility(View.GONE);
                                 Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                             } else { // 注册失败
                                 Toast.makeText(LoginActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
@@ -140,10 +174,41 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     warnPassWord.setVisibility(View.GONE);
                 }
                 break;
+            case R.id.btn_cancel_login: // 取消登录并切换账号
+                UserBean.logOut();   //清除缓存用户对象
+                Values.USER_NAME = null;
+//                BmobUser currentUser = BmobUser.getCurrentUser(); // 现在的currentUser是null了
+                alreadyLogin.setVisibility(View.INVISIBLE);
+                loginRl.setVisibility(View.VISIBLE);
+                id.setText("");
+                passWord.setText("");
+                break;
         }
     }
 
+    private void initUserData() {
+
+            // 获取网络存取的性别
+            BmobQuery<UserBean> query = new BmobQuery<UserBean>();
+            query.getObject(userBean.getObjectId(), new QueryListener<UserBean>() {
+
+                @Override
+                public void done(UserBean object, BmobException e) {
+                    if(e==null){
+                        //获得playerName的信息
+                        Log.d("M111", object.getSex());
+                        Values.USER_SEX = object.getSex();
+                        Log.d("M222", "设置网络性别" + object.getSex());
+                    }else{
+                        Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
+                    }
+                }
+
+            });
+
+    }
     private void editTextListener() {
+        cancel.setOnClickListener(this);
         back.setOnClickListener(this);
         idRegister.setOnClickListener(this);
         registerTv.setOnClickListener(this);

@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.beantools;
+package com.example.dllo.gifttalk.tools;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;

@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.beantools;
+package com.example.dllo.gifttalk.tools;
 
 import android.app.Application;
 import android.content.Context;

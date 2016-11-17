@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.tools.VolleySingleton;
 import com.example.dllo.gifttalk.beans.TabLayoutItemBeansGift;
 import com.example.dllo.gifttalk.secondlevel.secondgift.SecondGiftActivity;
 

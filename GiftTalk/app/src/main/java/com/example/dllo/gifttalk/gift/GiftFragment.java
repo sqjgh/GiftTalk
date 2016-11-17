@@ -8,11 +8,11 @@ import android.support.v4.view.ViewPager;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.dllo.gifttalk.R;
-import com.example.dllo.gifttalk.beantools.Values;
+import com.example.dllo.gifttalk.tools.Values;
 import com.example.dllo.gifttalk.base.BaseFragment;
 import com.example.dllo.gifttalk.beans.TabLayoutBeansGift;
-import com.example.dllo.gifttalk.beantools.GsonRequest;
-import com.example.dllo.gifttalk.beantools.VolleySingleton;
+import com.example.dllo.gifttalk.tools.GsonRequest;
+import com.example.dllo.gifttalk.tools.VolleySingleton;
 
 import java.util.ArrayList;
 

@@ -22,8 +22,12 @@ import android.widget.Toast;
 import com.example.dllo.gifttalk.ComPic;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
+import com.example.dllo.gifttalk.tools.Values;
 
 import java.util.ArrayList;
+
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * Created by dllo on 16/11/10.
@@ -41,8 +45,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private View popupView;
     private TextView jobSetting;
     private TextView sexSetting;
-
-    private Bitmap bg;
+    private boolean popupWindowShow = false;
+    private static Bitmap bg;
 
     @Override
     protected void initData() {
@@ -79,7 +83,10 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.mystatus_setting:
-                mystatusPopupWindow();
+                popupWindowShow = !popupWindowShow;
+                if (popupWindowShow){
+                    mystatusPopupWindow();
+                }
                 break;
 
         }
@@ -113,11 +120,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void onClick(View view) {
                 if (boyCheck.isChecked()) {
-                    Toast.makeText(SettingActivity.this, "boy", Toast.LENGTH_SHORT).show();
+                    Values.USER_SEX = "boy";
                     set.add("男孩");
                 }
                 if (girlCheck.isChecked()) {
-                    Toast.makeText(SettingActivity.this, "girl", Toast.LENGTH_SHORT).show();
+                    Values.USER_SEX = "girl";
                     set.add("女孩");
                 }
 
@@ -176,6 +183,21 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                         jobPopupWindow.dismiss();
                         sexSetting.setText(set.get(0));
                         jobSetting.setText(set.get(1));
+                        // 检测是否登录状态
+                        UserBean userBean = UserBean.getCurrentUser(UserBean.class);
+                        if (userBean != null) {
+                            userBean.setSex(Values.USER_SEX);
+                            userBean.update(userBean.getObjectId(), new UpdateListener() {
+                                @Override
+                                public void done(BmobException e) {
+                                    if(e==null){
+
+                                    }else{
+                                        Toast.makeText(SettingActivity.this, "设置数据同步失败", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
                     }
                 });
                 back.setOnClickListener(new View.OnClickListener() {
@@ -228,7 +250,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void onDismiss() {
                 background.setVisibility(View.INVISIBLE);
-
+                popupWindowShow = false;
             }
         });
 
@@ -246,6 +268,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         reqW = (int) (bitmap.getWidth() / scaled);
         bitmap = bitmap.createScaledBitmap(bitmap, reqW, reqH, false);
         return bitmap;
+    }
+
+    // 更新性别
+    public void updataSex(){
+
     }
 
     /**

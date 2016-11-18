@@ -135,6 +135,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         @Override
                         public void done(BmobUser bmobUser, BmobException e) {
                             if (e == null) { // 注册成功
+                                // 清空本地收藏
+                                Values.COLLECT_LIST = null;
                                 vis = !vis;
                                 registerTv.setText("注册账号");
                                 btn.setVisibility(View.VISIBLE);

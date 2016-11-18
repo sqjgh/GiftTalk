@@ -1,4 +1,4 @@
-package com.example.dllo.gifttalk.profile;
+package com.example.dllo.gifttalk.secondlevel.secondprofile;
 
 import android.util.Log;
 import android.widget.ListView;
@@ -7,7 +7,6 @@ import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
 import com.example.dllo.gifttalk.base.BaseListViewAdapter;
 import com.example.dllo.gifttalk.base.CommonViewHolder;
-import com.example.dllo.gifttalk.secondlevel.secondprofile.UserBean;
 
 import java.util.ArrayList;
 

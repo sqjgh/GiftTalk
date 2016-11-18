@@ -19,7 +19,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dllo.gifttalk.ComPic;
+import com.example.dllo.gifttalk.tools.ComPic;
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseActivity;
 import com.example.dllo.gifttalk.tools.Values;

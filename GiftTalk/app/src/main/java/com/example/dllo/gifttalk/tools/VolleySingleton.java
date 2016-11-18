@@ -54,4 +54,7 @@ public class VolleySingleton {
 
         mRequestQueue.cancelAll(tag);
     }
+
+
+
 }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.dllo.gifttalk.R;
 import com.example.dllo.gifttalk.base.BaseFragment;
+import com.example.dllo.gifttalk.secondlevel.secondprofile.FollowActivity;
 import com.example.dllo.gifttalk.secondlevel.secondprofile.LoginActivity;
 import com.example.dllo.gifttalk.secondlevel.secondprofile.SettingActivity;
 import com.example.dllo.gifttalk.tools.Values;

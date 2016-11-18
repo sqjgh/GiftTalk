@@ -40,7 +40,7 @@
         <activity android:name=".secondlevel.secondprofile.LoginActivity"/>
         <activity android:name=".secondlevel.secondprofile.SettingActivity"/>
         <activity android:name=".secondlevel.secondhome.SearchThirdActivity"/>
-        <activity android:name=".profile.FollowActivity"/>
+        <activity android:name=".secondlevel.secondprofile.FollowActivity"/>
     </application>
 
 </manifest>
